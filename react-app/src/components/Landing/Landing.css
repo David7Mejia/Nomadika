@@ -1,0 +1,28 @@
+body {
+  background-color: teal;
+  margin: 0;
+}
+.background-img {
+  background-image: url("../images/beach-bg.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.container {
+  /* display: flex; */
+  padding-top: 20%;
+  padding-left: 5%;
+}
+
+.nav-search {
+  width: 40em;
+  height: 4.5em;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 50px;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}

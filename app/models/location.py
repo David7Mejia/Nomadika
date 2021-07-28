@@ -18,6 +18,7 @@ class Location(db.Model):
 
     feed = db.relationship('Feed', back_populates='location')
     reviews = db.relationship('Review', back_populates='location')
+    users = db.relationship('User', secondary='traveled', back_populates='traveled')  # noqa
 
     def to_dict(self):
         return {
