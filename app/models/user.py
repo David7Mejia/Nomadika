@@ -4,9 +4,10 @@ from flask_login import UserMixin
 
 traveled = db.Table(
     'traveled',
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id'),
+    db.Model.metadata,
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
               primary_key=True),
-    db.Column('location_id', db.Integer, db.ForeignKey('location.id'),
+    db.Column('location_id', db.Integer, db.ForeignKey('locations.id'),
               primary_key=True))
 
 
@@ -15,7 +16,7 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
-    avatar = db.Column(db.String(300))
+    avatar = db.Column(db.String(3000))
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.now())

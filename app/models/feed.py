@@ -6,13 +6,10 @@ class Feed(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
-    comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'))
     body = db.Column(db.String(500))
 
-    comments = db.relationship(
-        'Comment', back_populates='feeds', foreign_keys='Feed.comment_id')
-    locations = db.relationship(
-        'Location', back_populates='feeds', foreign_keys='Feed.location_id')
+    location = db.relationship('Location', back_populates='feed')
+    comments = db.relationship('Comment', back_populates='feed')
 
     def to_dict(self):
         return {

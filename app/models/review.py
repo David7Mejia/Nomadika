@@ -6,14 +6,13 @@ class Review(db.Model):
     __tablename__ = 'reviews'
 
     id = db.Column(db.Integer, primary_key=True)
-    review = db.Column(db.Text, nullable=False)
-    location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
+    review = db.Column(db.String(300))
+
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
-    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(),
-                           onupdate=db.func.current_timestamp())
+    location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
+
     users = db.relationship('User', back_populates='reviews')
-    locations = db.relationship('Location', back_populates='reviews')
+    location = db.relationship('Location', back_populates='reviews')
 
     def to_dict(self):
         return {

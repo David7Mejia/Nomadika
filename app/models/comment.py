@@ -5,16 +5,12 @@ class Comment(db.Model):
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer, primary_key=True)
-    comment = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
-    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
-    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(),
-                           onupdate=db.func.current_timestamp())
+    comment = db.Column(db.String(300))
 
     users = db.relationship('User', back_populates='comments')
-    feeds = db.relationship(
-        'Feed', back_populates='comments', foreign_keys='Comment.feed_id')
+    feed = db.relationship('Feed', back_populates='comments')
 
     def to_dict(self):
         return {

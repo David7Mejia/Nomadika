@@ -13,17 +13,11 @@ class Location(db.Model):
     __tablename__ = 'locations'
 
     id = db.Column(db.Integer, primary_key=True)
-    feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
-    image_url = db.Column(db.String(300))
-    description = db.Column(db.String(300))
-    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
-    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(),
-                           onupdate=db.func.current_timestamp())
-    users = db.relationship('User', secondary='traveled',
-                            back_populates='locations')
-    reviews = db.relationship('Review', back_populates='locations')
-    feeds = db.relationship(
-        'Feed', back_populates='locations', foreign_keys='Location.feed_id')
+    image_url = db.Column(db.String(1000))
+    description = db.Column(db.String(1000))
+
+    feed = db.relationship('Feed', back_populates='location')
+    reviews = db.relationship('Review', back_populates='location')
 
     def to_dict(self):
         return {
