@@ -1,25 +1,14 @@
-# from flask import Blueprint, jsonify
-# import json
-# import requests
-# import os
+from flask import Blueprint, jsonify
+from app.models import db, Feed, Review, Comment
 
-# location_routes = Blueprint('query', __name__)
-
-# url = 'https://api.foursquare.com/v2/venues/explore'
+location_routes = Blueprint('feed', __name__)
 
 
-# @location_route.route('/')
-# def location():
-#     params = dict(
-#         client_id=os.environ.get('REACT_APP_CLIENT_ID'),
-#         client_secret=os.environ.get('REACT_APP_CLIENT_SECRET'),
-#         v='20180323',
-#         ll='40.7243,-74.0018',
-#         query='coffee',
-#         limit=1
-#     )
-
-
-# resp = requests.get(url=url, params=params)
-# data = json.loads(resp.text)
-# print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', params)
+@location_routes.route('/')
+def get_all_feeds():
+    feeds = Feed.query.order_by(Feed.id.desc())
+    comments = Comment.query.order_by(Comment.id.desc())
+    return {
+        'posts': [post.to_dict() for post in posts],
+        'comments': [comment.to_dict() for comment in comments]
+    }

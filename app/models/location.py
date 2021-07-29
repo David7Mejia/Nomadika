@@ -12,7 +12,8 @@ from flask_login import UserMixin
 class Location(db.Model):
     __tablename__ = 'locations'
 
-    id = db.Column(db.Integer, primary_key=True)
+    # id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Numeric, primary_key=True, autoincrement=False)
     image_url = db.Column(db.String(1000))
     description = db.Column(db.String(1000))
 

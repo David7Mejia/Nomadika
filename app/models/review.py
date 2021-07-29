@@ -9,7 +9,7 @@ class Review(db.Model):
     review = db.Column(db.String(300))
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
+    loc_id = db.Column(db.Numeric, db.ForeignKey('locations.id'))
 
     users = db.relationship('User', back_populates='reviews')
     location = db.relationship('Location', back_populates='reviews')
