@@ -35,9 +35,10 @@ function Landing() {
                 pathname: `/cities/${place}`,
                 state: { place: place },
               }}
+              className="nav-search-submit"
             >
-              {" "}
-              CLICK ME{" "}
+
+              Search 
             </Link>
           </form>
         </label>

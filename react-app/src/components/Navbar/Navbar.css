@@ -7,11 +7,15 @@
   justify-content: space-evenly;
   align-items: center;
   padding-top: 1%;
-  background-color: rgb(227, 233, 227);
+  background-color: rgb(73, 77, 73);
   height: 50px;
   width: 100%;
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
   /* position: fixed; */
   z-index: 1000;
   font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+}
+
+.navbar-container .a {
+  text-decoration: none;
 }

@@ -1,4 +1,6 @@
 .login-form {
+  display: flex;
+  position: absolute;
   margin-top: 100px;
   background-color: blue;
 }
