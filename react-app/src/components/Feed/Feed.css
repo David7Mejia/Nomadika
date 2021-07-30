@@ -3,4 +3,7 @@
   height: 50px;
 }
 
-.feed-container
+.feed-container {
+  display: flex;
+  justify-content: center;
+}

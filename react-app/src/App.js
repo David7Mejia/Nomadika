@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
+// import LoginForm from "./components/auth/LoginForm";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/Navbar";
@@ -45,7 +46,7 @@ function App() {
         <Route path="/" exact={true}>
           <Landing />
         </Route>
-        <Route path="/destination">
+        <Route path="/cities/:destId">
           <Destination />
         </Route>
       </Switch>

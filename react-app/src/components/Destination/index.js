@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Feed from "../Feed";
 import "./Destination.css";
 import axios from "axios";
@@ -13,6 +13,8 @@ function Destination() {
   const { place } = location.state || {};
   const client_id = envVars.client_id;
   const client_secret = envVars.client_secret;
+  const payload = data?.response.geocode.feature.longId;
+  const { destId } = useParams();
 
   useEffect(() => {
     const axData = async () => {
@@ -29,7 +31,7 @@ function Destination() {
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        <Feed />
+        <Feed payload={payload} destId={destId} />
       </div>
       <div className="venue-info">
         {data &&

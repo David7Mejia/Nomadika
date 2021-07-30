@@ -11,9 +11,8 @@ function Landing() {
 
   const handleQuery = (e) => {
     setPlace(e.target.value);
-
   };
-  
+
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(e);
@@ -31,10 +30,15 @@ function Landing() {
               placeholder="Search your destination"
               onChange={handleQuery}
             />
-            <Link to={{
-              pathname: "/destination",
-              state: {place: place}
-            }}> CLICK ME </Link>
+            <Link
+              to={{
+                pathname: `/cities/${place}`,
+                state: { place: place },
+              }}
+            >
+              {" "}
+              CLICK ME{" "}
+            </Link>
           </form>
         </label>
       </div>

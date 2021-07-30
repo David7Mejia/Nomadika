@@ -8,7 +8,7 @@ traveled = db.Table(
     db.Model.metadata,
     db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
               primary_key=True),
-    db.Column('location_id', db.Integer, db.ForeignKey('locations.id'),
+    db.Column('location_id', db.String(100), db.ForeignKey('locations.api_id'),
               primary_key=True))
 
 
