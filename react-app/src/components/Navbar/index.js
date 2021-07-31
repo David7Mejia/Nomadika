@@ -7,6 +7,7 @@ import "./Navbar.css";
 
 const NavBar = () => {
   const dispatch = useDispatch();
+
   const demoHandler = async (e) => {
     e.preventDefault();
     dispatch(login("demo@aa.io", "password"));

@@ -29,6 +29,5 @@ class Location(db.Model):
             'description': self.description,
             'users': self.users,
             'feeds': [f.to_dict() for f in self.feed],
-            # 'created_at': self.created_at,
-            # 'traveled': [t.to_dict() for t in self.traveled],
+    
         }

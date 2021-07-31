@@ -5,18 +5,16 @@ import { getDestFeed } from "../../store/destination";
 
 function Feed({ payload, destId }) {
   const dispatch = useDispatch();
-
   const destinationFeed = useSelector((state) =>
     Object.values(state.destination)
   );
+  const qs = destinationFeed[0].feeds;
 
   // const onSubmit = (e) => {
   //   e.preventDefault();
   //   dispatch();
   //   dispatch(getFeedThunk());
   // };
-
-  // console.log("***********************FEED", typeof(payload));
 
   useEffect(() => {
     if (payload) {
@@ -32,7 +30,15 @@ function Feed({ payload, destId }) {
           placeholder="Ask around!"
           className="feed-form"
         ></input>
+        <button className="feed-button" type="submit">
+          Post
+        </button>
       </form>
+      <div className="feed-holder">
+        <div className="feed-qs">
+          {qs && qs.map((feed) => <div className="feed-item">{feed.body}</div>)}
+        </div>
+      </div>
     </div>
   );
 }

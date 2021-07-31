@@ -1,9 +1,24 @@
 .feed-form {
   width: 500px;
   height: 50px;
+  font-size: 18px;
 }
 
 .feed-container {
+  display: flex;
+  justify-content: center;
+}
+
+.feed-qs {
+  border: 3px solid #ccc;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+}
+
+.feed-holder {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 }
