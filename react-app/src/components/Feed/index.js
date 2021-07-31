@@ -1,20 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Feed.css";
-import { getDestFeed } from "../../store/destination";
+import { getDestFeed, postDestFeed } from "../../store/destination";
 
-function Feed({ payload, destId }) {
+function Feed({ payload }) {
   const dispatch = useDispatch();
   const destinationFeed = useSelector((state) =>
     Object.values(state.destination)
   );
   const qs = destinationFeed[0].feeds;
+  const [body, setBody] = useState("");
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   dispatch();
-  //   dispatch(getFeedThunk());
-  // };
+  // console.log("*****************", body);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(postDestFeed({loc_id: payload, body}));
+    setBody("");
+  };
 
   useEffect(() => {
     if (payload) {
@@ -24,11 +27,13 @@ function Feed({ payload, destId }) {
 
   return (
     <div>
-      <form className="feed-container">
+      <form className="feed-container" onSubmit={onSubmit}>
         <input
           type="text"
           placeholder="Ask around!"
           className="feed-form"
+          value={body}
+          onChange={e => setBody(e.target.value)}
         ></input>
         <button className="feed-button" type="submit">
           Post

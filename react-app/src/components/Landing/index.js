@@ -17,6 +17,7 @@ function Landing() {
     e.preventDefault();
     console.log(e);
   };
+  
 
   return (
     <div className="background-img">
@@ -38,7 +39,7 @@ function Landing() {
               className="nav-search-submit"
             >
 
-              Search 
+              Search
             </Link>
           </form>
         </label>
