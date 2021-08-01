@@ -3,7 +3,7 @@
   margin: 0;
 } */
 .background-img {
-  background-image: url("../images/beach-bg.jpg");
+  /* background-image: url("../images/beach-bg.jpg"); */
   background-size: 100%;
   background-repeat: no-repeat;
   height: 100vh;
