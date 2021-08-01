@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./Feed.css";
 import { getDestFeed, postDestFeed } from "../../store/destination";
+import "./Feed.css";
 
 function Feed({ payload }) {
   const dispatch = useDispatch();
@@ -11,11 +11,10 @@ function Feed({ payload }) {
   const qs = destinationFeed[0].feeds;
   const [body, setBody] = useState("");
 
-  // console.log("*****************", body);
-
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(postDestFeed({loc_id: payload, body}));
+    dispatch(postDestFeed({ loc_id: payload, body }));
+    dispatch(getDestFeed(payload));
     setBody("");
   };
 
@@ -23,7 +22,9 @@ function Feed({ payload }) {
     if (payload) {
       dispatch(getDestFeed(payload));
     }
-  }, [dispatch, payload]);
+  }, [payload]);
+
+
 
   return (
     <div>
@@ -33,17 +34,29 @@ function Feed({ payload }) {
           placeholder="Ask around!"
           className="feed-form"
           value={body}
-          onChange={e => setBody(e.target.value)}
+          onChange={(e) => setBody(e.target.value)}
         ></input>
         <button className="feed-button" type="submit">
           Post
         </button>
       </form>
+      <div className='big-container'>
+        <div className='left-side'>
+          hello
+      </div>
       <div className="feed-holder">
         <div className="feed-qs">
-          {qs && qs.map((feed) => <div className="feed-item">{feed.body}</div>)}
+          {qs &&
+            qs.map((feed) =>
+            <div className="feed-item">{feed.body}
+              <button>...</button>
+          </div>)}
         </div>
       </div>
+        <div className='right-side'>
+          hi
+      </div>
+            </div>
     </div>
   );
 }

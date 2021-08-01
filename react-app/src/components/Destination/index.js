@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 import Feed from "../Feed";
-import "./Destination.css";
 import axios from "axios";
 import envVars from "../../config";
-import { postLocation} from "../../store/location";
+import { postLocation } from "../../store/location";
+import { getDestFeed } from "../../store/destination";
+import "./Destination.css";
 
 function Destination() {
   // const loggedIn = useSelector((state) => state.session).user;
@@ -18,8 +19,6 @@ function Destination() {
   const payload = data?.response.geocode.feature.longId;
   const dispatch = useDispatch();
 
-  // const { destId } = useParams();
-  console.log('*******DESTINATION PAYLOAD',payload)
   useEffect(() => {
     const axData = async () => {
       const res = await axios(
@@ -32,16 +31,22 @@ function Destination() {
   }, []);
 
   useEffect(() => {
+    dispatch(
+      postLocation({
+        api_id: payload,
+        name: place,
+        description: null,
+        image_url: null,
+      })
+    );
+  }, [dispatch, payload, place]);
 
-    dispatch(postLocation({
-      api_id: payload,
-      name: place,
-      description: null,
-      image_url: null
-    }))
-  }, [dispatch, payload, place])
+  useEffect(() => {
+    if (payload) {
+      dispatch(getDestFeed(payload));
+    }
+  }, [dispatch, payload]);
 
-  console.log('(((((((((((((((((((', payload)
   return (
     <div>
       <div className="place-name">{place.toUpperCase()} </div>

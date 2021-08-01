@@ -4,13 +4,22 @@
   font-size: 18px;
 }
 
+.feed-item {
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
 .feed-container {
   display: flex;
   justify-content: center;
 }
 
 .feed-qs {
-  border: 3px solid #ccc;
+  /* border: 3px solid #ccc; */
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -18,7 +27,21 @@
 }
 
 .feed-holder {
+  display: flex;
+  width: 100%;
   margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.big-container {
   display: flex;
   justify-content: center;
+}
+
+.left-side,
+.right-side {
+  width: 87%;
 }
