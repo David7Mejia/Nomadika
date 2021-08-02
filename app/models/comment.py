@@ -8,6 +8,9 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
     comment = db.Column(db.String(300))
+    created_at = db.Column(db.DateTime, default=db.func.now())
+    updated_at = db.Column(
+        db.DateTime, default=db.func.now(), onupdate=db.func.now())
 
     users = db.relationship('User', back_populates='comments')
     feed = db.relationship('Feed', back_populates='comments')
@@ -18,5 +21,6 @@ class Comment(db.Model):
             'user_id': self.user_id,
             'feed_id': self.feed_id,
             'comment': self.comment,
-            # 'created_at': self.created_at
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
         }

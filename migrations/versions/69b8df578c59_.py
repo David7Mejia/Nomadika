@@ -45,10 +45,15 @@ def upgrade():
                     )
     op.create_table('feeds',
                     sa.Column('id', sa.Integer(), nullable=False),
+                    sa.Column('user_id', sa.Integer(), nullable=False),
                     sa.Column('loc_id', sa.String(length=100), nullable=True),
                     sa.Column('body', sa.String(length=500), nullable=False),
+                    sa.Column('created_at', sa.DateTime(), nullable=True),
+                    sa.Column('updated_at', sa.DateTime(), nullable=True),
                     sa.ForeignKeyConstraint(
                         ['loc_id'], ['locations.api_id'], ),
+
+                    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
     op.create_table('reviews',
@@ -75,6 +80,8 @@ def upgrade():
                     sa.Column('user_id', sa.Integer(), nullable=True),
                     sa.Column('feed_id', sa.Integer(), nullable=True),
                     sa.Column('comment', sa.String(length=300), nullable=True),
+                    sa.Column('created_at', sa.DateTime(), nullable=True),
+                    sa.Column('updated_at', sa.DateTime(), nullable=True),
                     sa.ForeignKeyConstraint(['feed_id'], ['feeds.id'], ),
                     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')

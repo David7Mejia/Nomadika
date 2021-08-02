@@ -7,7 +7,12 @@ city_routes = Blueprint('cities', __name__)
 @city_routes.route('/<int:id>')
 def get_dest_feeds(id):
     feed = Location.query.filter_by(api_id=str(id)).first()
-    return feed.to_dict()
+    comments = Comment.query.filter_by(feed_id=Feed.id).all()
+    # return feed.to_dict()
+    return {
+        'feed': feed.to_dict(),
+        'comments': [comment.to_dict() for comment in comments]
+    }
 
 
 @city_routes.route('/<int:id>', methods=['POST'])
@@ -15,7 +20,8 @@ def post_feed(id):
     req = request.get_json()
     post = Feed(
         loc_id=req['loc_id'],
-        body=req['body']
+        body=req['body'],
+        user_id=req['user_id'],
     )
     db.session.add(post)
     db.session.commit()
@@ -42,3 +48,11 @@ def put_feed(id, desc):
     post.body = desc
     db.session.commit()
     return post.to_dict()
+
+
+@city_routes.route('/<int:id>', methods=['DELETE'])
+def delete_feed(id):
+    post = Feed.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    return {'message': 'Post was deleted successfully'}

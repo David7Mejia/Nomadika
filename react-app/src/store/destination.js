@@ -1,5 +1,6 @@
 const DEST_FEED = "destination/DEST_FEED";
 const POST_FEED = "destination/POST_FEED";
+const DELETE_POST = "destination/DELETE_POST";
 
 //**********Actions**********//
 export const postFeed = (payload) => ({
@@ -11,6 +12,12 @@ export const destFeed = (payload) => ({
   type: DEST_FEED,
   payload,
 });
+
+export const deleteFeed = (payload) => ({
+  type: DELETE_POST,
+  payload,
+});
+
 
 //**********THUNKS**********//
 export const getDestFeed = (payload) => async (dispatch) => {
@@ -51,6 +58,18 @@ export const updateDestFeed = (id, body) => async (dispatch) => {
   }
 };
 
+export const deleteDestPost = (id) => async (dispatch) => {
+const res = await fetch(`/api/cities/${id}`, {
+  method: "DELETE",
+  body: JSON.stringify({id}),
+})
+  if (res.ok) {
+    await res.json();
+    dispatch(deleteFeed(id));
+    return res;
+  }
+};
+
 const initialState = { thing: "" };
 
 const destinationReducer = (state = initialState, action) => {
@@ -70,6 +89,10 @@ const destinationReducer = (state = initialState, action) => {
       };
       console.log(action);
       return newState;
+    case DELETE_POST:
+      newState = { ...state };
+      delete newState[action.id]
+      return { ...newState };
     default:
       return state;
   }

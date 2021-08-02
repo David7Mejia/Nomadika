@@ -29,5 +29,5 @@ class Location(db.Model):
             'description': self.description,
             'users': self.users,
             'feeds': [f.to_dict() for f in self.feed],
-    
+
         }

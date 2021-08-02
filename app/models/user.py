@@ -27,6 +27,7 @@ class User(db.Model, UserMixin):
     reviews = db.relationship('Review', back_populates='users')
     comments = db.relationship('Comment', back_populates='users')
     traveled = db.relationship('Location', secondary=traveled, back_populates='users')  # noqa
+    feeds = db.relationship('Feed', back_populates='user')
 
     @property
     def password(self):

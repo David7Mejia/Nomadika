@@ -16,11 +16,8 @@ function EditPost({ id, payload }) {
       dispatch(getDestFeed(payload));
     // history.push(`/images/${id}`)
   };
-  console.log("**********************", id, postText, payload);
-  // useEffect(() => {
-  //             // dispatch(getCommentThunk(id))
+//   console.log("**********************", id, postText, payload);
 
-  // })
 
   return (
     <div className="wrapper-upload">
