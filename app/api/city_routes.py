@@ -12,7 +12,6 @@ def get_dest_feeds(id):
 
 @city_routes.route('/<int:id>', methods=['POST'])
 def post_feed(id):
-    print('^^^^^^^^^^^^^^^^^^^^^', id)
     req = request.get_json()
     post = Feed(
         loc_id=req['loc_id'],
@@ -35,3 +34,11 @@ def post_location(id=None):
     db.session.add(loc)
     db.session.commit()
     return loc.to_dict()
+
+
+@city_routes.route('/<int:id>/<desc>', methods=['PUT'])
+def put_feed(id, desc):
+    post = Feed.query.get(id)
+    post.body = desc
+    db.session.commit()
+    return post.to_dict()

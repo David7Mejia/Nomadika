@@ -6,11 +6,12 @@
 
 .feed-item {
   display: flex;
-  height: 30px;
+  height: 100px;
   justify-content: space-between;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   align-items: center;
+  box-shadow: 2px 2px 5px #aab4c8, -2px -2px 5px #fff;
 }
 
 .feed-container {
@@ -20,20 +21,25 @@
 
 .feed-qs {
   /* border: 3px solid #ccc; */
+  /* margin-top: 50px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  */
   width: 500px;
+  height: 300px;
 }
 
 .feed-holder {
   display: flex;
   width: 100%;
   margin-top: 30px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  height: 300px;
+  height: 400px;
   overflow-y: scroll;
+  box-shadow: inset 2px 2px 5px #aab4c8, inset -2px -2px 5px #fff;
+  border-radius: 8px;
 }
 
 .big-container {

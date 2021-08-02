@@ -18,6 +18,12 @@
   width: 40rem;
   height: 4.5rem;
   font-size: 40px;
+  box-shadow: 6px 6px 10px #aab4c8, -6px -6px 12px #fff;
+  outline: 0;
+  border:0;
+}
+.nav-search:focus {
+  outline: none;
 }
 
 .search-container {

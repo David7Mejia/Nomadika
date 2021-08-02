@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDestFeed, postDestFeed } from "../../store/destination";
+import EditPostBtn from "./EditPostBtn";
 import "./Feed.css";
 
 function Feed({ payload }) {
@@ -24,8 +25,6 @@ function Feed({ payload }) {
     }
   }, [payload]);
 
-
-
   return (
     <div>
       <form className="feed-container" onSubmit={onSubmit}>
@@ -40,23 +39,24 @@ function Feed({ payload }) {
           Post
         </button>
       </form>
-      <div className='big-container'>
-        <div className='left-side'>
-          hello
-      </div>
-      <div className="feed-holder">
-        <div className="feed-qs">
-          {qs &&
-            qs.map((feed) =>
-            <div className="feed-item">{feed.body}
-              <button>...</button>
-          </div>)}
+      <div className="big-container">
+        <div className="left-side">hello</div>
+        <div className="feed-holder">
+          <div className="feed-qs">
+            {qs &&
+              qs.map((feed) => (
+                <div>
+                  <div className="feed-item">
+                    {feed.body}
+                    {console.log("&&&&&&&&&&&&&&& feed", feed)}
+                    <EditPostBtn id={feed.id} payload={payload } />
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
+        <div className="right-side">hi</div>
       </div>
-        <div className='right-side'>
-          hi
-      </div>
-            </div>
     </div>
   );
 }

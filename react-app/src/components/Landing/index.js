@@ -17,13 +17,15 @@ function Landing() {
     e.preventDefault();
     console.log(e);
   };
-  
+
 
   return (
     <div className="background-img">
       <div className="container">
         <label className="search-container">
-          Your next adventure, starts here.
+          <div className='landing-text'>
+          Find venues near you
+          </div>
           <form className="search-items" onSubmit={onSubmit}>
             <input
               className="nav-search"
