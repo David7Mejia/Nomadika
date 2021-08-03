@@ -6,7 +6,6 @@ export const newLocation = (payload) => ({
 });
 
 export const postLocation = (payload) => async (dispatch) => {
-  console.log("*******LOCATION THUNK PAYLOAD", payload);
 
   const res = await fetch(`/api/cities/${payload.api_id}/location`, {
     method: "POST",
@@ -15,7 +14,6 @@ export const postLocation = (payload) => async (dispatch) => {
     },
     body: JSON.stringify(payload),
   });
-  console.log("*******LOCATION THUNK RES", res);
 
   const newLoc = await res.json();
   dispatch(newLocation(newLoc));

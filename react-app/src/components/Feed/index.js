@@ -7,16 +7,16 @@ import "./Feed.css";
 
 function Feed({ payload }) {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session).user;
+  const user = useSelector((state) => state.session)?.user;
   const destinationFeed = useSelector((state) =>
     Object.values(state.destination)
   );
-  const qs = destinationFeed[0].feed?.feeds;
+  const qs = destinationFeed[0]?.feeds;
+  const cmt = destinationFeed[0]?.feeds;
 
-  console.log("DESTINATIONFEED", destinationFeed);
-  // const postComment = destinationFeed[0].comments;
   const [body, setBody] = useState("");
 
+  console.log("*******************FEED", destinationFeed[0]?.feeds);
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
@@ -54,10 +54,14 @@ function Feed({ payload }) {
           <div className="feed-qs">
             {qs &&
               qs.map((feed) => (
-                <div className="feed-item">
+                <div className="post-container">
                   <div className="feed-item">
-                    {feed.body}
-                    <EditPostBtn id={feed.id} payload={payload} />
+                    <div className="feed-text">
+                      {feed.body}
+                      <EditPostBtn id={feed.id} payload={payload} />
+                    </div>
+                    <Comments comments={feed.comments} feed={ feed}/>
+                    {/* <div className='sepdiv'> </div> */}
                   </div>
                 </div>
               ))}

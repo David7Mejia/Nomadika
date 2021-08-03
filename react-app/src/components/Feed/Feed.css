@@ -5,15 +5,17 @@
 }
 
 .feed-item {
+  width: 100%;
   color: rgb(65, 64, 64);
   background-color: rgb(247, 247, 247);
+  flex-direction:column;
   display: flex;
-  height: 100px;
+  height: 200px;
   border-radius: 5px;
   justify-content: space-between;
   margin-top: 12px;
   margin-bottom: 12px;
-  align-items: center;
+  align-items: flex-start;
   border: 1px solid rgb(247, 247, 247);
   box-shadow: 2px 2px 5px #aab4c8, -2px -2px 5px rgb(247, 247, 247);
 }
@@ -56,3 +58,29 @@
 .right-side {
   width: 87%;
 }
+
+.feed-text {
+  margin-top: 20px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  justify-content: space-between;
+  width: 90%;
+
+  display: flex;
+  margin: 15px;
+  align-items: flex-start;
+}
+
+
+.comment-holder {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: stretch;
+  /* flex-grow: 1; */
+}
+
+/* .post-container{
+flex:1
+} */
+

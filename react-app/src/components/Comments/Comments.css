@@ -1,0 +1,17 @@
+.comments-comp-container{
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ overflow-y: scroll;
+}
+
+.single-comment {
+display: flex;
+}
+
+
+.single-comment-container{
+  display: flex;
+  justify-content: space-between
+
+}

@@ -26,7 +26,7 @@ class Feed(db.Model):
             'user_id': self.user_id,
             'loc_id': self.loc_id,
             'body': self.body,
-            'comments': self.comments,
+            'comments': [comment.to_dict() for comment in self.comments],
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

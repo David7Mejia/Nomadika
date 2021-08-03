@@ -1,0 +1,19 @@
+.comment-form {
+display: flex;
+width: 100%;
+  /* align-items: stretch; */
+  justify-content: stretch;
+  align-items: flex-end;
+  flex-grow: 1;
+  background-color: blue;
+}
+
+.input-stretch{
+flex-grow: 1;
+  border: 0;
+  height: 30px;
+}
+
+.stretch-btn{
+  height: 30px;
+}

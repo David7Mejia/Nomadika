@@ -21,7 +21,6 @@ export const deleteFeed = (payload) => ({
 
 //**********THUNKS**********//
 export const getDestFeed = (payload) => async (dispatch) => {
-  console.log("getDestFeed", payload);
   const res = await fetch(`/api/cities/${payload}`);
   if (res.ok) {
     const dest = await res.json();
@@ -31,7 +30,6 @@ export const getDestFeed = (payload) => async (dispatch) => {
 };
 
 export const postDestFeed = (payload) => async (dispatch) => {
-  console.log("postDestFeed", payload.loc_id);
   const res = await fetch(`/api/cities/${payload.loc_id}`, {
     method: "POST",
     headers: {
@@ -44,7 +42,6 @@ export const postDestFeed = (payload) => async (dispatch) => {
 };
 
 export const updateDestFeed = (id, body) => async (dispatch) => {
-  console.log("updateDestFeed", id, body);
   const res = await fetch(`/api/cities/${id}/${body}`, {
     method: "PUT",
     headers: {
@@ -87,7 +84,6 @@ const destinationReducer = (state = initialState, action) => {
         ...state,
         [action.payload.loc_id]: action.payload.body,
       };
-      console.log(action);
       return newState;
     case DELETE_POST:
       newState = { ...state };

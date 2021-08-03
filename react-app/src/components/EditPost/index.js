@@ -4,19 +4,14 @@ import { useParams, useHistory } from "react-router";
 import { updateDestFeed, getDestFeed } from "../../store/destination";
 
 function EditPost({ id, payload }) {
-  // const {id} = useParams()
   const dispatch = useDispatch();
   const [postText, setPostText] = useState("");
-  // const { id } = useParams()
-  // const history = useHistory()
-  // console.log(id)
+
   const onSubmit = (e) => {
     e.preventDefault();
       dispatch(updateDestFeed(id, postText));
       dispatch(getDestFeed(payload));
-    // history.push(`/images/${id}`)
   };
-//   console.log("**********************", id, postText, payload);
 
 
   return (

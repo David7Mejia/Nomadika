@@ -19,14 +19,6 @@ function EditPostBtn({ id, payload }) {
     setOpenMenu(false);
   };
 
-  // useEffect(() => {
-  //     if (!openMenu) return;
-  //      const hideMenu = () => {
-  //        setOpenMenu(false);
-  //      };
-  //     document.removeEventListener('click', hideMenu)
-  // }, [openMenu])
-
   //EDIT BUTTON
   const showEdit = () => {
     if (openEdit) return;

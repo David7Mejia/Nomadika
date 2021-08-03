@@ -24,7 +24,6 @@ function Destination() {
       const res = await axios(
         `https://api.foursquare.com/v2/venues/search?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=10&near=${place}`
       );
-      console.log(res.data.response);
       setData(res.data);
     };
     axData();
