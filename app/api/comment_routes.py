@@ -30,12 +30,12 @@ def delete_comment(id):
     return {'message': 'Comment Deleted'}
 
 
-# @comment_routes.route('/<int:id>/edit/<comment>', methods=['PUT'])
-# @login_required
-# def edit_comment(id, comment):
+@comment_routes.route('/<int:id>/<comment>', methods=['PUT'])
+@login_required
+def edit_comment(id, comment):
 
-#     post = Comment.query.get(id)
-#     post.comment = comment
+    cmt = Comment.query.get(id)
+    cmt.comment = comment
 
-#     db.session.commit()
-#     return post.to_dict()
+    db.session.commit()
+    return cmt.to_dict()

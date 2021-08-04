@@ -1,6 +1,7 @@
 const POST_COMMENT = "comment/POST_COMMENT";
 const DELETE_COMMENT = "comment/DELETE_COMMENT";
 
+
 //******ACTIONS******//
 export const postComment = (comment) => ({
   type: POST_COMMENT,
@@ -40,31 +41,31 @@ export const deleteComment = (id) => async (dispatch) => {
     return res;
   }
 };
-// export const editComment = (id, comment) => async (dispatch) => {
-//   const res = await fetch(`/api/comments/${id}/edit/${comment}`, {
-//     method: "PUT",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ id, comment }),
-//   });
-//   if (res.ok) {
-//     const newComment = await res.json();
-//     dispatch(postComment(newComment));
-//     return newComment;
-//   }
-// };
+
+//EDIT
+export const editComment = (id, comment) => async (dispatch) => {
+  const res = await fetch(`/api/comments/${id}/${comment}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id, comment }),
+  });
+  if (res.ok) {
+    const editedCmt = await res.json();
+    dispatch(postComment(editedCmt));
+    return editedCmt;
+  }
+};
+
+
+//******REDUCER******//
 
 const initialState = { comment: "" };
 
 const commentReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
-    // case GET_COMMENTS:
-    //   action.comment.forEach((comment) => {
-    //     newState[comment.id] = comment;
-    //   });
-    //   return { ...newState };
     case POST_COMMENT:
       newState = {
         ...state,

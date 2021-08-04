@@ -52,6 +52,7 @@
 .big-container {
   display: flex;
   justify-content: center;
+  height: 1000px
 }
 
 .left-side,
