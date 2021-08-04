@@ -39,7 +39,6 @@ function Landing() {
               }}
               className="nav-search-submit"
             >
-
               Search
             </Link>
           </form>

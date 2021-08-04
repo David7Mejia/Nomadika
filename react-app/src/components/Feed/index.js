@@ -5,7 +5,7 @@ import EditPostBtn from "./EditPostBtn";
 import Comments from '../Comments'
 import "./Feed.css";
 
-function Feed({ payload }) {
+function Feed({ payload, data }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session)?.user;
   const destinationFeed = useSelector((state) =>
@@ -16,7 +16,7 @@ function Feed({ payload }) {
 
   const [body, setBody] = useState("");
 
-  console.log("*******************FEED", destinationFeed[0]?.feeds);
+  // console.log("*******************QSSSS", qs);
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
@@ -49,7 +49,19 @@ function Feed({ payload }) {
         </button>
       </form>
       <div className="big-container">
-        <div className="left-side">hello</div>
+        <div className="left-side">
+          <div className="venue-info">
+            {data &&
+              data.response.venues.map((item, index) => (
+                <div key={index}>
+                  <div className="venue-name">{item.name}</div>
+                  <div className="venue-address">
+                    {/* {item.location.formattedAddress} */}
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
         <div className="feed-holder">
           <div className="feed-qs">
             {qs &&
@@ -57,10 +69,10 @@ function Feed({ payload }) {
                 <div className="post-container">
                   <div className="feed-item">
                     <div className="feed-text">
-                      {feed.body}
+                      <div className="post-text">{feed.body}</div>
                       <EditPostBtn id={feed.id} payload={payload} />
                     </div>
-                    <Comments comments={feed.comments} feed={ feed}/>
+                    <Comments comments={feed.comments} feed={feed} />
                     {/* <div className='sepdiv'> </div> */}
                   </div>
                 </div>

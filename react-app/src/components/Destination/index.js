@@ -50,9 +50,9 @@ function Destination() {
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        <Feed payload={payload} />
+        <Feed payload={payload} data={data} />
       </div>
-      <div className="venue-info">
+      {/* <div className="venue-info">
         {data &&
           data.response.venues.map((item, index) => (
             <div key={index}>
@@ -62,7 +62,7 @@ function Destination() {
               </div>
             </div>
           ))}
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -33,13 +33,13 @@ function PostComment({ feed }) {
 
   return (
     <form className="comment-form" onSubmit={onSubmit}>
-      <textarea
+      <input
         label="add a comment"
         placeholder="Add a comment..."
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         className="input-stretch"
-      ></textarea>
+      ></input>
       <button className="stretch-btn" type="submit">
         Post
       </button>

@@ -5,48 +5,51 @@ import "./Comments.css";
 
 function Comments({ comments, feed }) {
   const [openMenu, setOpenMenu] = useState(false);
-  const [showBtns, setShowBtns] = useState(false);
-
+  const [editComment, setEditComment] = useState(false);
 
   const showMenu = () => {
     if (openMenu) return;
     setOpenMenu(true);
-  }
-
+  };
   const hideMenu = () => {
     if (!openMenu) return;
     setOpenMenu(false);
-  }
+  };
+  const showEdit = () => {
+    if (editComment) return;
+    setEditComment(true);
+  };
+  const hideEdit = () => {
+    if (!editComment) return;
+    setEditComment(false);
+  };
 
-  const changeEdit = () => {
-    if (showBtns) {
-      return false
-    } else {
-      setShowBtns(true);
-    }
-  }
-
-
+  const editCmt = document.getElementById("single-comment");
+  // useEffect(() => {
+  // })
 
   return (
-    <div className="comments-comp-container">
-      {comments &&
-        comments.map((comment) =>
-          <div className='single-comment-container'>
-          <div contentEditable={changeEdit} className='single-comment' >
-            {comment.comment}
+    <>
+      <div className="comments-comp-container">
+        {comments &&
+          comments.map((comment) => (
+            <div className="single-comment-container">
+              <div
+                // contentEditable={editComment}
+                className="single-comment"
+                id="single-comment"
+              >
+                {comment.comment}
+              </div>
+              <div>
+                <button className="cmt-edit-button">Edit</button>
+                <button className="cmt-delete-button">Delete</button>
+              </div>
             </div>
-            <button
-              className='elipses'
-              onClick={openMenu ? hideMenu : showMenu}
-              >...</button>
-              {/* {openMenu &&(
-
-
-                )} */}
-          </div>)}
+          ))}
+      </div>
       <PostComment feed={feed} />
-    </div>
+    </>
   );
 }
 

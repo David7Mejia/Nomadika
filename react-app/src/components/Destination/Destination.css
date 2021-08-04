@@ -1,7 +1,14 @@
 .venue-info {
-  background-color: blue;
-  margin-top: 15%;
-  margin-left: 30%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  width: 400px;
+  margin-left: 20px;
+  height: 400px;
+  overflow-y: scroll;
+  box-shadow:  5px 5px 12px #aab4c8,  -5px -5px 12px #fff;
+  border-radius: 8px;
 }
 
 .place-name {

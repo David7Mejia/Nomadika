@@ -20,14 +20,14 @@ def index():
     return newComment.to_dict()
 
 
-# @comment_routes.route('/<int:id>', methods=['DELETE'])
-# @login_required
-# def delete_comment(id):
-#     deleteComment = Comment.query.get(id)
-#     if (deleteComment.user_id == current_user.id):
-#         db.session.delete(deleteComment)
-#         db.session.commit()
-#     return {'message': 'Comment Deleted'}
+@comment_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_comment(id):
+    deleteComment = Comment.query.get(id)
+    if (deleteComment.user_id == current_user.id):
+        db.session.delete(deleteComment)
+        db.session.commit()
+    return {'message': 'Comment Deleted'}
 
 
 # @comment_routes.route('/<int:id>/edit/<comment>', methods=['PUT'])

@@ -1,23 +1,19 @@
 const POST_COMMENT = "comment/POST_COMMENT";
-const GET_COMMENTS = "comment/GET_COMMENTS";
 const DELETE_COMMENT = "comment/DELETE_COMMENT";
 
-
-export const getComments = (comment) => ({
-  type: GET_COMMENTS,
-  comment,
-});
-
+//******ACTIONS******//
 export const postComment = (comment) => ({
   type: POST_COMMENT,
   comment,
 });
 
-export const deleteComment = (comment) => ({
+export const deleteOneComment = (comment) => ({
   type: DELETE_COMMENT,
   comment,
 });
 
+
+//******THUNKS******//
 // POST
 export const newComment = (newComment) => async (dispatch) => {
   const res = await fetch(`/api/comments/create`, {
@@ -31,17 +27,19 @@ export const newComment = (newComment) => async (dispatch) => {
     return createdComment;
   }
 };
-// export const delComment = (id) => async (dispatch) => {
-//   const res = await fetch(`/api/comments/${id}`, {
-//     method: "DELETE",
-//     body: JSON.stringify({ id }),
-//   });
-//   if (res.ok) {
-//     await res.json();
-//     dispatch(deleteComment(id));
-//     return res;
-//   }
-// };
+
+//DELETE
+export const delComment = (id) => async (dispatch) => {
+  const res = await fetch(`/api/comments/${id}`, {
+    method: "DELETE",
+    body: JSON.stringify({ id }),
+  });
+  if (res.ok) {
+    await res.json();
+    dispatch(deleteOneComment(id));
+    return res;
+  }
+};
 // export const editComment = (id, comment) => async (dispatch) => {
 //   const res = await fetch(`/api/comments/${id}/edit/${comment}`, {
 //     method: "PUT",
@@ -62,11 +60,11 @@ const initialState = { comment: "" };
 const commentReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
-    case GET_COMMENTS:
-      action.comment.forEach((comment) => {
-        newState[comment.id] = comment;
-      });
-      return { ...newState };
+    // case GET_COMMENTS:
+    //   action.comment.forEach((comment) => {
+    //     newState[comment.id] = comment;
+    //   });
+    //   return { ...newState };
     case POST_COMMENT:
       newState = {
         ...state,

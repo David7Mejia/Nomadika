@@ -38,7 +38,7 @@ const NavBar = () => {
         >
           Sign Up
         </NavLink>
-        <button onClick={(e) => demoHandler(e)} className="neo-buttons demo-button">
+        <button onClick={(e) => demoHandler(e)} className="neo-buttons" id='demo-button'>
           Demo
         </button>
       </div>

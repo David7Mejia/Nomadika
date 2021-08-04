@@ -56,19 +56,33 @@
 
 .left-side,
 .right-side {
+  margin-top: 30px;
   width: 87%;
+}
+.left-side {
+  /* margin-left: 20px; */
 }
 
 .feed-text {
-  margin-top: 20px;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  /* margin-top: 20px; */
+  /* margin-left: 2rem; */
+  /* margin-right: 2rem; */
+  background-color: transparent;
+  /* border-radius: 8px; */
   justify-content: space-between;
-  width: 90%;
-
+  width: 100%;
+  border-bottom: 1px solid rgb(173, 173, 173);
   display: flex;
-  margin: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   align-items: flex-start;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.post-text{
+  margin-left: 20px;
+  padding-top: 20px;
 }
 
 
@@ -80,7 +94,13 @@
   /* flex-grow: 1; */
 }
 
-/* .post-container{
-flex:1
-} */
+.edit-menu {
+  margin-right: 20px;
 
+}
+
+.edit-menu-div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

@@ -51,9 +51,21 @@ button {
 }
 
 .neo-buttons {
-  height: 57px;
-  width: 57px;
-  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+    background-color: #dfe5ec;
+
+  /* border-radius: 50%; */
+
+
+border-radius: 15px;
+/* background: linear-gradient(145deg, #ffffff, #dddddd); */
+/* box-shadow:  5px 5px 6px #acacac,
+             -5px -5px 6px #ffffff; */
+}
+
+#demo-button{
+  /* background-color: blue; */
 }
 
 .login-button {
@@ -71,6 +83,7 @@ button {
 
 .unauth-nav a,
 .navbar-container button {
+
   color: #2a2a2b;
   box-shadow: 6px 6px 10px #aab4c8, -6px -6px 12px #fff;
   display: flex;
@@ -84,7 +97,7 @@ button {
 .unauth-nav a:hover,
 .unauth-nav button:hover {
   box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
-  background-color: #e6e7ee;
+  background-color: #dfe5ec
 }
 
 .site-home {

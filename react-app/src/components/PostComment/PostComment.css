@@ -1,17 +1,18 @@
 .comment-form {
 display: flex;
 width: 100%;
-  /* align-items: stretch; */
   justify-content: stretch;
   align-items: flex-end;
   flex-grow: 1;
-  background-color: blue;
+  /* border-top: 1px solid rgb(173, 173, 173); */
+
 }
 
 .input-stretch{
 flex-grow: 1;
   border: 0;
   height: 30px;
+  outline: none;
 }
 
 .stretch-btn{

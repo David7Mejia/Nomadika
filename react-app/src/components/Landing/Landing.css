@@ -9,6 +9,11 @@
   height: 100vh;
 }
 
+.nav-search-submit{
+  text-decoration: none;
+
+}
+
 .container {
   padding-top: 20%;
   padding-left: 5%;

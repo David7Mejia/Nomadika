@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import EditPost from "../EditPost";
 import { deleteDestPost, getDestFeed } from "../../store/destination";
+import './Feed.css'
+
 
 function EditPostBtn({ id, payload }) {
   const [openMenu, setOpenMenu] = useState(false);
@@ -36,7 +38,7 @@ function EditPostBtn({ id, payload }) {
   };
 
   return (
-    <div>
+    <div className='edit-menu-div'>
       <button
         onClick={openMenu === true ? hideMenu : showMenu}
         className="edit-menu"
