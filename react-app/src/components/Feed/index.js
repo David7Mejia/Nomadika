@@ -16,7 +16,8 @@ function Feed({ payload, data }) {
 
   const [body, setBody] = useState("");
 
-  // console.log("*******************QSSSS", qs);
+  console.log('&&&&&&&&&&&&&&&&&&&&& PAYLOAD', payload)
+  console.log("*******************QSSSS", destinationFeed);
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
@@ -28,7 +29,7 @@ function Feed({ payload, data }) {
     if (payload) {
       dispatch(getDestFeed(payload));
     }
-  }, [payload]);
+  }, [dispatch]);
 
   const getSubmitBtn = () => {
     dispatch(getDestFeed(payload));

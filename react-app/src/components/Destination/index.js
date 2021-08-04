@@ -19,6 +19,8 @@ function Destination() {
   const payload = data?.response.geocode.feature.longId;
   const dispatch = useDispatch();
 
+
+  console.log('******** DESTINATION PAYLOAD', payload)
   useEffect(() => {
     const axData = async () => {
       const res = await axios(
