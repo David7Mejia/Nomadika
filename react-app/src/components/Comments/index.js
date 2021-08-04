@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import PostComment from '../PostComment'
+import { deleteComment } from "../../store/comment";
+import { getDestFeed } from "../../store/destination";
 import "./Comments.css";
 
 function Comments({ comments, feed }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [editComment, setEditComment] = useState(false);
+  const dispatch = useDispatch();
 
   const showMenu = () => {
     if (openMenu) return;
@@ -24,10 +27,15 @@ function Comments({ comments, feed }) {
     setEditComment(false);
   };
 
-  const editCmt = document.getElementById("single-comment");
-  // useEffect(() => {
-  // })
+  const deleteHandler = (id) => {
+    dispatch(deleteComment(id));
+    dispatch(getDestFeed(feed.loc_id));
+  };
 
+  useEffect(() => {
+    deleteHandler();
+    dispatch(getDestFeed(feed.loc_id));
+  }, [dispatch]);
   return (
     <>
       <div className="comments-comp-container">
@@ -43,7 +51,12 @@ function Comments({ comments, feed }) {
               </div>
               <div>
                 <button className="cmt-edit-button">Edit</button>
-                <button className="cmt-delete-button">Delete</button>
+                <button
+                  className="cmt-delete-button"
+                  onClick={() => deleteHandler(comment.id)}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}

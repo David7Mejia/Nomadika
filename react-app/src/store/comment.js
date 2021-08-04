@@ -29,7 +29,7 @@ export const newComment = (newComment) => async (dispatch) => {
 };
 
 //DELETE
-export const delComment = (id) => async (dispatch) => {
+export const deleteComment = (id) => async (dispatch) => {
   const res = await fetch(`/api/comments/${id}`, {
     method: "DELETE",
     body: JSON.stringify({ id }),
