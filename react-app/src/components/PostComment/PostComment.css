@@ -1,0 +1,31 @@
+.comment-form {
+  display: flex;
+  width: 100%;
+  justify-content: stretch;
+  align-items: flex-end;
+  flex-grow: 1;
+  /* border-top: 1px solid rgb(173, 173, 173); */
+}
+
+.input-stretch {
+  flex-grow: 1;
+  border: 0.3px #cad0dd;
+  border-radius: 3px;
+  border-style: solid;
+  height: 30px;
+  outline: 0;
+  box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
+  transition-duration: 0.7s;
+  /* border-radius: 10px; */
+}
+
+.input-stretch:focus-within {
+  outline: none;
+  /* border:2px; */
+  border-color: rgb(18, 176, 238);
+  /* outline: blue; */
+}
+
+.stretch-btn {
+  height: 32px;
+}

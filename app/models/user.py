@@ -8,7 +8,7 @@ traveled = db.Table(
     db.Model.metadata,
     db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
               primary_key=True),
-    db.Column('location_id', db.Integer, db.ForeignKey('locations.id'),
+    db.Column('location_id', db.String(100), db.ForeignKey('locations.api_id'),
               primary_key=True))
 
 
@@ -27,6 +27,7 @@ class User(db.Model, UserMixin):
     reviews = db.relationship('Review', back_populates='users')
     comments = db.relationship('Comment', back_populates='users')
     traveled = db.relationship('Location', secondary=traveled, back_populates='users')  # noqa
+    feeds = db.relationship('Feed', back_populates='user')
 
     @property
     def password(self):

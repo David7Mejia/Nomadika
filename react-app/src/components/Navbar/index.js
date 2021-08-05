@@ -1,28 +1,59 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
-import './Navbar.css'
+import { login } from "../../store/session";
+import { useDispatch, useSelector } from "react-redux";
+import "./Navbar.css";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+
+  const demoHandler = async (e) => {
+    e.preventDefault();
+    dispatch(login("demo@aa.io", "password"));
+    return;
+  };
+
+  let navLinks;
+
+  if (sessionUser) {
+    navLinks = <LogoutButton />;
+  } else {
+    navLinks = (
+      <div className="unauth-nav">
+        <div className='nav-button-holder'>
+
+        <NavLink
+          to="/login"
+          exact={true}
+          className="neo-buttons login-button"
+          activeClassName="active"
+          >
+        </NavLink>
+
+        <NavLink
+          to="/sign-up"
+          exact={true}
+          className="neo-buttons signup-button"
+          activeClassName="active"
+          >
+        </NavLink>
+          </div>
+        <button onClick={(e) => demoHandler(e)} className="neo-buttons" id='demo-button'>
+          Demo
+        </button>
+      </div>
+    );
+  }
+
   return (
     <nav className="navbar-container">
-      <NavLink to="/" exact={true} activeClassName="active">
-        Home
+      <NavLink to="/" exact={true} activeClassName="active" className='site-home'>
+        NOMADIKA
       </NavLink>
 
-      <NavLink to="/login" exact={true} activeClassName="active">
-        Login
-      </NavLink>
-
-      <NavLink to="/sign-up" exact={true} activeClassName="active">
-        Sign Up
-      </NavLink>
-
-      <NavLink to="/users" exact={true} activeClassName="active">
-        Users
-      </NavLink>
-
-      <LogoutButton />
+      {navLinks}
     </nav>
   );
 };

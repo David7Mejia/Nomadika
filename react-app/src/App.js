@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      dispatch(authenticate());
+      await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -45,7 +45,7 @@ function App() {
         <Route path="/" exact={true}>
           <Landing />
         </Route>
-        <Route path="/destination">
+        <Route path="/cities/:destId">
           <Destination />
         </Route>
       </Switch>

@@ -13,6 +13,8 @@ class Location(db.Model):
     __tablename__ = 'locations'
 
     id = db.Column(db.Integer, primary_key=True)
+    api_id = db.Column(db.String(100), unique=True)
+    name = db.Column(db.String(100), nullable=False)
     image_url = db.Column(db.String(1000))
     description = db.Column(db.String(1000))
 
@@ -23,9 +25,9 @@ class Location(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'feed_id': self.feed_id,
             'image_url': self.image_url,
             'description': self.description,
-            'created_at': self.created_at,
-            # 'traveled': [t.to_dict() for t in self.traveled],
+            'users': self.users,
+            'feeds': [f.to_dict() for f in self.feed],
+
         }
