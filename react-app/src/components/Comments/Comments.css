@@ -21,16 +21,21 @@
   flex-direction: row
 }
 
-.cmt-edit-button, .cmt-delete-button{
-background-repeat: no-repeat;
-background-position: center;
-background-size: 40px;
+.cmt-edit-button, .cmt-delete-button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+
 }
 
-.cmt-delete-button{
-background-image: url('../images/cancel.svg');
+.cmt-delete-button {
+  background-image: url('../images/Close\ Square.svg');
 }
 
-.cmt-edit-button{
+.cmt-edit-button {
   background-image: url('../images/More\ Square.svg');
+
 }

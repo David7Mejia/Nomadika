@@ -6,7 +6,7 @@ import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
 import "./Feed.css";
 
-function Feed({ payload, data, place }) {
+function Feed({ payload, data}) {
   const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session)?.user;
@@ -19,18 +19,21 @@ function Feed({ payload, data, place }) {
   const onSubmit =  (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
-    dispatch(getDestFeed(payload));
+    // if (payload) {
+    //   dispatch(getDestFeed(payload));
+    // }
     setBody("");
   };
 
   useEffect(() => {
-    if (payload) {
     dispatch(getDestFeed(payload));
-    }
-  }, [dispatch]);
+
+  }, [dispatch, payload]);
 
   const getSubmitBtn = () => {
-  dispatch(getDestFeed(payload));
+//     if (payload) {
+//       dispatch(getDestFeed(payload));
+    // }
   };
 
   return (
@@ -42,6 +45,7 @@ function Feed({ payload, data, place }) {
           className="feed-form"
           value={body}
           onChange={(e) => setBody(e.target.value)}
+          required
         ></input>
         <button
           className="feed-button"
@@ -66,7 +70,7 @@ function Feed({ payload, data, place }) {
         <div className="feed-holder">
           <div className="feed-qs">
             {qs &&
-              qs.map((feed) => (
+              qs?.map((feed) => (
                 <div className="post-container">
                   <div className="feed-item">
                     <div className="feed-text">

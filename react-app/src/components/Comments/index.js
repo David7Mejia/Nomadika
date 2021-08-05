@@ -5,6 +5,7 @@ import { deleteComment } from "../../store/comment";
 import { getDestFeed } from "../../store/destination";
 import "./Comments.css";
 import EditButton from './EditButton'
+import DeleteButton from './DeleteButton'
 
 function Comments({ comments, feed }) {
   const dispatch = useDispatch();
@@ -14,10 +15,10 @@ function Comments({ comments, feed }) {
     dispatch(getDestFeed(feed.loc_id));
   };
 
-  useEffect(() => {
-    deleteHandler();
-    dispatch(getDestFeed(feed.loc_id));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   deleteHandler();
+  //   dispatch(getDestFeed(feed.loc_id));
+  // }, [dispatch]);
 
   return (
     <>
@@ -29,13 +30,8 @@ function Comments({ comments, feed }) {
                 {comment.comment}
               </div>
               <div className='edit-del-holder'>
-                <EditButton comment={comment} />
-                <button
-                  className="cmt-delete-button"
-                  onClick={() => deleteHandler(comment.id)}
-                >
-                  Delete
-                </button>
+                <EditButton comment={comment} feed={ feed} />
+                <DeleteButton comment={comment} feed={feed}/>
               </div>
             </div>
           ))}

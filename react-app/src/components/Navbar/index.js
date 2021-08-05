@@ -22,25 +22,32 @@ const NavBar = () => {
   } else {
     navLinks = (
       <div className="unauth-nav">
-        <div className='nav-button-holder'>
+        <div className="nav-button-holder">
+          <NavLink
+            to="/"
+            exact={true}
+            className="neo-buttons home-button"
+            activeClassName="active"
+          ></NavLink>
+          <NavLink
+            to="/login"
+            exact={true}
+            className="neo-buttons login-button"
+            activeClassName="active"
+          ></NavLink>
 
-        <NavLink
-          to="/login"
-          exact={true}
-          className="neo-buttons login-button"
-          activeClassName="active"
-          >
-        </NavLink>
-
-        <NavLink
-          to="/sign-up"
-          exact={true}
-          className="neo-buttons signup-button"
-          activeClassName="active"
-          >
-        </NavLink>
-          </div>
-        <button onClick={(e) => demoHandler(e)} className="neo-buttons" id='demo-button'>
+          <NavLink
+            to="/sign-up"
+            exact={true}
+            className="neo-buttons signup-button"
+            activeClassName="active"
+          ></NavLink>
+        </div>
+        <button
+          onClick={(e) => demoHandler(e)}
+          className="neo-buttons"
+          id="demo-button"
+        >
           Demo
         </button>
       </div>

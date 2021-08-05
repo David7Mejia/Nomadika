@@ -25,7 +25,7 @@ function PostComment({ feed }) {
     setComment("");
     // history.push(`/cities/${place}`)
     // dispatch(getDestFeed(id));
-    dispatch(getDestFeed(feed.loc_id));
+    // dispatch(getDestFeed(feed.loc_id));
   };
 
   // useEffect(() => {
@@ -39,6 +39,7 @@ function PostComment({ feed }) {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         className="input-stretch"
+        required
       ></input>
       <button className="stretch-btn" type="submit">
         Post

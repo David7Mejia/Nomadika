@@ -21,6 +21,7 @@ function Destination() {
 
 
   console.log('******** DESTINATION PAYLOAD', payload)
+
   useEffect(() => {
     const axData = async () => {
       const res = await axios(
@@ -45,6 +46,8 @@ function Destination() {
   useEffect(() => {
     if (payload) {
       dispatch(getDestFeed(payload));
+    } else {
+      return;
     }
   }, [dispatch, payload]);
 
@@ -52,7 +55,7 @@ function Destination() {
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        <Feed payload={payload} data={data} place={ place} />
+        {data && <Feed payload={data.response.geocode.feature.longId} data={data}/>}
       </div>
     </div>
   );
