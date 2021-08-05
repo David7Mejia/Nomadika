@@ -28,7 +28,7 @@ function Comments({ comments, feed }) {
               <div className="single-comment" id="single-comment">
                 {comment.comment}
               </div>
-              <div>
+              <div className='edit-del-holder'>
                 <EditButton comment={comment} />
                 <button
                   className="cmt-delete-button"

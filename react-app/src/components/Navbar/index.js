@@ -22,12 +22,14 @@ const NavBar = () => {
   } else {
     navLinks = (
       <div className="unauth-nav">
+        <div className='nav-button-holder'>
+
         <NavLink
           to="/login"
           exact={true}
           className="neo-buttons login-button"
           activeClassName="active"
-        >
+          >
         </NavLink>
 
         <NavLink
@@ -35,9 +37,9 @@ const NavBar = () => {
           exact={true}
           className="neo-buttons signup-button"
           activeClassName="active"
-        >
-          Sign Up
+          >
         </NavLink>
+          </div>
         <button onClick={(e) => demoHandler(e)} className="neo-buttons" id='demo-button'>
           Demo
         </button>

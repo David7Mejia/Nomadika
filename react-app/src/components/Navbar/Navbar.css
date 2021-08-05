@@ -9,10 +9,8 @@
   padding-top: 0.5%;
   padding-bottom: 0.5%;
   text-align: center;
-  /* background-color: rgba(223, 229, 236, 0.5); */
-  /* dfe5ec */
-  background: rgb(255,255,255);
-background: linear-gradient(90deg, rgba(255,255,255,0) 2%, rgba(223,229,236,1) 80%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 2%, rgba(223, 229, 236, 1) 80%);
   backdrop-filter: blur(10.5px);
   height: 60px;
   width: 100%;
@@ -20,23 +18,23 @@ background: linear-gradient(90deg, rgba(255,255,255,0) 2%, rgba(223,229,236,1) 8
   z-index: 1000;
   font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
   box-shadow: 6px 6px 10px #aab4c8, -6px -6px 12px #fff;
-
 }
+
 button {
   border: 0;
 }
+
 ::-webkit-scrollbar {
-    width: 7px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: rgba(223,229,236,1);
+  background-color: rgba(223, 229, 236, 1);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   /* box-shadow: 6px 6px 10px #aab4c8, -6px -6px 12px #fff; */
-
 }
 
 .unauth-nav {
@@ -53,37 +51,32 @@ button {
 .neo-buttons {
   height: 50px;
   width: 50px;
-    background-color: #dfe5ec;
+  background-color: #dfe5ec;
+  border-radius: 15px;
 
-  /* border-radius: 50%; */
-
-
-border-radius: 15px;
-/* background: linear-gradient(145deg, #ffffff, #dddddd); */
-/* box-shadow:  5px 5px 6px #acacac,
-             -5px -5px 6px #ffffff; */
 }
 
-#demo-button{
+#demo-button {
   /* background-color: blue; */
 }
 
 .login-button {
   background-position: center;
-  background-image: url("../images/user-regular.svg");
+  background-image: url("../images/Profile.svg");
   background-repeat: no-repeat;
-  background-size: 20px;
+  background-size: 25px;
+  margin-right: 5px;
 }
+
 .signup-button {
   background-position: center;
-  background-image: url("../images/user-plus-solid.svg");
+  background-image: url("../images/Add\ User.svg");
   background-repeat: no-repeat;
-  background-size: 20px;
+  background-size: 25px;
+  margin-left: 5px;
 }
 
-.unauth-nav a,
-.navbar-container button {
-
+.unauth-nav a, .navbar-container button {
   color: #2a2a2b;
   box-shadow: 6px 6px 10px #aab4c8, -6px -6px 12px #fff;
   display: flex;
@@ -94,8 +87,7 @@ border-radius: 15px;
   text-align: center;
 }
 
-.unauth-nav a:hover,
-.unauth-nav button:hover {
+.unauth-nav a:hover, .unauth-nav button:hover {
   box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
   background-color: #dfe5ec
 }
@@ -106,4 +98,14 @@ border-radius: 15px;
   text-decoration: none;
   margin-left: 30px;
   color: black;
+}
+
+.nav-button-holder {
+  display: flex;
+  justify-content: space-around;
+  width: 10rem;
+  border-radius: 15px;
+  /* border: 1px solid black; */
+  padding: 5px;
+  box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
 }

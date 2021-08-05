@@ -2,16 +2,39 @@
   background-color: teal;
   margin: 0;
 } */
+
 .background-img {
+  display: flex;
   /* background-image: url("../images/beach-bg.jpg"); */
   background-size: 100%;
   background-repeat: no-repeat;
   height: 100vh;
 }
 
-.nav-search-submit{
-  text-decoration: none;
+.search-items {
+  display: flex;
+}
 
+.nav-search-submit {
+  /* display: flex;
+  align-items: center; */
+  text-decoration: none;
+  width: 5rem;
+  color: black;
+  font-weight: 500;
+  background-color: #dfe5ec;
+  border-radius: 15px;
+  box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
+  background-image: url('../images/searchAr.svg');
+  background-repeat: no-repeat;
+  background-size: 65px;
+  margin-left: 10px;
+  height: 4.5rem;
+  background-position: center;
+}
+
+.nav-search-submit:hover {
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
 }
 
 .container {
@@ -21,22 +44,39 @@
 
 .nav-search {
   width: 40rem;
+  background: linear-gradient(90deg, rgb(29, 127, 255) 2%, rgb(42, 199, 191) 31%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   height: 4.5rem;
-  font-size: 40px;
-  box-shadow: 6px 6px 10px #aab4c8, -6px -6px 12px #fff;
+  font-size: 30px;
+  box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
   outline: 0;
-  border:0;
+  border: 1px solid rgb(228, 227, 227);
+  border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px
 }
+
+.nav-search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  /* border-radius:10px; */
+  background-image: url('../images/cancel.svg');
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
 .nav-search:focus {
   outline: none;
+  box-shadow: inset 2px 2px 5px #aab4c8, inset -2px -2px 5px #fff;
 }
 
 .search-container {
   display: flex;
   flex-direction: column;
   font-size: 50px;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    Helvetica Neue, sans-serif;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
 .venue-info {
@@ -47,4 +87,12 @@
 
 .landing-text {
   margin-bottom: 10px;
+}
+
+.landing-right {
+  width: 40%;
+  margin-top: 68px;
+  margin-left: 10%;
+  background-color: #00DBDE;
+  background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 }

@@ -46,7 +46,7 @@ function Feed({ payload, data }) {
           onChange={(e) => setBody(e.target.value)}
         ></input>
         <button className="feed-button" type="submit" onClick={getSubmitBtn}>
-          Post
+          
         </button>
       </form>
       <div className="big-container">

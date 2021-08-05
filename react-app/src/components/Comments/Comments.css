@@ -1,20 +1,22 @@
-.comments-comp-container{
- width: 100%;
- display: flex;
- flex-direction: column;
- overflow-y: scroll;
+.comments-comp-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  /* box-shadow: inset 1px 1px 7px #aab4c8, inset -1px -1px 7px rgb(247, 247, 247); */
 }
 
 .single-comment {
-display: flex;
-margin-left: 20px;
-}
-
-
-.single-comment-container{
   display: flex;
-  justify-content: space-between
-
+  margin-left: 20px;
 }
 
+.single-comment-container {
+  display: flex;
+  justify-content: space-between;
+}
 
+.edit-del-holder {
+  display: flex;
+  flex-direction: row
+}

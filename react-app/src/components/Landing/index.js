@@ -22,27 +22,28 @@ function Landing() {
     <div className="background-img">
       <div className="container">
         <label className="search-container">
-          <div className='landing-text'>
-          Find venues near you
-          </div>
+          <div className="landing-text">Find venues near you</div>
           <form className="search-items" onSubmit={onSubmit}>
             <input
               className="nav-search"
               type="search"
               placeholder="Search your destination"
               onChange={handleQuery}
-            />
+
+            ></input>
             <Link
               to={{
                 pathname: `/cities/${place}`,
                 state: { place: place },
               }}
-              className="nav-search-submit"
             >
-              Search
+              <div className="nav-search-submit"></div>
             </Link>
           </form>
         </label>
+      </div>
+      <div className='landing-right'>
+        New Around Here?
       </div>
     </div>
   );
