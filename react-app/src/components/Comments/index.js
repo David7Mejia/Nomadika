@@ -13,7 +13,7 @@ function Comments({ comments, feed }) {
     dispatch(deleteComment(id));
     dispatch(getDestFeed(feed.loc_id));
   };
-
+//hi
   useEffect(() => {
     deleteHandler();
     dispatch(getDestFeed(feed.loc_id));
