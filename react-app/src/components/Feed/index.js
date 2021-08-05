@@ -14,31 +14,23 @@ function Feed({ payload, data, place }) {
     Object.values(state.destination)
   );
   const qs = destinationFeed[0]?.feeds;
-  const [ques, setQues] = useState([]);
-  // const cmt = destinationFeed[0]?.feeds;
-  console.log("************ ", destinationFeed);
-
   const [body, setBody] = useState("");
 
-  // console.log('&&&&&&&&&&&&&&&&&&&&& PAYLOAD', payload)
-  // console.log("*******************QSSSS", destinationFeed);
-  const onSubmit = async (e) => {
+  const onSubmit =  (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
     dispatch(getDestFeed(payload));
     setBody("");
   };
 
-  useEffect(async() => {
-
+  useEffect(() => {
     if (payload) {
-      await dispatch(getDestFeed(payload));
+    dispatch(getDestFeed(payload));
     }
   }, [dispatch]);
 
-  const getSubmitBtn = async() => {
-   await dispatch(getDestFeed(payload));
-    // history.push(`/cities/${place}`);
+  const getSubmitBtn = () => {
+  dispatch(getDestFeed(payload));
   };
 
   return (
@@ -82,7 +74,6 @@ function Feed({ payload, data, place }) {
                       <EditPostBtn id={feed.id} payload={payload} />
                     </div>
                     <Comments comments={feed.comments} feed={feed} />
-                    {/* <div className='sepdiv'> </div> */}
                   </div>
                 </div>
               ))}
