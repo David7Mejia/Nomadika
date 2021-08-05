@@ -21,7 +21,6 @@ function EditButton({ comment }) {
           className="cmt-edit-button"
           onClick={editComment === true ? hideEdit : showEdit}
         >
-          Edit
         </button>
         {editComment && <EditComment comment={comment} />}
       </div>

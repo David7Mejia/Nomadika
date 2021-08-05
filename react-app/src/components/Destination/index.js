@@ -54,17 +54,6 @@ function Destination() {
       <div className="dest-feed">
         <Feed payload={payload} data={data} />
       </div>
-      {/* <div className="venue-info">
-        {data &&
-          data.response.venues.map((item, index) => (
-            <div key={index}>
-              <div className="venue-name">{item.name}</div>
-              <div className="venue-address">
-                {item.location.formattedAddress}
-              </div>
-            </div>
-          ))}
-      </div> */}
     </div>
   );
 }

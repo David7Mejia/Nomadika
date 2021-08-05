@@ -20,3 +20,17 @@
   display: flex;
   flex-direction: row
 }
+
+.cmt-edit-button, .cmt-delete-button{
+background-repeat: no-repeat;
+background-position: center;
+background-size: 40px;
+}
+
+.cmt-delete-button{
+background-image: url('../images/cancel.svg');
+}
+
+.cmt-edit-button{
+  background-image: url('../images/More\ Square.svg');
+}

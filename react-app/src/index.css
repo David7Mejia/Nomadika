@@ -2,5 +2,6 @@
 
 body {
   background-color: rgba(223, 229, 236, 1);
+  font-family: 'Georama', sans-serif;
   /* background-image: url('../src/components/images/beach-bg.jpg'); */
 }

@@ -125,10 +125,10 @@
 }
 
 .feed-button {
-  background-image: url('../images/Send.svg');
+  background-image: url('../images/Arrow\ -\ Right\ Circle.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 30px;
+  background-size: 50px;
   height: 52px;
   width: 51px;
   margin-left: 10px;
