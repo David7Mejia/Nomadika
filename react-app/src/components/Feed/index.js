@@ -1,38 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
 import EditPostBtn from "./EditPostBtn";
-import Comments from '../Comments'
+import Comments from "../Comments";
 import "./Feed.css";
 
-function Feed({ payload, data }) {
+function Feed({ payload, data, place }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector((state) => state.session)?.user;
   const destinationFeed = useSelector((state) =>
     Object.values(state.destination)
   );
   const qs = destinationFeed[0]?.feeds;
-  const cmt = destinationFeed[0]?.feeds;
+  const [ques, setQues] = useState([]);
+  // const cmt = destinationFeed[0]?.feeds;
+  console.log("************ ", destinationFeed);
 
   const [body, setBody] = useState("");
 
-  console.log('&&&&&&&&&&&&&&&&&&&&& PAYLOAD', payload)
-  console.log("*******************QSSSS", destinationFeed);
-  const onSubmit = (e) => {
+  // console.log('&&&&&&&&&&&&&&&&&&&&& PAYLOAD', payload)
+  // console.log("*******************QSSSS", destinationFeed);
+  const onSubmit = async (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
     dispatch(getDestFeed(payload));
     setBody("");
   };
 
-  useEffect(() => {
+  useEffect(async() => {
+
     if (payload) {
-      dispatch(getDestFeed(payload));
+      await dispatch(getDestFeed(payload));
     }
   }, [dispatch]);
 
-  const getSubmitBtn = () => {
-    dispatch(getDestFeed(payload));
+  const getSubmitBtn = async() => {
+   await dispatch(getDestFeed(payload));
+    // history.push(`/cities/${place}`);
   };
 
   return (
@@ -45,9 +51,11 @@ function Feed({ payload, data }) {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         ></input>
-        <button className="feed-button" type="submit" onClick={getSubmitBtn}>
-          
-        </button>
+        <button
+          className="feed-button"
+          type="submit"
+          onClick={getSubmitBtn}
+        ></button>
       </form>
       <div className="big-container">
         <div className="left-side">

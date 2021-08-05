@@ -6,8 +6,10 @@ city_routes = Blueprint('cities', __name__)
 
 @city_routes.route('/<int:id>')
 def get_dest_feeds(id):
-    feed = Location.query.filter_by(api_id=str(id)).first()
+    feed = Feed.query.filter_by(loc_id=str(id)).first()
+    print('###################################', feed)
     return feed.to_dict()
+    # return [fd.to_dict() for fd in feed]
 
 
 @city_routes.route('/<int:id>', methods=['POST'])

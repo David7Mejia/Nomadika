@@ -52,7 +52,7 @@ function Destination() {
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        <Feed payload={payload} data={data} />
+        <Feed payload={payload} data={data} place={ place} />
       </div>
     </div>
   );
