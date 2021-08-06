@@ -1,12 +1,19 @@
-const DEST_FEED = "destination/DEST_FEED";
+// import {newComment} from './comment'
+export const DEST_FEED = "destination/DEST_FEED";
 const POST_FEED = "destination/POST_FEED";
 const DELETE_POST = "destination/DELETE_POST";
+const UPDATE_FEED = "destination/UPDATE_FEED";
 
 //**********Actions**********//
 export const postFeed = (payload) => ({
   type: POST_FEED,
   payload,
 });
+
+export const updateFeed = (payload) => ({
+  type: UPDATE_FEED,
+  payload
+})
 
 export const destFeed = (payload) => ({
   type: DEST_FEED,
@@ -17,7 +24,6 @@ export const deleteFeed = (payload) => ({
   type: DELETE_POST,
   payload,
 });
-
 
 //**********THUNKS**********//
 export const getDestFeed = (payload) => async (dispatch) => {
@@ -51,15 +57,15 @@ export const updateDestFeed = (id, body) => async (dispatch) => {
   });
   if (res.ok) {
     const updatePost = await res.json();
-    dispatch(destFeed(updatePost));
+    dispatch(updateFeed(updatePost));
   }
 };
 
 export const deleteDestPost = (id) => async (dispatch) => {
-const res = await fetch(`/api/cities/${id}`, {
-  method: "DELETE",
-  body: JSON.stringify({id}),
-})
+  const res = await fetch(`/api/cities/${id}`, {
+    method: "DELETE",
+    body: JSON.stringify({ id }),
+  });
   if (res.ok) {
     await res.json();
     dispatch(deleteFeed(id));
@@ -73,22 +79,23 @@ const destinationReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case DEST_FEED:
-      [action.payload].forEach((loc) => {
+      action.payload?.feeds.forEach((loc) => {
         newState[loc.id] = loc;
       });
       return {
         ...newState,
       };
+    case UPDATE_FEED:
     case POST_FEED:
       newState = {
         ...state,
-        [action.payload.loc_id]: action.payload.body,
+        [action.payload.id]: action.payload,
       };
       return newState;
     case DELETE_POST:
       newState = { ...state };
-      delete newState[action.id]
-      return { ...newState };
+      delete newState[action.id];
+      return newState;
     default:
       return state;
   }

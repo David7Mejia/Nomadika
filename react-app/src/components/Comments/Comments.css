@@ -9,6 +9,8 @@
 .single-comment {
   display: flex;
   margin-left: 20px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .single-comment-container {
@@ -37,5 +39,11 @@
 
 .cmt-edit-button {
   background-image: url('../images/More\ Square.svg');
+
+}
+
+.button-holder{
+  display: flex;
+  /* width: 100%; */
 
 }

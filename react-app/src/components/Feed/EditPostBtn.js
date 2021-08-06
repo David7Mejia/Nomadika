@@ -38,7 +38,7 @@ function EditPostBtn({ id, payload }) {
   };
 
   return (
-    <div className='edit-menu-div'>
+    <div className="edit-menu-div">
       <button
         onClick={openMenu === true ? hideMenu : showMenu}
         className="edit-menu"
@@ -50,7 +50,7 @@ function EditPostBtn({ id, payload }) {
           <button onClick={openEdit === true ? hideEdit : showEdit}>
             Edit
           </button>
-          <button onClick={() => deletePost(id)}>Delete</button>
+          <button onClick={()=>deletePost(id)}>Delete</button>
           {openEdit && <EditPost id={id} payload={payload} />}
         </div>
       )}

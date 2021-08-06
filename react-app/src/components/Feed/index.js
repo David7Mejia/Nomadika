@@ -6,35 +6,26 @@ import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
 import "./Feed.css";
 
-function Feed({ payload, data}) {
+function Feed({ payload, data }) {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const user = useSelector((state) => state.session)?.user;
-  const destinationFeed = useSelector((state) =>
-    Object.values(state.destination)
-  );
-  const qs = destinationFeed[0]?.feeds;
   const [body, setBody] = useState("");
 
-  const onSubmit =  (e) => {
+  const user = useSelector((state) => state.session)?.user;
+  const destinationFeed = useSelector((state) => Object.values(state.destination));
+  const postComments = useSelector((state) => Object.values(state.comments));
+
+
+  const onSubmit = (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
-    // if (payload) {
-    //   dispatch(getDestFeed(payload));
-    // }
     setBody("");
   };
 
   useEffect(() => {
     dispatch(getDestFeed(payload));
+  }, [dispatch]);
 
-  }, [dispatch, payload]);
 
-  const getSubmitBtn = () => {
-//     if (payload) {
-//       dispatch(getDestFeed(payload));
-    // }
-  };
 
   return (
     <div>
@@ -50,7 +41,6 @@ function Feed({ payload, data}) {
         <button
           className="feed-button"
           type="submit"
-          onClick={getSubmitBtn}
         ></button>
       </form>
       <div className="big-container">
@@ -69,15 +59,15 @@ function Feed({ payload, data}) {
         </div>
         <div className="feed-holder">
           <div className="feed-qs">
-            {qs &&
-              qs?.map((feed) => (
+            {destinationFeed &&
+              destinationFeed.map((feed) => (
                 <div className="post-container">
                   <div className="feed-item">
                     <div className="feed-text">
                       <div className="post-text">{feed.body}</div>
                       <EditPostBtn id={feed.id} payload={payload} />
                     </div>
-                    <Comments comments={feed.comments} feed={feed} />
+                    {/* <Comments comments={postComments} feed={feed} /> */}
                   </div>
                 </div>
               ))}
