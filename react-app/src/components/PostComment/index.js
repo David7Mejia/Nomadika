@@ -11,11 +11,9 @@ function PostComment({ feed }) {
   const history = useHistory();
   const dispatch = useDispatch();
   const { ids } = useParams();
-  // const user = useSelector((state) => state.session)?.user;
-  // console.log("POST PLACE", feed);
+
   const onSubmit = (e) => {
     e.preventDefault();
-
     dispatch(
       newComment({
         comment: comment,
@@ -23,13 +21,7 @@ function PostComment({ feed }) {
       })
     );
     setComment("");
-    // history.push(`/cities/${place}`)
-    // dispatch(getDestFeed(id));
-    dispatch(getDestFeed(feed.loc_id));
   };
-
-  // useEffect(() => {
-  // }, [dispatch, feed.loc_id]);
 
   return (
     <form className="comment-form" onSubmit={onSubmit}>
@@ -39,9 +31,9 @@ function PostComment({ feed }) {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         className="input-stretch"
+        required
       ></input>
       <button className="stretch-btn" type="submit">
-        Post
       </button>
     </form>
   );

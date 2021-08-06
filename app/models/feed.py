@@ -17,7 +17,7 @@ class Feed(db.Model):
         db.DateTime, default=db.func.now(), onupdate=db.func.now())
 
     location = db.relationship('Location', back_populates='feed')
-    comments = db.relationship('Comment', back_populates='feed')
+    comments = db.relationship('Comment', cascade="all, delete-orphan", back_populates='feed' )
     user = db.relationship('User', back_populates='feeds')
 
     def to_dict(self):

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Comments.css";
 import EditComment from "./EditComment";
 
-function EditButton({ comment }) {
+function EditButton({ comment, feed }) {
   const [editComment, setEditComment] = useState(false);
 
   const showEdit = () => {
@@ -22,7 +22,7 @@ function EditButton({ comment }) {
           onClick={editComment === true ? hideEdit : showEdit}
         >
         </button>
-        {editComment && <EditComment comment={comment} />}
+        {editComment && <EditComment comment={comment} feed={feed}/>}
       </div>
   );
 }

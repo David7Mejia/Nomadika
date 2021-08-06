@@ -64,7 +64,7 @@
   margin-top: 30px;
   align-items: flex-start;
   justify-content: center;
-  height: 400px;
+  height: 60%;
   overflow-y: scroll;
   box-shadow: inset 2px 2px 5px #aab4c8, inset -2px -2px 5px #fff;
   border-radius: 8px;
@@ -82,7 +82,13 @@
 }
 
 .left-side {
-  /* margin-left: 20px; */
+height: 500px;
+display: flex;
+flex-direction: column;
+/* justify-content: center; */
+align-items: center;
+
+
 }
 
 .feed-text {
@@ -139,5 +145,48 @@
 
 .feed-button:hover {
   box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
-  background-color: #dfe5ec
+  background-color: #dfe5ec;
+  cursor: pointer;
+}
+
+.edit-menu-wrapper {
+  position: fixed;
+  top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* margin-top: 30px; */
+}
+
+.wrapper-upload{
+  position: fixed;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  /* z-index: 3; */
+}
+
+.real-edit-button, .real-delete-button{
+  width:60px;
+align-items: flex-end
+}
+
+.real-delete-button{
+  width:60px;
+}
+
+.upload-form{
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+}
+
+.left-side-holder {
+   display: flex;
+  justify-content: space-around;
+  width: 75%;
+  height: 85%;
+  border-radius: 15px;
+  padding: 5px;
+  box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
 }

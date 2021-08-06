@@ -19,8 +19,6 @@ function Destination() {
   const payload = data?.response.geocode.feature.longId;
   const dispatch = useDispatch();
 
-
-  console.log('******** DESTINATION PAYLOAD', payload)
   useEffect(() => {
     const axData = async () => {
       const res = await axios(
@@ -32,19 +30,26 @@ function Destination() {
   }, []);
 
   useEffect(() => {
-    dispatch(
-      postLocation({
-        api_id: payload,
-        name: place,
-        description: null,
-        image_url: null,
-      })
-    );
+    try {
+      dispatch(
+        postLocation({
+          api_id: payload,
+          name: place,
+          description: null,
+          image_url: null,
+        })
+      );
+    }
+    catch (err) {
+      console.log('Location exists in database')
+    }
   }, [dispatch, payload, place]);
 
   useEffect(() => {
     if (payload) {
       dispatch(getDestFeed(payload));
+    } else {
+      return;
     }
   }, [dispatch, payload]);
 
@@ -52,7 +57,7 @@ function Destination() {
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        <Feed payload={payload} data={data} />
+        {data && <Feed payload={data.response.geocode.feature.longId} data={data}/>}
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ function EditPost({ id, payload }) {
   const onSubmit = (e) => {
     e.preventDefault();
       dispatch(updateDestFeed(id, postText));
-      dispatch(getDestFeed(payload));
+      // dispatch(getDestFeed(payload));
   };
 
 

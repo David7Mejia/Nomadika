@@ -37,8 +37,9 @@ function EditPostBtn({ id, payload }) {
     dispatch(getDestFeed(payload));
   };
 
+
   return (
-    <div className='edit-menu-div'>
+    <div className="edit-menu-div">
       <button
         onClick={openMenu === true ? hideMenu : showMenu}
         className="edit-menu"
@@ -47,10 +48,15 @@ function EditPostBtn({ id, payload }) {
       </button>
       {openMenu && (
         <div className="edit-menu-wrapper">
-          <button onClick={openEdit === true ? hideEdit : showEdit}>
+          <button
+            onClick={openEdit === true ? hideEdit : showEdit}
+            className="real-edit-button"
+          >
             Edit
           </button>
-          <button onClick={() => deletePost(id)}>Delete</button>
+          <button onClick={() => deletePost(id)} className="real-delete-button">
+            Delete
+          </button>
           {openEdit && <EditPost id={id} payload={payload} />}
         </div>
       )}

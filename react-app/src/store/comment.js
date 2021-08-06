@@ -1,8 +1,14 @@
+import { DEST_FEED as GET_COMMENTS } from './destination'
 const POST_COMMENT = "comment/POST_COMMENT";
 const DELETE_COMMENT = "comment/DELETE_COMMENT";
-
+// const GET_COMMENTS = "comment/GET_COMMENTS";
 
 //******ACTIONS******//
+export const getComment = (comment) => ({
+  type: GET_COMMENTS,
+  comment
+})
+
 export const postComment = (comment) => ({
   type: POST_COMMENT,
   comment,
@@ -13,9 +19,20 @@ export const deleteOneComment = (comment) => ({
   comment,
 });
 
-
 //******THUNKS******//
+
 // POST
+export const getComments = (payload) => async (dispatch) => {
+  const res = await fetch(`/api/comments/${payload}`)
+
+  if (res.ok) {
+    const comments = await res.json();
+    dispatch(getComment(comments));
+    return comments
+  }
+}
+
+
 export const newComment = (newComment) => async (dispatch) => {
   const res = await fetch(`/api/comments/create`, {
     method: "POST",
@@ -66,10 +83,17 @@ const initialState = { comment: "" };
 const commentReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
+    case GET_COMMENTS:
+       action?.payload?.feeds[0]?.comments.forEach((cmt) => {
+        newState[cmt.id] = cmt;
+      });
+      return {
+        ...newState,
+      };
     case POST_COMMENT:
       newState = {
         ...state,
-        [action.comment.id]: action.comment,
+        [action?.comment.id]: action.comment,
       };
       return newState;
     case DELETE_COMMENT:
