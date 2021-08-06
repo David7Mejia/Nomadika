@@ -64,7 +64,7 @@
   margin-top: 30px;
   align-items: flex-start;
   justify-content: center;
-  height: 400px;
+  height: 60%;
   overflow-y: scroll;
   box-shadow: inset 2px 2px 5px #aab4c8, inset -2px -2px 5px #fff;
   border-radius: 8px;
@@ -82,7 +82,13 @@
 }
 
 .left-side {
-  /* margin-left: 20px; */
+height: 500px;
+display: flex;
+flex-direction: column;
+/* justify-content: center; */
+align-items: center;
+
+
 }
 
 .feed-text {
@@ -173,4 +179,14 @@ align-items: flex-end
   display: flex;
   flex-direction: column;
   z-index: 4;
+}
+
+.left-side-holder {
+   display: flex;
+  justify-content: space-around;
+  width: 75%;
+  height: 85%;
+  border-radius: 15px;
+  padding: 5px;
+  box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
 }

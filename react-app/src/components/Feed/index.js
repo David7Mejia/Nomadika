@@ -22,7 +22,7 @@ function Feed({ payload, data }) {
     setBody("");
   };
 
-  
+
   useEffect(() => {
     dispatch(getDestFeed(payload));
     // dispatch(getComments(payload))
@@ -48,17 +48,24 @@ function Feed({ payload, data }) {
       </form>
       <div className="big-container">
         <div className="left-side">
-          <div className="venue-info">
+          <div className='left-side-holder'>
+
+
+
+
+
+          </div>
+          {/* <div className="venue-info">
             {data &&
               data.response.venues.map((item, index) => (
                 <div key={index}>
                   <div className="venue-name">{item.name}</div>
                   <div className="venue-address">
-                    {/* {item.location.formattedAddress} */}
+                    {item.location.formattedAddress}
                   </div>
                 </div>
               ))}
-          </div>
+          </div> */}
         </div>
         <div className="feed-holder">
           <div className="feed-qs">

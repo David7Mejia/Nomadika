@@ -25,7 +25,6 @@ export const deleteOneComment = (comment) => ({
 export const getComments = (payload) => async (dispatch) => {
   const res = await fetch(`/api/comments/${payload}`)
 
-  console.log('################THUNK', payload)
   if (res.ok) {
     const comments = await res.json();
     dispatch(getComment(comments));

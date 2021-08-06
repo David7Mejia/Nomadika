@@ -6,17 +6,23 @@ export const newLocation = (payload) => ({
 });
 
 export const postLocation = (payload) => async (dispatch) => {
+  try {
 
-  const res = await fetch(`/api/cities/${payload.api_id}/location`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
+    const res = await fetch(`/api/cities/${payload.api_id}/location`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
 
-  const newLoc = await res.json();
-  dispatch(newLocation(newLoc));
+    const newLoc = await res.json();
+    dispatch(newLocation(newLoc));
+  }
+  catch (error) {
+    console.log(error, 'Destination was successfully found in Database')
+  }
+
 };
 
 const initialState = { thing: "" };

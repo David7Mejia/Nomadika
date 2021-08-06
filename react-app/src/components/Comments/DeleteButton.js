@@ -11,7 +11,6 @@ function DeleteButton({ feed, comment }) {
     dispatch(deleteComment(id));
     dispatch(getDestFeed(feed.loc_id));
   };
-// console.log("DELETE%%%%%%", comment);
   return (
     <div>
       <button
