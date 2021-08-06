@@ -56,7 +56,10 @@ button {
 }
 
 #demo-button {
-  /* background-color: blue; */
+  font-family: 'Georama', sans-serif;
+}
+#demo-button:hover{
+  cursor: pointer;
 }
 
 .login-button {
@@ -102,7 +105,6 @@ button {
 
 .site-home {
   font-family: "Pirate Scripts", 'Georama', sans-serif;
-
   font-size: 45px;
   text-decoration: none;
   width: 230px;
