@@ -141,3 +141,23 @@
   box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
   background-color: #dfe5ec
 }
+
+.edit-menu-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.wrapper-upload{
+  position: relative
+}
+
+.real-edit-button, .real-delete-button{
+  width:60px;
+align-items: flex-end
+}
+
+.real-delete-button{
+  width:60px;
+}
