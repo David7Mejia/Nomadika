@@ -1,9 +1,17 @@
 from flask import Blueprint, request, redirect
-from app.models import db, Comment
+from app.models import db, Comment, Feed
 # from app.forms import CommentForm
 from flask_login import current_user, login_required
 
 comment_routes = Blueprint('comments', __name__)
+
+
+@comment_routes.route('/<int:id>',)
+@login_required
+def get_comments():
+    # req = request.get_json()
+    comment = Comment.query.filter_by(feed_id=Feed.id).first()
+    return newComment.to_dict()
 
 
 @comment_routes.route('/create', methods=['POST'])

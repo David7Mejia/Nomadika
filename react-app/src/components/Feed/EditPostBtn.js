@@ -34,8 +34,9 @@ function EditPostBtn({ id, payload }) {
 
   const deletePost = (id) => {
     dispatch(deleteDestPost(id));
-    // dispatch(getDestFeed(payload));
+    dispatch(getDestFeed(payload));
   };
+
 
   return (
     <div className="edit-menu-div">

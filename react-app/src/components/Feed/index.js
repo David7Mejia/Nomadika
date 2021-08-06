@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
+import { getComments } from "../../store/comment";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
 import "./Feed.css";
@@ -21,8 +22,10 @@ function Feed({ payload, data }) {
     setBody("");
   };
 
+  
   useEffect(() => {
     dispatch(getDestFeed(payload));
+    // dispatch(getComments(payload))
   }, [dispatch]);
 
 
@@ -67,7 +70,7 @@ function Feed({ payload, data }) {
                       <div className="post-text">{feed.body}</div>
                       <EditPostBtn id={feed.id} payload={payload} />
                     </div>
-                    {/* <Comments comments={postComments} feed={feed} /> */}
+                    <Comments comments={postComments} feed={feed} />
                   </div>
                 </div>
               ))}

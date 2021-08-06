@@ -6,7 +6,10 @@ import EditButton from './EditButton'
 import DeleteButton from './DeleteButton'
 
 function Comments({ comments, feed }) {
+  const dispatch = useDispatch()
 
+
+  
   return (
     <>
       <div className="comments-comp-container">

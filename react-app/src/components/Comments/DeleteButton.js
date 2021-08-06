@@ -11,12 +11,7 @@ function DeleteButton({ feed, comment }) {
     dispatch(deleteComment(id));
     dispatch(getDestFeed(feed.loc_id));
   };
-
-  // useEffect(() => {
-  //   deleteHandler();
-  //   // dispatch(getDestFeed(feed.loc_id));
-  // }, [dispatch]);
-
+// console.log("DELETE%%%%%%", comment);
   return (
     <div>
       <button
