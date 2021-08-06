@@ -18,7 +18,19 @@ const NavBar = () => {
   let navLinks;
 
   if (sessionUser) {
-    navLinks = <LogoutButton />;
+    navLinks = (
+      <div className="unauth-nav">
+        <div className="nav-button-holder">
+          <NavLink
+            to="/"
+            exact={true}
+            className="neo-buttons home-button"
+            activeClassName="active"
+          ></NavLink>
+          <LogoutButton />
+        </div>
+      </div>
+    );
   } else {
     navLinks = (
       <div className="unauth-nav">

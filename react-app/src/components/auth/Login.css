@@ -4,3 +4,13 @@
   margin-top: 100px;
   background-color: blue;
 }
+
+.logout-button{
+  background-image: url('../images/Logout.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+  background-color: #dfe5ec;
+  border-radius: 15px;
+}

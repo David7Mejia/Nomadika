@@ -147,10 +147,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  /* margin-top: 30px; */
 }
 
 .wrapper-upload{
-  position: relative
+  position: fixed;
+  /* z-index: 3; */
 }
 
 .real-edit-button, .real-delete-button{
