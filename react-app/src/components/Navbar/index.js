@@ -68,9 +68,11 @@ const NavBar = () => {
 
   return (
     <nav className="navbar-container">
+
       <NavLink to="/" exact={true} activeClassName="active" className='site-home'>
         NOMADIKA
       </NavLink>
+
 
       {navLinks}
     </nav>

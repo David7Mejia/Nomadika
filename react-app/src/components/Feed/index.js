@@ -41,19 +41,22 @@ function Feed({ payload, data }) {
           onChange={(e) => setBody(e.target.value)}
           required
         ></input>
-        <button
-          className="feed-button"
-          type="submit"
-        ></button>
+        <button className="feed-button" type="submit"></button>
       </form>
       <div className="big-container">
         <div className="left-side">
-          <div className='left-side-holder'>
-
-
-
-
-
+          <div className="left-side-holder">
+            <div className='left-button-holder'>
+              <button>
+                <div className='raised-buttons'>
+                  landmarks
+              </div>
+                </button>
+            <button>bars</button>
+            <button>nightlife</button>
+            <button>hotels</button>
+            <button>restaurants</button>
+            </div>
           </div>
           {/* <div className="venue-info">
             {data &&

@@ -27,7 +27,7 @@ function Landing() {
             <input
               className="nav-search"
               type="search"
-              placeholder="Search your destination"
+              placeholder="Search your city"
               onChange={handleQuery}
 
             ></input>
@@ -43,7 +43,9 @@ function Landing() {
         </label>
       </div>
       <div className='landing-right'>
-        New Around Here?
+        <div className='landing-greeting'>
+
+        </div>
       </div>
     </div>
   );
