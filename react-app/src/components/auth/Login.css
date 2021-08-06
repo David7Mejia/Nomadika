@@ -1,11 +1,21 @@
 .login-form {
   display: flex;
-  position: absolute;
-  margin-top: 100px;
-  background-color: blue;
+  position: sticky;
+  left: 14.6%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 300px;
+  height: 350px;
+  margin-right: 10px;
+  border-radius: 15px;
+  padding: 10px;
+  background: linear-gradient(145deg, #ecf0f5, #dfe5ec);
+  /* box-shadow: 5px 5px 10px #dfe5ec, -2px -2px 0 #ffffff; */
+  box-shadow: 6px 6px 10px #cad0dd
 }
 
-.logout-button{
+.logout-button {
   background-image: url('../images/Logout.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -15,6 +25,67 @@
   border-radius: 15px;
 }
 
-.logout-button:hover{
-cursor: pointer;
+.logout-button:hover {
+  cursor: pointer;
+}
+
+.container-lo {
+  display: flex;
+  align-items: center;
+  padding-top: 10%;
+  padding-left: 5%;
+  width: 50%;
+}
+
+.email-input-lo, .password-input-lo {
+  font-size: 15px;
+  height: 30px;
+  width: 200px;
+  /* background-color: rgb(236, 48, 80); */
+  box-shadow: 2px 2px 10px #cad0dd, -2px -2px 10px rgb(248, 248, 248);
+  outline: 0;
+  border: 0;
+  /* border: 1px solid rgb(185, 184, 184); */
+  border-radius: 5px;
+  /* background: linear-gradient(90deg, rgb(29, 127, 255) 2%, rgb(42, 199, 191) 31%); */
+  background-clip: text;
+  /* -webkit-text-fill-color: transparent; */
+  /* color: black; */
+  /* padding-left: 20px; */
+  /* padding-right: 20px */
+}
+
+.email-input-lo:focus, .password-input-lo:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 5px #aab4c8, inset -2px -2px 5px #fff;
+}
+
+.login-please {
+  display: flex;
+  justify-content: space-around;
+  width: 14rem;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 30px;
+  background-color: #F9726D;
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(243, 243, 243, 0.5);
+  background-clip: text;
+}
+
+.login-btn {
+  /* background-i?mage: url('../images/Logout.svg'); */
+  font-family: 'Georama', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  width: 13rem;
+  height: 40px;
+  background-color: #F9726D;
+  border-radius: 15px;
+  box-shadow: 1px 1px 3px #F9726D, -6px -6px 12px rgb(248, 248, 248);
+}
+
+.login-btn:hover {
+  box-shadow: inset 2px 2px 5px #ce5d59, inset -3px -3px 7px #ff9e9b;
+  cursor: pointer;
 }

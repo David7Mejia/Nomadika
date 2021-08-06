@@ -22,13 +22,9 @@ function Feed({ payload, data }) {
     setBody("");
   };
 
-
   useEffect(() => {
     dispatch(getDestFeed(payload));
-    // dispatch(getComments(payload))
   }, [dispatch]);
-
-
 
   return (
     <div>
@@ -46,16 +42,12 @@ function Feed({ payload, data }) {
       <div className="big-container">
         <div className="left-side">
           <div className="left-side-holder">
-            <div className='left-button-holder'>
-              <button>
-                <div className='raised-buttons'>
-                  landmarks
-              </div>
-                </button>
-            <button>bars</button>
-            <button>nightlife</button>
-            <button>hotels</button>
-            <button>restaurants</button>
+            <div className="left-button-holder">
+              <button className='landmarks'>landmarks</button>
+              <button className='bars'>bars</button>
+              <button className='nightlife'>nightlife</button>
+              <button className='hotels'>hotels</button>
+              <button>restaurants</button>
             </div>
           </div>
           {/* <div className="venue-info">

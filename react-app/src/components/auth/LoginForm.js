@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
 import "./Login.css";
+import '../Landing/Landing.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -32,34 +33,42 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin} className="login-form">
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className="login-container">
+      <div className="container-lo">
+        <form onSubmit={onLogin} className="login-form">
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          <div className='login-please'>
+          Login to continue
+          </div>
+          <div>
+            <label htmlFor="email"></label>
+            <input
+              name="email"
+              type="text"
+              placeholder="Email"
+              className='email-input-lo'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div>
+            <label htmlFor="password"></label>
+            <input
+              name="password"
+              type="password"
+              className='password-input-lo'
+              placeholder="Password"
+              value={password}
+              onChange={updatePassword}
+            />
+          </div>
+            <button type="submit" className='login-btn'>Login</button>
+        </form>
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type="submit">Login</button>
-      </div>
-    </form>
+      <div className="landing-right">hello</div>
+    </div>
   );
 };
 

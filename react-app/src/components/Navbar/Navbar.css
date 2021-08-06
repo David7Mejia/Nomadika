@@ -101,13 +101,14 @@ button {
 }
 
 .site-home {
-  font-family: "Pirate Scripts", sans-serif;
+  font-family: "Pirate Scripts", 'Georama', sans-serif;
+
   font-size: 45px;
   text-decoration: none;
   width: 230px;
   margin-left: 30px;
   /* color: black; */
-    background-color: #aab4c8;
+  background-color: #aab4c8;
   color: transparent;
   text-shadow: 2px 2px 3px rgba(243, 243, 243, 0.5);
   background-clip: text;
@@ -126,7 +127,7 @@ button {
 .nomadika {
   display: flex;
   justify-content: space-around;
-  width:20rem;
+  width: 20rem;
   border-radius: 15px;
   /* border: 1px solid black; */
   padding: 5px;

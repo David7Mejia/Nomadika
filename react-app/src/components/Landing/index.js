@@ -44,7 +44,6 @@ function Landing() {
       </div>
       <div className='landing-right'>
         <div className='landing-greeting'>
-
         </div>
       </div>
     </div>
