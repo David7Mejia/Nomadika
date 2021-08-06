@@ -47,12 +47,7 @@
   border: 0;
   /* border: 1px solid rgb(185, 184, 184); */
   border-radius: 5px;
-  /* background: linear-gradient(90deg, rgb(29, 127, 255) 2%, rgb(42, 199, 191) 31%); */
   background-clip: text;
-  /* -webkit-text-fill-color: transparent; */
-  /* color: black; */
-  /* padding-left: 20px; */
-  /* padding-right: 20px */
 }
 
 .email-input-lo:focus, .password-input-lo:focus {
@@ -88,4 +83,16 @@
 .login-btn:hover {
   box-shadow: inset 2px 2px 5px #ce5d59, inset -3px -3px 7px #ff9e9b;
   cursor: pointer;
+}
+
+.landing-right-lo {
+  width: 50%;
+  margin-left: 5%;
+  margin-right: 0%;
+  margin-top: 75px;
+  left: 0px;
+  border: 0;
+  background-size: cover;
+  background: rgb(249, 114, 109);
+  background: linear-gradient(214deg, #CB409C 0%, #F9726D 100%);
 }

@@ -67,7 +67,7 @@ const LoginForm = () => {
             <button type="submit" className='login-btn'>Login</button>
         </form>
       </div>
-      <div className="landing-right">hello</div>
+      <div className="landing-right-lo">hello</div>
     </div>
   );
 };
