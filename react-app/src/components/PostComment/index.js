@@ -34,7 +34,6 @@ function PostComment({ feed }) {
         required
       ></input>
       <button className="stretch-btn" type="submit">
-        Post
       </button>
     </form>
   );

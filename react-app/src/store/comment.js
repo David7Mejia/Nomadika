@@ -85,7 +85,7 @@ const commentReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case GET_COMMENTS:
-       action.payload?.feeds[0].comments.forEach((cmt) => {
+       action?.payload?.feeds[0]?.comments.forEach((cmt) => {
         newState[cmt.id] = cmt;
       });
       return {

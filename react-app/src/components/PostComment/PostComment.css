@@ -27,5 +27,20 @@
 }
 
 .stretch-btn {
-  height: 32px;
+  height: 33px;
+  background-image: url('../images/Arrow\ -\ Right\ Square.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+  /* height: 52px; */
+  width: 30px;
+  /* margin-left: 10px; */
+  background-color: #dfe5ec;
+  border-radius: 5px;
+  box-shadow: 5px 5px 12px #aab4c8, -5px -5px 12px rgb(247, 247, 247);
+}
+
+.stretch-btn:hover {
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+  background-color: #dfe5ec
 }
