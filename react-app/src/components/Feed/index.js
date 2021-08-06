@@ -22,11 +22,12 @@ function Feed({ payload, data }) {
     setBody("");
   };
 
-  
+
   useEffect(() => {
     dispatch(getDestFeed(payload));
     // dispatch(getComments(payload))
   }, [dispatch]);
+
 
 
 
@@ -70,7 +71,9 @@ function Feed({ payload, data }) {
                       <div className="post-text">{feed.body}</div>
                       <EditPostBtn id={feed.id} payload={payload} />
                     </div>
-                    <Comments comments={postComments} feed={feed} />
+                    <Comments
+                      // comments={postComments}
+                      feed={feed} />
                   </div>
                 </div>
               ))}

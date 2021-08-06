@@ -6,12 +6,16 @@ from flask_login import current_user, login_required
 comment_routes = Blueprint('comments', __name__)
 
 
-@comment_routes.route('/<int:id>',)
+@comment_routes.route('/<int:id>')
 @login_required
-def get_comments():
-    # req = request.get_json()
-    comment = Comment.query.filter_by(feed_id=Feed.id).first()
-    return newComment.to_dict()
+def get_comments(id):
+
+    # print('66666663 66666666666666666666666666', id)
+    comment = Comment.query.get(feed_id=id).all()
+    print('******************************************************************************************************************', comment)
+    return comment.to_dict()
+    # return jsonify([cmt.to_dict() for cmt in comment])
+
 
 
 @comment_routes.route('/create', methods=['POST'])

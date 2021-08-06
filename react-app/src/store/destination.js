@@ -73,7 +73,7 @@ export const deleteDestPost = (id) => async (dispatch) => {
   }
 };
 
-const initialState = { thing: "" };
+const initialState = { post: "" };
 
 const destinationReducer = (state = initialState, action) => {
   let newState = {};
