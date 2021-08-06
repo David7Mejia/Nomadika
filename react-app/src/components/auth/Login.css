@@ -14,3 +14,7 @@
   background-color: #dfe5ec;
   border-radius: 15px;
 }
+
+.logout-button:hover{
+cursor: pointer;
+}

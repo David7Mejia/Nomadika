@@ -40,8 +40,9 @@
 .cmt-edit-button {
   background-image: url('../images/More\ Square.svg');
  display: flex;
-position: relative;
-  align-items: flex-end;}
+/* position: relative; */
+  align-items: flex-end;
+}
 
 .button-holder{
   display: flex;

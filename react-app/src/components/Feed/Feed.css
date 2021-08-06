@@ -139,11 +139,13 @@
 
 .feed-button:hover {
   box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
-  background-color: #dfe5ec
+  background-color: #dfe5ec;
+  cursor: pointer;
 }
 
 .edit-menu-wrapper {
-  position: relative;
+  position: fixed;
+  top: 25px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -152,6 +154,9 @@
 
 .wrapper-upload{
   position: fixed;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
   /* z-index: 3; */
 }
 
@@ -162,4 +167,10 @@ align-items: flex-end
 
 .real-delete-button{
   width:60px;
+}
+
+.upload-form{
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
 }
