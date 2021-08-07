@@ -40,11 +40,9 @@
   font-size: 15px;
   height: 30px;
   width: 200px;
-  /* background-color: rgb(236, 48, 80); */
   box-shadow: 2px 2px 10px #cad0dd, -2px -2px 10px rgb(248, 248, 248);
   outline: 0;
   border: 0;
-  /* border: 1px solid rgb(185, 184, 184); */
   border-radius: 5px;
   background-clip: text;
 }
@@ -68,7 +66,6 @@
 }
 
 .login-btn {
-  /* background-i?mage: url('../images/Logout.svg'); */
   font-family: 'Georama', sans-serif;
   font-size: 20px;
   color: #ffffff;
@@ -103,6 +100,7 @@
   padding-top: 130px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   font-family: 'Georama', sans-serif;
   font-size: 80px;

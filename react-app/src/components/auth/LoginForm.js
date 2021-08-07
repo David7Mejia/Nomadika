@@ -70,7 +70,9 @@ const LoginForm = () => {
       </div>
       <div className="landing-right-lo">
         <div className='login-message'>
+          <div className='login-welcome'>
           Welcome back!
+          </div>
           <div className='small-text-login'>
             Don't have an account?
             <Link to='sign-up'>
