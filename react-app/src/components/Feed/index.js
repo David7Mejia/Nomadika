@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
-import { getComments } from "../../store/comment";
 import envVars from "../../config";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";

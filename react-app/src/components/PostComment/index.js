@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import React, {  useState } from "react";
+import {  useDispatch } from "react-redux";
 import { newComment } from "../../store/comment";
-import { getDestFeed } from "../../store/destination";
 
 import "./PostComment.css";
 
 function PostComment({ feed }) {
   const [comment, setComment] = useState("");
-  const history = useHistory();
   const dispatch = useDispatch();
-  const { ids } = useParams();
 
   const onSubmit = (e) => {
     e.preventDefault();

@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 import PostComment from '../PostComment'
 import "./Comments.css";
 import EditButton from './EditButton'
 import DeleteButton from './DeleteButton'
 
 function Comments({ comments, feed }) {
-  const dispatch = useDispatch()
 
 
-  
   return (
     <>
       <div className="comments-comp-container">
@@ -17,7 +14,7 @@ function Comments({ comments, feed }) {
           comments?.map((comment) => (
             <div className="single-comment-container">
               <div className="single-comment" id="single-comment">
-                {comment && comment.feed_id == feed.id && (
+                {comment && comment.feed_id === feed.id && (
                   <>
                   <div className='layout-comment-buttons'>
                    { comment.comment}

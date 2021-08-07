@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useDispatch } from "react-redux";
 import { editComment } from "../../store/comment";
 import { getDestFeed } from "../../store/destination";
@@ -14,10 +14,6 @@ function EditComment({ comment, feed }) {
     setNewComment("");
   };
 
-  // useEffect(() => {
-  //   dispatch(editComment(comment.id, newComment));
-  //   dispatch(getDestFeed(feed.loc_id));
-  // }, [dispatch]);
 
   return (
     <div>

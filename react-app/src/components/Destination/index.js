@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
+import {  useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import Feed from "../Feed";
 import axios from "axios";
 import envVars from "../../config";
@@ -9,11 +9,9 @@ import { getDestFeed } from "../../store/destination";
 import "./Destination.css";
 
 function Destination() {
-  // const loggedIn = useSelector((state) => state.session).user;
   const location = useLocation();
   const [data, setData] = useState(null);
   const { place } = location.state || {};
-  const newLocation = useSelector((state) => state.location);
   const client_id = envVars.client_id;
   const client_secret = envVars.client_secret;
   const payload = data?.response.geocode.feature.longId;

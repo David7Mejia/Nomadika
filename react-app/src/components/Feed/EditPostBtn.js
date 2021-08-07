@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import EditPost from "../EditPost";
 import { deleteDestPost, getDestFeed } from "../../store/destination";
