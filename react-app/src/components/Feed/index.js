@@ -3,18 +3,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
 import { getComments } from "../../store/comment";
+import envVars from "../../config";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
+import Modal from "./Modal"
 import "./Feed.css";
+import axios from "axios";
 
-function Feed({ payload, data }) {
+function Feed({ payload, place }) {
   const dispatch = useDispatch();
   const [body, setBody] = useState("");
+  const [qData, setQData] = useState("");
+  const [showModal, setShowModal] = useState(false)
+  const client_id = envVars.client_id;
+  const client_secret = envVars.client_secret;
 
   const user = useSelector((state) => state.session)?.user;
-  const destinationFeed = useSelector((state) => Object.values(state.destination));
+  const destinationFeed = useSelector((state) =>
+    Object.values(state.destination)
+  );
   const postComments = useSelector((state) => Object.values(state.comments));
 
+  const landmarks = async () => {
+    const res = await axios(
+      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=10&near=${place}`
+    );
+    setQData(res.data);
+    setShowModal(true)
+    return;
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -43,11 +60,17 @@ function Feed({ payload, data }) {
         <div className="left-side">
           <div className="left-side-holder">
             <div className="left-button-holder">
-              <button className='landmarks'>landmarks</button>
-              <button className='bars'>bars</button>
-              <button className='nightlife'>nightlife</button>
-              <button className='hotels'>hotels</button>
-              <button>restaurants</button>
+              <button className="landmarks" onClick={()=> landmarks()}>landmarks</button>
+
+              <button className="bars">bars</button>
+              <button className="nightlife">nightlife</button>
+              <button className="hotels">hotels</button>
+              <button className="restaurants">restaurants</button>
+              {showModal && qData && (
+                <Modal data={qData} />
+              )
+
+            }
             </div>
           </div>
           {/* <div className="venue-info">

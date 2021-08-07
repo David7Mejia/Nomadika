@@ -57,7 +57,7 @@ function Destination() {
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        {data && <Feed payload={data.response.geocode.feature.longId} data={data}/>}
+        {data && <Feed payload={data.response.geocode.feature.longId} place={place}/>}
       </div>
     </div>
   );
