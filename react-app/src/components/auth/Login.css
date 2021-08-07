@@ -85,7 +85,10 @@
 }
 
 .landing-right-lo {
+  display: flex;
   width: 50%;
+  align-content: center;
+  align-items: flex-start;
   margin-left: 5%;
   margin-right: 0%;
   margin-top: 75px;
@@ -94,4 +97,41 @@
   background-size: cover;
   background: rgb(249, 114, 109);
   background: linear-gradient(214deg, #CB409C 0%, #F9726D 100%);
+}
+
+.login-message {
+  padding-top: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Georama', sans-serif;
+  font-size: 80px;
+  width: 100%;
+  color: #fff;
+  /* padding: 10px; */
+}
+
+.small-text-login {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  font-size: 30px;
+}
+
+.small-text-login a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: 'Georama', sans-serif;
+  font-size: 20px;
+  color: #F9726D;
+  width: 10rem;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 15px;
 }
