@@ -15,7 +15,7 @@ function Feed({ payload, data }) {
   const destinationFeed = useSelector((state) => Object.values(state.destination));
   const postComments = useSelector((state) => Object.values(state.comments));
 
-
+//dsf
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
