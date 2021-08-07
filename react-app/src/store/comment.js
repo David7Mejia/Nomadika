@@ -22,15 +22,15 @@ export const deleteOneComment = (comment) => ({
 //******THUNKS******//
 
 // POST
-export const getComments = (payload) => async (dispatch) => {
-  const res = await fetch(`/api/comments/${payload}`)
+// export const getComments = (payload) => async (dispatch) => {
+//   const res = await fetch(`/api/comments/${payload}`)
 
-  if (res.ok) {
-    const comments = await res.json();
-    dispatch(getComment(comments));
-    return comments
-  }
-}
+//   if (res.ok) {
+//     const comments = await res.json();
+//     dispatch(getComment(comments));
+//     return comments
+//   }
+// }
 
 
 export const newComment = (newComment) => async (dispatch) => {
@@ -88,6 +88,7 @@ const commentReducer = (state = initialState, action) => {
         newState[cmt.id] = cmt;
       });
       return {
+        ...state,
         ...newState,
       };
     case POST_COMMENT:
@@ -99,7 +100,7 @@ const commentReducer = (state = initialState, action) => {
     case DELETE_COMMENT:
       newState = { ...state };
       delete newState[action.id];
-      return { ...newState };
+      return newState ;
     default:
       return state;
   }

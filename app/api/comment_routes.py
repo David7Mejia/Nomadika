@@ -11,7 +11,7 @@ comment_routes = Blueprint('comments', __name__)
 def get_comments():
     # req = request.get_json()
     comment = Comment.query.filter_by(feed_id=Feed.id).first()
-    return newComment.to_dict()
+    return comment.to_dict()
 
 
 @comment_routes.route('/create', methods=['POST'])

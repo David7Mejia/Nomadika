@@ -83,6 +83,7 @@ const destinationReducer = (state = initialState, action) => {
         newState[loc.id] = loc;
       });
       return {
+    
         ...newState,
       };
     case UPDATE_FEED:
