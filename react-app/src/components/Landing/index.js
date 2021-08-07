@@ -29,6 +29,7 @@ function Landing() {
               type="search"
               placeholder="Search your city"
               onChange={handleQuery}
+              required
 
             ></input>
             <Link

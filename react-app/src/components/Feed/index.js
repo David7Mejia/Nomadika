@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
@@ -6,15 +6,16 @@ import { getComments } from "../../store/comment";
 import envVars from "../../config";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
-import Modal from "./Modal"
+import Modal from "./Modal";
 import "./Feed.css";
 import axios from "axios";
 
 function Feed({ payload, place }) {
   const dispatch = useDispatch();
+  const modalRef = useRef();
   const [body, setBody] = useState("");
   const [qData, setQData] = useState("");
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
   const client_id = envVars.client_id;
   const client_secret = envVars.client_secret;
 
@@ -23,15 +24,49 @@ function Feed({ payload, place }) {
     Object.values(state.destination)
   );
   const postComments = useSelector((state) => Object.values(state.comments));
+  const modalData = qData?.response?.groups[0].items;
 
   const landmarks = async () => {
     const res = await axios(
-      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=10&near=${place}`
+      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}`
     );
     setQData(res.data);
-    setShowModal(true)
+    setShowModal(true);
     return;
   };
+  const bars = async () => {
+    const res = await axios(
+      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}&query=bars`
+    );
+    setQData(res.data);
+    setShowModal(true);
+    return;
+  };
+  const nightlife = async () => {
+    const res = await axios(
+      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}&query=nightlife`
+    );
+    setQData(res.data);
+    setShowModal(true);
+    return;
+  };
+  const hotels = async () => {
+    const res = await axios(
+      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}&query=hotels`
+    );
+    setQData(res.data);
+    setShowModal(true);
+    return;
+  };
+  const restaurants = async () => {
+    const res = await axios(
+      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}&query=restaurants`
+    );
+    setQData(res.data);
+    setShowModal(true);
+    return;
+  };
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -39,9 +74,18 @@ function Feed({ payload, place }) {
     setBody("");
   };
 
+
   useEffect(() => {
     dispatch(getDestFeed(payload));
   }, [dispatch]);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+      if (!modalRef?.current?.contains(e.target)) {
+        setShowModal(false);
+      }
+    });
+  });
 
   return (
     <div>
@@ -60,17 +104,26 @@ function Feed({ payload, place }) {
         <div className="left-side">
           <div className="left-side-holder">
             <div className="left-button-holder">
-              <button className="landmarks" onClick={()=> landmarks()}>landmarks</button>
+              <button className="landmarks" onClick={() => landmarks()}>
+                landmarks
+              </button>
 
-              <button className="bars">bars</button>
-              <button className="nightlife">nightlife</button>
-              <button className="hotels">hotels</button>
-              <button className="restaurants">restaurants</button>
-              {showModal && qData && (
-                <Modal data={qData} />
-              )
-
-            }
+              <button className="restaurants" onClick={() => restaurants()}>
+                restaurants
+              </button>
+              <button className="hotels" onClick={() => hotels()}>
+                hotels
+              </button>
+              <button className="nightlife" onClick={() => nightlife()}>
+                nightlife
+              </button>
+              <button className="bars" onClick={() => bars()}>
+                bars
+              </button>
+                {showModal && <div className="modal-container"></div>}
+              <div ref={modalRef}>
+                {showModal && qData && <Modal data={modalData}  />}
+              </div>
             </div>
           </div>
           {/* <div className="venue-info">
