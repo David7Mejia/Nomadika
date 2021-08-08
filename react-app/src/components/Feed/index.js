@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
 import { getComments } from "../../store/comment";
 import envVars from "../../config";
@@ -9,7 +10,7 @@ import Modal from "./Modal";
 import "./Feed.css";
 import axios from "axios";
 
-function Feed({ payload, place }) {
+function Feed({ payload, place, trending }) {
   const dispatch = useDispatch();
   const modalRef = useRef();
   const [body, setBody] = useState("");
@@ -24,6 +25,7 @@ function Feed({ payload, place }) {
   );
   const postComments = useSelector((state) => Object.values(state.comments));
   const modalData = qData?.response?.groups[0].items;
+
 
   const landmarks = async () => {
     const res = await axios(
@@ -68,10 +70,18 @@ function Feed({ payload, place }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!user) {
+      return <Redirect to="/" />;
+    }
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
     setBody("");
   };
 
+  const userChecks = () => {
+    if (!user) {
+     alert('Please log in to post')
+    }
+  }
 
   useEffect(() => {
     dispatch(getDestFeed(payload));
@@ -84,9 +94,11 @@ function Feed({ payload, place }) {
       }
     });
   });
-  useEffect(()=>{
-      dispatch(getComments(payload))
-  }, [dispatch])
+  useEffect(() => {
+    dispatch(getComments(payload));
+  }, [dispatch]);
+
+
 
   return (
     <div>
@@ -99,7 +111,8 @@ function Feed({ payload, place }) {
           onChange={(e) => setBody(e.target.value)}
           required
         ></input>
-        <button className="feed-button" type="submit"></button>
+        <button className="feed-button" type="submit" onClick={userChecks}>
+        </button>
       </form>
       <div className="big-container">
         <div className="left-side">
@@ -121,23 +134,13 @@ function Feed({ payload, place }) {
               <button className="bars" onClick={() => bars()}>
                 bars
               </button>
-                {showModal && <div className="modal-container"></div>}
+              {showModal && <div className="modal-container"></div>}
               <div ref={modalRef}>
-                {showModal && qData && <Modal data={modalData}  />}
+                {showModal && qData && <Modal data={modalData} />}
               </div>
             </div>
           </div>
-          {/* <div className="venue-info">
-            {data &&
-              data.response.venues.map((item, index) => (
-                <div key={index}>
-                  <div className="venue-name">{item.name}</div>
-                  <div className="venue-address">
-                    {item.location.formattedAddress}
-                  </div>
-                </div>
-              ))}
-          </div> */}
+
         </div>
         <div className="feed-holder">
           <div className="feed-qs">
@@ -147,7 +150,9 @@ function Feed({ payload, place }) {
                   <div className="feed-item">
                     <div className="feed-text">
                       <div className="post-text">{feed.body}</div>
-                      <EditPostBtn id={feed.id} payload={payload} />
+                      {user?.id === feed.user_id && (
+                        <EditPostBtn id={feed.id} payload={payload} />
+                      )}
                     </div>
                     <Comments comments={postComments} feed={feed} />
                   </div>
@@ -155,7 +160,9 @@ function Feed({ payload, place }) {
               ))}
           </div>
         </div>
-        <div className="right-side">hi</div>
+        <div className="right-side">
+          {/* <div className='right-side-holder'></div> */}
+        </div>
       </div>
     </div>
   );

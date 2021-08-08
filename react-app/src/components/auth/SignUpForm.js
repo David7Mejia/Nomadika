@@ -15,13 +15,16 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    if (password !== repeatPassword) {
+      setErrors(['Passwords do not match'])
+    } else {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
       }
     }
   };
+
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -48,7 +51,9 @@ const SignUpForm = () => {
       <div className="container-su">
         <form onSubmit={onSignUp} className="signup-form">
           {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <div key={ind}>{error}
+            {console.log(error)}
+            </div>
           ))}
           <div className="signup-please">Sign up</div>
           <div>

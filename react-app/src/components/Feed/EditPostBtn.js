@@ -44,7 +44,6 @@ function EditPostBtn({ id, payload }) {
         onClick={openMenu === true ? hideMenu : showMenu}
         className="edit-menu"
       >
-        ...
       </button>
       {openMenu && (
         <div className="edit-menu-wrapper">

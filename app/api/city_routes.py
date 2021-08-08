@@ -24,7 +24,8 @@ def post_feed(id):
 
 
 @city_routes.route('/<int:id>/location', methods=['POST'])
-def post_location(id=None):
+def post_location(id):
+
     req = request.get_json()
     loc = Location(
         api_id=req['api_id'],
@@ -32,6 +33,7 @@ def post_location(id=None):
         image_url=req['image_url'],
         description=req['description']
     )
+
     db.session.add(loc)
     db.session.commit()
     return loc.to_dict()

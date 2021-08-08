@@ -16,6 +16,9 @@
   justify-content: center;
   font-size: 10em;
   padding-top: 65px;
-  font-family: "Pirate Scripts", 'Georama', sans-serif;
-  text-shadow: 5px 5px 12px rgb(141, 145, 145), -5px -5px 12px rgb(255, 255, 255);
+  font-family: 'Lato', 'Georama', sans-serif;
+  background-color: #aab4c8;
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(243, 243, 243, 0.5);
+  background-clip: text;
 }

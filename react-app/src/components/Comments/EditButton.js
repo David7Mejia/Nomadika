@@ -16,7 +16,7 @@ function EditButton({ comment, feed }) {
   };
 
   return (
-      <div>
+      <div className='comment-edit-button'>
         <button
           className="cmt-edit-button"
           onClick={editComment === true ? hideEdit : showEdit}

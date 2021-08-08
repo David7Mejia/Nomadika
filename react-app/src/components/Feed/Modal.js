@@ -6,6 +6,7 @@ function Modal({ data }) {
   console.log(data)
   return (
     <div className='venue-holder'>
+      <div className='modal-venues'> VENUES </div>
       {data &&
         <div className='venues'>
                 {data?.map(venue => {

@@ -6,10 +6,12 @@ import EditButton from './EditButton'
 import DeleteButton from './DeleteButton'
 import { getDestFeed } from "../../store/destination";
 import { deleteComment } from "../../store/comment";
-import {getComments} from '../../store/comment'
+import { getComments } from '../../store/comment'
+
 function Comments({ feed }) {
   const dispatch = useDispatch()
   const comments = useSelector(state => Object.values(state.comments))
+  const user = useSelector((state) => state.session)?.user;
 
 
 
@@ -29,13 +31,15 @@ const deleteHandler = async(id) => {
                     <div className="layout-comment-buttons">
                       {comment.comment}
                     </div>
-                    <div className="button-holder">
+                    {user?.id === comment.user_id && (
+                      <div className="button-holder">
                       <EditButton comment={comment} feed={feed} />
                       <button
                         className="cmt-delete-button"
                         onClick={() => deleteHandler(comment.id)}
-                      ></button>
+                        ></button>
                     </div>
+                        )}
                   </>
                 )}
               </div>
