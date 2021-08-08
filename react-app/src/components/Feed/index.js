@@ -146,7 +146,7 @@ function Feed({ payload, place, trending }) {
           <div className="feed-qs">
             {destinationFeed &&
               destinationFeed.map((feed) => (
-                <div className="post-container">
+                <div className="post-container"key={feed.id}>
                   <div className="feed-item">
                     <div className="feed-text">
                       <div className="post-text">{feed.body}</div>
