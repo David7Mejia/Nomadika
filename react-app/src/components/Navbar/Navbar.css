@@ -56,7 +56,11 @@ button {
 }
 
 #demo-button {
-  /* background-color: blue; */
+  font-family: 'Georama', sans-serif;
+}
+
+#demo-button:hover {
+  cursor: pointer;
 }
 
 .login-button {
@@ -101,11 +105,13 @@ button {
 }
 
 .site-home {
-  font-family: "Pirate Scripts", 'Georama', sans-serif;
-
+  /* font-family: "Pirate Scripts", 'Bungee Hairline', 'Georama', sans-serif; */
+  font-family:  'Lato', 'Georama', sans-serif;
+  /* font-family: 'Lato', 'Bungee Hairline', 'Georama', sans-serif; */
+  font-weight: 800;
   font-size: 45px;
   text-decoration: none;
-  width: 230px;
+  width: 300px;
   margin-left: 30px;
   /* color: black; */
   background-color: #aab4c8;

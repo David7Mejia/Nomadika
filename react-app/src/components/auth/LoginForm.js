@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/session";
@@ -36,19 +37,20 @@ const LoginForm = () => {
     <div className="login-container">
       <div className="container-lo">
         <form onSubmit={onLogin} className="login-form">
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          <div className='login-please'>
-          Login to continue
-          </div>
+          {errors.map((error, ind) => (
+            <div key={ind}>
+              {error}
+              {console.log(error)}
+            </div>
+          ))}
+          <div className="login-please">Login to continue</div>
           <div>
             <label htmlFor="email"></label>
             <input
               name="email"
               type="text"
               placeholder="Email"
-              className='email-input-lo'
+              className="email-input-lo"
               value={email}
               onChange={updateEmail}
             />
@@ -58,16 +60,26 @@ const LoginForm = () => {
             <input
               name="password"
               type="password"
-              className='password-input-lo'
+              className="password-input-lo"
               placeholder="Password"
               value={password}
               onChange={updatePassword}
             />
           </div>
-            <button type="submit" className='login-btn'>Login</button>
+          <button type="submit" className="login-btn">
+            Login
+          </button>
         </form>
       </div>
-      <div className="landing-right">hello</div>
+      <div className="landing-right-lo">
+        <div className="login-message">
+          <div className="login-welcome">Welcome back!</div>
+          <div className="small-text-login">
+            Don't have an account?
+            <Link to="sign-up">Sign Up!</Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

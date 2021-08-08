@@ -2,11 +2,7 @@
   width: 500px;
   height: 50px;
   font-size: 18px;
-  background: linear-gradient(
-    90deg,
-    rgb(29, 127, 255) 2%,
-    rgb(42, 199, 191) 31%
-  );
+  background: linear-gradient( 90deg, rgb(29, 127, 255) 2%, rgb(42, 199, 191) 31%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   outline: 0;
@@ -42,11 +38,7 @@
   border-right: 2px solid aab4c8;
   box-shadow: 2px 2px 5px #aab4c8, -2px -2px 5px rgb(247, 247, 247);
   background: rgb(247, 246, 251);
-  background: linear-gradient(
-    160deg,
-    #f7fafdf1 33%,
-    rgba(242, 242, 253, 0.3) 67%
-  );
+  background: linear-gradient( 160deg, #f7fafdf1 33%, rgba(242, 242, 253, 0.3) 67%);
 }
 
 .feed-container {
@@ -55,7 +47,6 @@
 }
 
 .feed-qs {
- 
   width: 500px;
   height: 300px;
 }
@@ -69,7 +60,7 @@
   justify-content: center;
   height: 60%;
   overflow-y: scroll;
-  box-shadow: inset 2px 2px 5px #aab4c8, inset -2px -2px 5px #fff;
+  box-shadow: inset 2px 2px 5px #aab4c8, inset -3px -3px 15px #fff;
   border-radius: 8px;
 }
 
@@ -79,10 +70,24 @@
   height: 1000px;
 }
 
-.left-side,
-.right-side {
+.left-side, .right-side {
   margin-top: 30px;
   width: 87%;
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+}
+
+.right-side-holder {
+  margin-left: 50px;
+  margin-right: 20px;
+  width: 70%;
+  height: 50%;
+  border-radius: 15px;
+  padding: 5px;
+  box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
 }
 
 .left-side {
@@ -123,7 +128,14 @@
 }
 
 .edit-menu {
+  height: 30px;
+  width: 30px;
   margin-right: 20px;
+  background-image: url('../images/ellipsis.svg');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
 }
 
 .edit-menu-div {
@@ -168,20 +180,71 @@
   /* z-index: 3; */
 }
 
-.real-edit-button,
-.real-delete-button {
+.real-edit-button, .real-delete-button {
   width: 60px;
   align-items: flex-end;
 }
 
 .real-delete-button {
   width: 60px;
+  background-color: transparent;
+  color: #313131;
+  transition-duration: 0.3s;
+  text-decoration: none;
+  border: 0;
+  border-radius: 5px;
+}
+
+.real-delete-button:hover {
+  background-color: #ce2323;
+  color: white;
+}
+
+.real-edit-button {
+  background-color: transparent;
+  color: #313131;
+  transition-duration: 0.3s;
+  text-decoration: none;
+  border: 0;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+.real-edit-button:hover {
+  background-color: #23c3ce;
+  color: white;
 }
 
 .upload-form {
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   z-index: 4;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  /* z-index: 5; */
+  align-items: center;
+  background: rgba(255, 255, 255, 0.753);
+  box-shadow: 0 8px 32px 0 rgba(97, 146, 153, 0.37);
+  backdrop-filter: blur(0.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.upload-btn {
+  background-color: transparent;
+  color: #313131;
+  transition-duration: 0.3s;
+  text-decoration: none;
+  border: 0;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+.upload-btn:hover {
+  background-color: #23c3ce;
+  color: white;
 }
 
 .left-side-holder {
@@ -211,14 +274,11 @@
   text-decoration: none;
   font-size: 20px;
   font-weight: 400;
-  font-family: Georama;
+  font-family: 'Georama', sans-serif;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: #dfe5ec;
   background-repeat: no-repeat;
   background-position: center;
@@ -230,16 +290,26 @@
 }
 
 .left-button-holder button:hover {
+  cursor: pointer;
+}
+
+.left-button-holder button:hover {
   box-shadow: inset 2px 2px 5px #aab4c8, inset -3px -3px 7px #fff;
   background-color: #dfe5ec;
 }
 
-/* .rasied-buttons{ */
-  /* display: flex;
-  align-items: center;
-  justify-self: center;
+.check-user {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+
+.modal-venues {
   text-align: center;
-  transition-duration: 2s
-} */
-
-
+  font-size: 50px;
+  font-family: 'Lato', 'Georama', sans-serif;
+  background-color: #aab4c8;
+  color: transparent;
+  text-shadow: 2px 2px 3px rgba(243, 243, 243, 0.5);
+  background-clip: text;
+}

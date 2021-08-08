@@ -1,28 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import React, {  useState } from "react";
+import {  useDispatch, useSelector } from "react-redux";
 import { newComment } from "../../store/comment";
-import { getDestFeed } from "../../store/destination";
 
 import "./PostComment.css";
 
 function PostComment({ feed }) {
   const [comment, setComment] = useState("");
-  const history = useHistory();
   const dispatch = useDispatch();
-  const { ids } = useParams();
+  const user = useSelector((state) => state.session)?.user;
 
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(
       newComment({
+        loc_id: feed.loc_id,
         comment: comment,
         feed_id: feed.id,
       })
     );
     setComment("");
   };
-
+const userChecks = () => {
+  if (!user) {
+    alert("Please log in to comment");
+  }
+};
   return (
     <form className="comment-form" onSubmit={onSubmit}>
       <input
@@ -33,7 +35,7 @@ function PostComment({ feed }) {
         className="input-stretch"
         required
       ></input>
-      <button className="stretch-btn" type="submit">
+      <button className="stretch-btn" type="submit" onClick={userChecks}>
       </button>
     </form>
   );

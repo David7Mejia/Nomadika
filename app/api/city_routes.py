@@ -24,18 +24,29 @@ def post_feed(id):
 
 
 @city_routes.route('/<int:id>/location', methods=['POST'])
-def post_location(id=None):
-    req = request.get_json()
-    loc = Location(
-        api_id=req['api_id'],
-        name=req['name'],
-        image_url=req['image_url'],
-        description=req['description']
-    )
-    db.session.add(loc)
-    db.session.commit()
-    return loc.to_dict()
+def post_location(id):
 
+    exist = Location.query.filter_by(api_id=str(id)).first()
+
+    if exist:
+        return exist.to_dict()
+    else:
+        req = request.get_json()
+        loc = Location(
+            api_id=req['api_id'],
+            name=req['name'],
+            image_url=req['image_url'],
+            description=req['description']
+        )
+
+        db.session.add(loc)
+        db.session.commit()
+        return loc.to_dict()
+
+
+# @city_routes.errorhandler(500)
+# def internal_error(error):
+#     return "500 error"
 
 @city_routes.route('/<int:id>/<desc>', methods=['PUT'])
 def put_feed(id, desc):

@@ -1,0 +1,41 @@
+.modal-container {
+    background: rgba( 255, 255, 255, 0.25);
+    position: fixed;
+    backdrop-filter: blur( 11.5px);
+    /* top: 80px; */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+}
+
+.venue-holder {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 500px;
+    overflow-y: scroll;
+    background-color: #dfe5ec;
+    position: fixed;
+    top: 50%;
+    transform: translate(-49%, -49%);
+    left: 50%;
+    z-index: 5;
+    box-shadow: 4px 4px 10px #aab4c8, -4px -4px 10px #fff;
+    background: linear-gradient(145deg, #ecf0f5, #dfe5ec);
+}
+
+.venue {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+    height: 50px;
+    margin: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
+}

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useDispatch } from "react-redux";
 import { editComment } from "../../store/comment";
 import { getDestFeed } from "../../store/destination";
-
+import './Comments.css'
 function EditComment({ comment, feed }) {
   const [newComment, setNewComment] = useState("");
   const dispatch = useDispatch();
@@ -14,22 +14,16 @@ function EditComment({ comment, feed }) {
     setNewComment("");
   };
 
-  // useEffect(() => {
-  //   dispatch(editComment(comment.id, newComment));
-  //   dispatch(getDestFeed(feed.loc_id));
-  // }, [dispatch]);
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className='edit-comment-form'>
         <input
           placeholder="Edit Comment"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
-        <button type="submit">Post</button>
+        <button type="submit" className='upload-btn'>Post</button>
       </form>
-    </div>
   );
 }
 

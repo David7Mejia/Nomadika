@@ -1,13 +1,13 @@
-import { DEST_FEED as GET_COMMENTS } from './destination'
+// import { DEST_FEED as GET_COMMENTS } from './destination'
 const POST_COMMENT = "comment/POST_COMMENT";
 const DELETE_COMMENT = "comment/DELETE_COMMENT";
-// const GET_COMMENTS = "comment/GET_COMMENTS";
+const GET_COMMENTS = "comment/GET_COMMENTS";
 
 //******ACTIONS******//
 export const getComment = (comment) => ({
   type: GET_COMMENTS,
-  comment
-})
+  comment,
+});
 
 export const postComment = (comment) => ({
   type: POST_COMMENT,
@@ -23,15 +23,14 @@ export const deleteOneComment = (comment) => ({
 
 // POST
 export const getComments = (payload) => async (dispatch) => {
-  const res = await fetch(`/api/comments/${payload}`)
+  const res = await fetch(`/api/comments/${payload}`);
 
   if (res.ok) {
     const comments = await res.json();
     dispatch(getComment(comments));
-    return comments
+    return comments;
   }
-}
-
+};
 
 export const newComment = (newComment) => async (dispatch) => {
   const res = await fetch(`/api/comments/create`, {
@@ -75,16 +74,15 @@ export const editComment = (id, comment) => async (dispatch) => {
   }
 };
 
-
 //******REDUCER******//
 
-const initialState = { comment: "" };
+const initialState = {};
 
 const commentReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case GET_COMMENTS:
-       action?.payload?.feeds[0]?.comments.forEach((cmt) => {
+      action?.comment?.allComments.forEach((cmt) => {
         newState[cmt.id] = cmt;
       });
       return {
@@ -99,7 +97,8 @@ const commentReducer = (state = initialState, action) => {
     case DELETE_COMMENT:
       newState = { ...state };
       delete newState[action.id];
-      return { ...newState };
+      return newState;
+    // return newState
     default:
       return state;
   }

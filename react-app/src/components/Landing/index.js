@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
+import React, {  useState } from "react";
+import { Link } from "react-router-dom";
 import "./Landing.css";
 
 function Landing() {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const loggedIn = useSelector((state) => state.session).user;
   const [place, setPlace] = useState(null);
 
   const handleQuery = (e) => {
-    setPlace(e.target.value);
+      setPlace(e.target.value);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
   };
-
 
   return (
     <div className="background-img">
@@ -29,21 +24,29 @@ function Landing() {
               type="search"
               placeholder="Search your city"
               onChange={handleQuery}
-
+              required
+              id="city-input-search"
             ></input>
-            <Link
-              to={{
-                pathname: `/cities/${place}`,
-                state: { place: place },
-              }}
-            >
-              <div className="nav-search-submit"></div>
-            </Link>
+            {place && (
+              <Link
+                to={{
+                  pathname: `/cities/${place}`,
+                  state: { place: place },
+                }}
+                id="city-link"
+              >
+                <div className="nav-search-submit"></div>
+              </Link>
+            )}
           </form>
         </label>
       </div>
-      <div className='landing-right'>
-        <div className='landing-greeting'>
+      <div className="landing-right">
+        <div className="landing-message">
+          Hey there!
+          <div className="small-text-login">
+            Search cities and get venue information.
+          </div>
         </div>
       </div>
     </div>

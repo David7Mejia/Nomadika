@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import EditPost from "../EditPost";
 import { deleteDestPost, getDestFeed } from "../../store/destination";
@@ -44,7 +44,6 @@ function EditPostBtn({ id, payload }) {
         onClick={openMenu === true ? hideMenu : showMenu}
         className="edit-menu"
       >
-        ...
       </button>
       {openMenu && (
         <div className="edit-menu-wrapper">

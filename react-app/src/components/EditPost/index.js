@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router";
-import { updateDestFeed, getDestFeed } from "../../store/destination";
+import { updateDestFeed } from "../../store/destination";
 
 function EditPost({ id, payload }) {
   const dispatch = useDispatch();
@@ -10,17 +9,13 @@ function EditPost({ id, payload }) {
   const onSubmit = (e) => {
     e.preventDefault();
       dispatch(updateDestFeed(id, postText));
-      // dispatch(getDestFeed(payload));
   };
 
 
   return (
     <div className="wrapper-upload">
       <form onSubmit={onSubmit} className="upload-form">
-        {/* <label className='upload-img-txt'>
-                Edit Your Post
 
-            </label> */}
         <label>
           <textarea
             className="txt-area"

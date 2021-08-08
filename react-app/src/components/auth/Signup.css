@@ -1,0 +1,115 @@
+.signup-form {
+    display: flex;
+    position: sticky;
+    left: 14.6%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 300px;
+    height: 350px;
+    margin-right: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    background: linear-gradient(145deg, #ecf0f5, #dfe5ec);
+    box-shadow: 6px 6px 10px #cad0dd
+}
+
+.container-su {
+    display: flex;
+    align-items: center;
+    padding-top: 10%;
+    padding-left: 5%;
+    width: 50%;
+}
+
+.su-input {
+    font-size: 15px;
+    height: 30px;
+    width: 200px;
+    box-shadow: 2px 2px 10px #cad0dd, -2px -2px 10px rgb(248, 248, 248);
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    background-clip: text;
+}
+
+.su-input:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 5px #aab4c8, inset -2px -2px 5px #fff;
+}
+
+.signup-please {
+    display: flex;
+    justify-content: space-around;
+    width: 14rem;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 30px;
+    background-color: #49DEB2;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(243, 243, 243, 0.5);
+    background-clip: text;
+}
+
+.su-form-button {
+    font-family: 'Georama', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    width: 13rem;
+    height: 40px;
+    background-color: #49DEB2;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px #49DEB2, -6px -6px 12px rgb(248, 248, 248);
+}
+
+.su-form-button:hover {
+    box-shadow: inset 2px 2px 5px #59ceb5, inset -3px -3px 7px #9bffe6;
+    cursor: pointer;
+}
+
+.landing-right-su {
+    display: flex;
+    width: 50%;
+    align-content: center;
+    align-items: flex-start;
+    margin-left: 5%;
+    margin-right: 0%;
+    margin-top: 75px;
+    left: 0px;
+    border: 0;
+    background-size: cover;
+    background: #49DEB2;
+    background: linear-gradient(214deg, #49DEB2 0%, #FFE720 100%);
+    /* linear-gradient(140degree ,#49DEB2, #FFE720 ) */
+}
+
+.signup-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.small-text-signup {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+.small-text-signup a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: 'Georama', sans-serif;
+    font-size: 20px;
+    color: #49DEB2;
+    width: 10rem;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 15px;
+}
