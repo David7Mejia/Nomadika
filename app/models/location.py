@@ -18,8 +18,9 @@ class Location(db.Model):
     image_url = db.Column(db.String(1000))
     description = db.Column(db.String(1000))
 
-    feed = db.relationship('Feed', cascade="all, delete-orphan", back_populates='location' )
-    reviews = db.relationship('Review', cascade="all, delete-orphan", back_populates='location')
+    comment = db.relationship('Comment', back_populates='location')
+    feed = db.relationship('Feed', cascade="all, delete-orphan", back_populates='location')  # noqa
+    reviews = db.relationship('Review', cascade="all, delete-orphan", back_populates='location')  # noqa
     users = db.relationship('User', secondary='traveled', back_populates='traveled')  # noqa
 
     def to_dict(self):
@@ -29,5 +30,5 @@ class Location(db.Model):
             'description': self.description,
             'users': self.users,
             'feeds': [f.to_dict() for f in self.feed],
-
+            'comments': [c.to_dict() for c in self.comment]
         }

@@ -7,10 +7,15 @@ import "./Comments.css";
 function DeleteButton({ feed, comment }) {
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  // }, [dispatch, feed.loc_id]);
+
   const deleteHandler = (id) => {
     dispatch(deleteComment(id));
     dispatch(getDestFeed(feed.loc_id));
   };
+
+  useEffect(() => {}, []);
   return (
     <div>
       <button

@@ -6,12 +6,14 @@ from flask_login import current_user, login_required
 comment_routes = Blueprint('comments', __name__)
 
 
-@comment_routes.route('/<int:id>',)
+@comment_routes.route('/<int:id>')
 @login_required
-def get_comments():
-    # req = request.get_json()
-    comment = Comment.query.filter_by(feed_id=Feed.id).first()
-    return comment.to_dict()
+def get_comments(id):
+    comment = Comment.query.filter_by(loc_id=str(id)).all()
+    return {
+
+        'allComments': [c.to_dict() for c in comment]
+        }
 
 
 @comment_routes.route('/create', methods=['POST'])
@@ -20,6 +22,7 @@ def index():
     req = request.get_json()
     newComment = Comment(
         user_id=current_user.id,
+        loc_id=req['loc_id'],
         feed_id=req['feed_id'],
         comment=req['comment']
     )

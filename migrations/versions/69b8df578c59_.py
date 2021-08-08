@@ -79,11 +79,14 @@ def upgrade():
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('user_id', sa.Integer(), nullable=True),
                     sa.Column('feed_id', sa.Integer(), nullable=True),
+                    sa.Column('loc_id', sa.String(length=100), nullable=True),
                     sa.Column('comment', sa.String(length=300), nullable=True),
                     sa.Column('created_at', sa.DateTime(), nullable=True),
                     sa.Column('updated_at', sa.DateTime(), nullable=True),
                     sa.ForeignKeyConstraint(['feed_id'], ['feeds.id'], ),
                     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+                    sa.ForeignKeyConstraint(
+                        ['loc_id'], ['locations.api_id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
     # ### end Alembic commands ###

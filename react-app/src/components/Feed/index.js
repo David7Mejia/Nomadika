@@ -15,7 +15,6 @@ function Feed({ payload, data }) {
   const destinationFeed = useSelector((state) => Object.values(state.destination));
   const postComments = useSelector((state) => Object.values(state.comments));
 
-
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
@@ -25,6 +24,10 @@ function Feed({ payload, data }) {
   useEffect(() => {
     dispatch(getDestFeed(payload));
   }, [dispatch]);
+
+  useEffect(()=>{
+      dispatch(getComments(payload))
+  }, [dispatch])
 
   return (
     <div>
