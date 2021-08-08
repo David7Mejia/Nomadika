@@ -25,26 +25,29 @@ function Landing() {
               placeholder="Search your city"
               onChange={handleQuery}
               required
-              id='city-input-search'
+              id="city-input-search"
             ></input>
-            {place &&
-            <Link
-
-            to={{
-              pathname: `/cities/${place}`,
-              state: { place: place },
-            }}
-            id="city-link"
-            >
-              <div className="nav-search-submit"></div>
-
-            </Link>
-            }
+            {place && (
+              <Link
+                to={{
+                  pathname: `/cities/${place}`,
+                  state: { place: place },
+                }}
+                id="city-link"
+              >
+                <div className="nav-search-submit"></div>
+              </Link>
+            )}
           </form>
         </label>
       </div>
       <div className="landing-right">
-        <div className="landing-greeting"></div>
+        <div className="landing-message">
+          Hey there!
+          <div className="small-text-login">
+            Search cities and get venue information.
+          </div>
+        </div>
       </div>
     </div>
   );

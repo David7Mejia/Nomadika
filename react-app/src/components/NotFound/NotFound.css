@@ -1,0 +1,18 @@
+.notfound {
+    display: flex;
+    justify-content: center;
+    font-size: 450px;
+    margin-top: 30px;
+    background-color: #aab4c8;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(243, 243, 243, 0.5);
+    background-clip: text;
+}
+
+.notfound-message{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    flex-direction: column;
+    align-items: center;
+}

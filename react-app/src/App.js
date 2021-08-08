@@ -10,6 +10,7 @@ import User from "./components/User";
 import Landing from "./components/Landing";
 import Destination from "./components/Destination";
 import { authenticate } from "./store/session";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,7 @@ function App() {
         <Route path="/cities/:destId">
           <Destination />
         </Route>
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
