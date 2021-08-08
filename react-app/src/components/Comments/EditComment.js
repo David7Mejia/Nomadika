@@ -22,7 +22,7 @@ function EditComment({ comment, feed }) {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
-        <button type="submit">Post</button>
+        <button type="submit" className='upload-btn'>Post</button>
       </form>
   );
 }
