@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import PostComment from '../PostComment'
 import "./Comments.css";
 import EditButton from './EditButton'
-import DeleteButton from './DeleteButton'
-import { getDestFeed } from "../../store/destination";
+// import DeleteButton from './DeleteButton'
+// import { getDestFeed } from "../../store/destination";
 import { deleteComment } from "../../store/comment";
 import { getComments } from '../../store/comment'
 
