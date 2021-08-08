@@ -12,6 +12,7 @@ function PostComment({ feed }) {
     e.preventDefault();
     dispatch(
       newComment({
+        loc_id: feed.loc_id,
         comment: comment,
         feed_id: feed.id,
       })

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDestFeed, postDestFeed } from "../../store/destination";
+import { getComments } from "../../store/comment";
 import envVars from "../../config";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
@@ -65,7 +66,6 @@ function Feed({ payload, place }) {
     return;
   };
 
-
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(postDestFeed({ loc_id: payload, body, user_id: user.id }));
@@ -84,6 +84,9 @@ function Feed({ payload, place }) {
       }
     });
   });
+  useEffect(()=>{
+      dispatch(getComments(payload))
+  }, [dispatch])
 
   return (
     <div>
