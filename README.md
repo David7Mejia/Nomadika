@@ -6,12 +6,18 @@
    
 # Design 
    Nomadika was inspired by the current styling trends, specifically Neumorphism and Glassmorphism.
+   ![image](https://github.com/David7Mejia/Nomadika/blob/master/Landing.PNG)
 
 # Components 
 ## Login
-
+ ![image](https://github.com/David7Mejia/Nomadika/blob/master/Login.PNG)
 ## Signup
-
-## Venues Modal 
-
+ ![image](https://github.com/David7Mejia/Nomadika/blob/master/Signup.PNG)
+ 
 ## Posts/Comments
+   Users can post to the cities feed and comment on other's posts once authenticated 
+ ![image](https://github.com/David7Mejia/Nomadika/blob/master/Location.PNG)
+ 
+## Venues Modal 
+   Users can see venues from 5 popular queries like landmarks, restaurants, hotels, bars, and nightlife.
+ ![image](https://github.com/David7Mejia/Nomadika/blob/master/Venues.PNG)
