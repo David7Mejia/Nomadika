@@ -15,7 +15,8 @@
  ![image](https://github.com/David7Mejia/Nomadika/blob/master/Signup.PNG)
  
 ## Posts/Comments
-   Users can post to the cities feed and comment on other's posts once authenticated 
+   Users can post to the cities feed and comment on other's posts once authenticated.
+   Users can choose to edit and delete said comments and posts.
  ![image](https://github.com/David7Mejia/Nomadika/blob/master/Location.PNG)
  
 ## Venues Modal 
