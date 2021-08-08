@@ -3,7 +3,10 @@ import {  useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Feed from "../Feed";
 import axios from "axios";
-import envVars from "../../config";
+// import envVars from "../../config";
+import {client_id} from "../../config/";
+import { client_secret } from "../../config/";
+
 import { postLocation } from "../../store/location";
 import { getDestFeed } from "../../store/destination";
 import "./Destination.css";
@@ -13,8 +16,8 @@ function Destination() {
   const [data, setData] = useState(null);
   const [trending, setTrending] = useState(null);
   const { place } = location.state || {};
-  const client_id = envVars.client_id;
-  const client_secret = envVars.client_secret;
+  // const client_id = envVars.client_id;
+  // const client_secret = envVars.client_secret;
   const payload = data?.response.geocode.feature.longId;
   const dispatch = useDispatch();
 
