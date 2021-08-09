@@ -9,6 +9,7 @@ import { client_secret } from "../../config/";
 
 import { postLocation } from "../../store/location";
 import { getDestFeed } from "../../store/destination";
+import { getDestExternal } from "../../store/destination";
 import "./Destination.css";
 
 function Destination() {
@@ -20,23 +21,27 @@ function Destination() {
   const dispatch = useDispatch();
 
   // useEffect(() => {
-    const axData = async () => {
-      const res = await axios(
-        `https://api.foursquare.com/v2/venues/search?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=10&near=${place}`
-      );
-      setData(res.data);
-    };
-    axData();
-  }, []);
+  //   const axData = async () => {
+  //     const res = await axios(
+  //       `https://api.foursquare.com/v2/venues/search?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=10&near=${place}`
+  //     );
+  //     setData(res.data);
+  //   };
+  //   axData();
+  // }, []);
 //REFACTOR EXTERNAL API
 //---------------------------
   useEffect(() => {
-    async function fetchData() {
-      const res = await fetch("/api/cities/destinfo");
-      const responseData = await res.json();
-      setData(responseData.users);
-    }
-    fetchData();
+    // async function fetchData() {
+    //   const res = await fetch("/api/cities/destinfo");
+    //   const responseData = await res.json();
+    //   setData(responseData.users);
+    // }
+    // fetchData();
+    dispatch(getDestExternal({
+      near: place,
+      
+    }));
   }, []);
 //-------------------------------
   useEffect(() => {

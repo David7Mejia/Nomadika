@@ -15,7 +15,7 @@ def get_dest_feeds(id):
 url1 = 'https://api.foursquare.com/v2/venues/search'
 
 
-@city_routes.route('/destinfo')
+@city_routes.route('/destinfo', methods=['POST', 'GET'])
 def get_info():
     req = request.get_json()
     params = dict(
@@ -24,10 +24,11 @@ def get_info():
         v='20180323',
         near=req['near'],
         query=req['query'],
-        limit=20
+        limit=10
     )
     resp = request.get(url=url1, params=params)
     data = json.loads(resp.text)
+    return jsonify(data)
 
 
 @city_routes.route('/<int:id>', methods=['POST'])

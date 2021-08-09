@@ -27,7 +27,8 @@ export const deleteFeed = (payload) => ({
 
 //**********THUNKS**********//
 export const getDestExternal = (payload) => async (dispatch) => {
-  const response = await fetch(`/api/destination/external`, {
+  console.log('THIS IS PAYLOAD', payload)
+  const response = await fetch(`/api/cities/destinfo`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
