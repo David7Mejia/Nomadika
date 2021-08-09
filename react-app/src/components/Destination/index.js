@@ -25,7 +25,7 @@ function Destination() {
   useEffect(() => {
     const axData = async () => {
       const res = await axios(
-        `https://api.foursquare.com/v2/venues/search?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=10&near=${place}`
+        `https://api.foursquare.com/v2/venues/search?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=10&near=${place}`
       );
       setData(res.data);
     };

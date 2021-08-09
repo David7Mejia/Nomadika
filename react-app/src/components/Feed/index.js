@@ -30,7 +30,7 @@ function Feed({ payload, place, trending }) {
 
   const landmarks = async () => {
     const res = await axios(
-      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}`
+      `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}`
     );
     setQData(res.data);
     setShowModal(true);
@@ -38,7 +38,7 @@ function Feed({ payload, place, trending }) {
   };
   const bars = async () => {
     const res = await axios(
-      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}&query=bars`
+      `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=bars`
     );
     setQData(res.data);
     setShowModal(true);
@@ -46,7 +46,7 @@ function Feed({ payload, place, trending }) {
   };
   const nightlife = async () => {
     const res = await axios(
-      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}&query=nightlife`
+      `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=nightlife`
     );
     setQData(res.data);
     setShowModal(true);
@@ -54,7 +54,7 @@ function Feed({ payload, place, trending }) {
   };
   const hotels = async () => {
     const res = await axios(
-      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}&query=hotels`
+      `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=hotels`
     );
     setQData(res.data);
     setShowModal(true);
@@ -62,7 +62,7 @@ function Feed({ payload, place, trending }) {
   };
   const restaurants = async () => {
     const res = await axios(
-      `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}&query=restaurants`
+      `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=restaurants`
     );
     setQData(res.data);
     setShowModal(true);
