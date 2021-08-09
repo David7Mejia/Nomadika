@@ -3,13 +3,14 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-traveled = db.Table(
-    'traveled',
-    db.Model.metadata,
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
-              primary_key=True),
-    db.Column('location_id', db.String(100), db.ForeignKey('locations.api_id'),
-              primary_key=True))
+
+# traveled = db.Table(
+#     'traveled',
+#     db.Model.metadata,
+#     db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
+#               primary_key=True),
+#     db.Column('location_id', db.String(100), db.ForeignKey('locations.api_id'),
+#               primary_key=True))
 
 
 class User(db.Model, UserMixin):
@@ -26,7 +27,7 @@ class User(db.Model, UserMixin):
 
     reviews = db.relationship('Review', back_populates='users')
     comments = db.relationship('Comment', back_populates='users')
-    traveled = db.relationship('Location', secondary=traveled, back_populates='users')  # noqa
+    # locations = db.relationship('Location',  back_populates='users')  # noqa
     feeds = db.relationship('Feed', back_populates='user')
 
     @property
@@ -45,6 +46,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'traveled': [t.id for t in self.traveled],
+            # 'traveled': [t.id for t in self.traveled],
 
         }

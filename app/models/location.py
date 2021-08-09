@@ -21,14 +21,14 @@ class Location(db.Model):
     comment = db.relationship('Comment', back_populates='location')
     feed = db.relationship('Feed', cascade="all, delete-orphan", back_populates='location')  # noqa
     reviews = db.relationship('Review', cascade="all, delete-orphan", back_populates='location')  # noqa
-    users = db.relationship('User', secondary='traveled', back_populates='traveled')  # noqa
+    # users = db.relationship('User',  back_populates='locations')  # noqa
 
     def to_dict(self):
         return {
             'id': self.id,
             'image_url': self.image_url,
             'description': self.description,
-            'users': self.users,
+            # 'users': self.users,
             'feeds': [f.to_dict() for f in self.feed],
             'comments': [c.to_dict() for c in self.comment]
         }
