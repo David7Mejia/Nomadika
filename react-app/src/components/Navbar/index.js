@@ -9,9 +9,10 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
-  const demoHandler =  (e) => {
+  const demoHandler =  async(e) => {
     e.preventDefault();
     dispatch(login("demo@aa.io", "password"));
+    return
   };
 
   let navLinks;
