@@ -16,12 +16,10 @@ function Destination() {
   const [data, setData] = useState(null);
   const [trending, setTrending] = useState(null);
   const { place } = location.state || {};
-  // const client_id = envVars.client_id;
-  // const client_secret = envVars.client_secret;
   const payload = data?.response.geocode.feature.longId;
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  // useEffect(() => {
     const axData = async () => {
       const res = await axios(
         `https://api.foursquare.com/v2/venues/search?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=10&near=${place}`
@@ -30,7 +28,17 @@ function Destination() {
     };
     axData();
   }, []);
-
+//REFACTOR EXTERNAL API
+//---------------------------
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("/api/cities/destinfo");
+      const responseData = await res.json();
+      setData(responseData.users);
+    }
+    fetchData();
+  }, []);
+//-------------------------------
   useEffect(() => {
     const axData = async () => {
       const res = await axios(

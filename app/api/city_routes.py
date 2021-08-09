@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from app.models import db, Feed, Review, Comment, Location
-# import json
-# import requests
+import json
+import request
 
 city_routes = Blueprint('cities', __name__)
 
@@ -10,6 +10,24 @@ city_routes = Blueprint('cities', __name__)
 def get_dest_feeds(id):
     feed = Location.query.filter_by(api_id=str(id)).first()
     return feed.to_dict()
+
+
+url1 = 'https://api.foursquare.com/v2/venues/search'
+
+
+@city_routes.route('/destinfo')
+def get_info():
+    req = request.get_json()
+    params = dict(
+        client_id='CLIENT_ID',
+        client_secret='CLIENT_SECRET',
+        v='20180323',
+        near=req['near'],
+        query=req['query'],
+        limit=20
+    )
+    resp = request.get(url=url1, params=params)
+    data = json.loads(resp.text)
 
 
 @city_routes.route('/<int:id>', methods=['POST'])
@@ -65,16 +83,3 @@ def delete_feed(id):
     db.session.commit()
     return {'message': 'Post was deleted successfully'}
 
-
-# url = 'https://api.foursquare.com/v2/venues/search'
-
-# params = dict(
-#     client_id='CLIENT_ID',
-#     client_secret='CLIENT_SECRET',
-#     v='20180323',
-#     ll='40.7243,-74.0018',
-#     query='coffee',
-#     limit=1
-# )
-# resp = requests.get(url=url, params=params)
-# data = json.loads(resp.text)
