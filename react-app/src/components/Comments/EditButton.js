@@ -1,4 +1,5 @@
-import React, {  useState } from "react";
+/* eslint-disable */
+import React, { useState } from "react";
 
 import "./Comments.css";
 import EditComment from "./EditComment";
@@ -16,14 +17,13 @@ function EditButton({ comment, feed }) {
   };
 
   return (
-      <div className='comment-edit-button'>
-        <button
-          className="cmt-edit-button"
-          onClick={editComment === true ? hideEdit : showEdit}
-        >
-        </button>
-        {editComment && <EditComment comment={comment} feed={feed}/>}
-      </div>
+    <div className="comment-edit-button">
+      <button
+        className="cmt-edit-button"
+        onClick={editComment === true ? hideEdit : showEdit}
+      ></button>
+      {editComment && <EditComment comment={comment} feed={feed} />}
+    </div>
   );
 }
 

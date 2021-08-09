@@ -1,5 +1,6 @@
-import React, {  useState } from "react";
-import {  useDispatch, useSelector } from "react-redux";
+/* eslint-disable */
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { newComment } from "../../store/comment";
 
 import "./PostComment.css";
@@ -20,11 +21,11 @@ function PostComment({ feed }) {
     );
     setComment("");
   };
-const userChecks = () => {
-  if (!user) {
-    alert("Please log in to comment");
-  }
-};
+  const userChecks = () => {
+    if (!user) {
+      alert("Please log in to comment");
+    }
+  };
   return (
     <form className="comment-form" onSubmit={onSubmit}>
       <input
@@ -35,8 +36,11 @@ const userChecks = () => {
         className="input-stretch"
         required
       ></input>
-      <button className="stretch-btn" type="submit" onClick={userChecks}>
-      </button>
+      <button
+        className="stretch-btn"
+        type="submit"
+        onClick={userChecks}
+      ></button>
     </form>
   );
 }

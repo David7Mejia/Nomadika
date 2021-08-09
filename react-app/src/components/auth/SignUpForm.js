@@ -51,8 +51,9 @@ const SignUpForm = () => {
       <div className="container-su">
         <form onSubmit={onSignUp} className="signup-form">
           {errors.map((error, ind) => (
-            <div key={ind}>{error}
-            {console.log(error)}
+            <div key={ind}>
+              {error}
+              {console.log(error)}
             </div>
           ))}
           <div className="signup-please">Sign up</div>
@@ -65,6 +66,7 @@ const SignUpForm = () => {
               className="su-input"
               onChange={updateUsername}
               value={username}
+              required
             ></input>
           </div>
           <div>
@@ -76,6 +78,7 @@ const SignUpForm = () => {
               name="email"
               onChange={updateEmail}
               value={email}
+              required
             ></input>
           </div>
           <div>
@@ -87,6 +90,7 @@ const SignUpForm = () => {
               name="password"
               onChange={updatePassword}
               value={password}
+              required
             ></input>
           </div>
           <div>

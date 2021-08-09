@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -9,8 +10,7 @@ import Comments from "../Comments";
 import Modal from "./Modal";
 import "./Feed.css";
 import axios from "axios";
-import {client_id, client_secret} from '../../config'
-
+import { client_id, client_secret } from "../../config";
 
 function Feed({ payload, place, trending }) {
   const dispatch = useDispatch();
@@ -27,7 +27,6 @@ function Feed({ payload, place, trending }) {
   );
   const postComments = useSelector((state) => Object.values(state.comments));
   const modalData = qData?.response?.groups[0].items;
-
 
   const landmarks = async () => {
     const res = await axios(
@@ -81,9 +80,9 @@ function Feed({ payload, place, trending }) {
 
   const userChecks = () => {
     if (!user) {
-     alert('Please log in to post')
+      alert("Please log in to post");
     }
-  }
+  };
 
   useEffect(() => {
     dispatch(getDestFeed(payload));
@@ -100,8 +99,6 @@ function Feed({ payload, place, trending }) {
     dispatch(getComments(payload));
   }, [dispatch]);
 
-
-
   return (
     <div>
       <form className="feed-container" onSubmit={onSubmit}>
@@ -113,8 +110,11 @@ function Feed({ payload, place, trending }) {
           onChange={(e) => setBody(e.target.value)}
           required
         ></input>
-        <button className="feed-button" type="submit" onClick={userChecks}>
-        </button>
+        <button
+          className="feed-button"
+          type="submit"
+          onClick={userChecks}
+        ></button>
       </form>
       <div className="big-container">
         <div className="left-side">
@@ -142,13 +142,12 @@ function Feed({ payload, place, trending }) {
               </div>
             </div>
           </div>
-
         </div>
         <div className="feed-holder">
           <div className="feed-qs">
             {destinationFeed &&
               destinationFeed.map((feed) => (
-                <div className="post-container"key={feed.id}>
+                <div className="post-container" key={feed.id}>
                   <div className="feed-item">
                     <div className="feed-text">
                       <div className="post-text">{feed.body}</div>

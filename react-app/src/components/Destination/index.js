@@ -1,10 +1,11 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Feed from "../Feed";
 import axios from "axios";
 // import envVars from "../../config";
-import {client_id} from "../../config/";
+import { client_id } from "../../config/";
 import { client_secret } from "../../config/";
 
 import { postLocation } from "../../store/location";
@@ -52,9 +53,8 @@ function Destination() {
           image_url: null,
         })
       );
-    }
-    catch (err) {
-      console.log('Location exists in database')
+    } catch (err) {
+      console.log("Location exists in database");
     }
   }, [dispatch, payload, place]);
 
@@ -70,7 +70,13 @@ function Destination() {
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        {data && <Feed payload={data.response.geocode.feature.longId} place={place} trending={trending}/>}
+        {data && (
+          <Feed
+            payload={data.response.geocode.feature.longId}
+            place={place}
+            trending={trending}
+          />
+        )}
       </div>
     </div>
   );
