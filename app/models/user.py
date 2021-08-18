@@ -9,7 +9,7 @@ from flask_login import UserMixin
 #     db.Model.metadata,
 #     db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
 #               primary_key=True),
-#     db.Column('location_id', db.String(100), db.ForeignKey('locations.api_id'),
+#     db.Column('location_id', db.String(100), db.ForeignKey('locations.api_id'),  # noqa
 #               primary_key=True))
 
 
@@ -27,8 +27,8 @@ class User(db.Model, UserMixin):
 
     reviews = db.relationship('Review', back_populates='users')
     comments = db.relationship('Comment', back_populates='users')
-    # locations = db.relationship('Location',  back_populates='users')  # noqa
     feeds = db.relationship('Feed', back_populates='user')
+    gotos = db.relationship('Goto', back_populates='user')  # noqa
 
     @property
     def password(self):
@@ -46,6 +46,4 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            # 'traveled': [t.id for t in self.traveled],
-
         }

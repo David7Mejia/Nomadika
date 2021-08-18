@@ -15,7 +15,7 @@ import "./Destination.css";
 function Destination() {
   const location = useLocation();
   const [data, setData] = useState(null);
-  const [trending, setTrending] = useState(null);
+  // const [trending, setTrending] = useState(null);
   const { place } = location.state || {};
   // const client_id = envVars.client_id;
   // const client_secret = envVars.client_secret;
@@ -32,15 +32,15 @@ function Destination() {
     axData();
   }, []);
 
-  useEffect(() => {
-    const axData = async () => {
-      const res = await axios(
-        `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}`
-      );
-      setTrending(res.data);
-    };
-    axData();
-  }, []);
+  // useEffect(() => {
+  //   const axData = async () => {
+  //     const res = await axios(
+  //       `https://api.foursquare.com/v2/venues/explore?client_id=${client_id}&client_secret=${client_secret}&v=20180323&limit=20&near=${place}`
+  //     );
+  //     setTrending(res.data);
+  //   };
+  //   axData();
+  // }, []);
 
   useEffect(() => {
     if (!payload) return;
@@ -74,7 +74,7 @@ function Destination() {
           <Feed
             payload={data.response.geocode.feature.longId}
             place={place}
-            trending={trending}
+            // trending={trending}
           />
         )}
       </div>
