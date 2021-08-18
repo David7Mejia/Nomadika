@@ -21,7 +21,7 @@ class Location(db.Model):
     comment = db.relationship('Comment', back_populates='location')
     feed = db.relationship('Feed', cascade="all, delete-orphan", back_populates='location')  # noqa
     reviews = db.relationship('Review', cascade="all, delete-orphan", back_populates='location')  # noqa
-    gotos = db.relationship('Goto', back_populates='gotos')  # noqa
+    gotos = db.relationship('Goto', back_populates='location')  # noqa
 
     def to_dict(self):
         return {

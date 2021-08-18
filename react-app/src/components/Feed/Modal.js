@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom';
 import "./Modal.css";
 
 function Modal({ data }) {
@@ -12,7 +12,7 @@ function Modal({ data }) {
                 {data?.map(venue => {
             return (
               <div key={venue.id} className='venue'>
-                <div className='venue-name'>{venue.venue.name}</div>
+                <div className='venue-name'>{venue.venue.name} <Link>add</Link>  </div>
                 <div className='venue-address'>{venue.venue.location.formattedAddress[0]}</div>
               </div>
             );
