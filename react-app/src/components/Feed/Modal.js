@@ -11,9 +11,18 @@ function Modal({ data }) {
         <div className='venues'>
                 {data?.map(venue => {
             return (
-              <div key={venue.id} className='venue'>
-                <div className='venue-name'>{venue.venue.name} <Link>add</Link>  </div>
-                <div className='venue-address'>{venue.venue.location.formattedAddress[0]}</div>
+              <div key={venue.id} className="venue">
+                <div className="venue-name">
+                  {venue.venue.name}{" "}
+                  <button
+                    id='add-button'
+                  >
+                    Add
+                  </button>{" "}
+                </div>
+                <div className="venue-address">
+                  {venue.venue.location.formattedAddress[0]}
+                </div>
               </div>
             );
           })}
