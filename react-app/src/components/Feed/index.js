@@ -4,15 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
 import { getComments } from "../../store/comment";
-// import envVars from "../../config";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
 import Modal from "./Modal";
 import "./Feed.css";
 import axios from "axios";
-import { client_id, client_secret } from "../../config";
 
-function Feed({ payload, place, trending }) {
+function Feed({ payload, place }) {
   const dispatch = useDispatch();
   const modalRef = useRef();
   const [body, setBody] = useState("");
@@ -20,7 +18,7 @@ function Feed({ payload, place, trending }) {
   const [showModal, setShowModal] = useState(false);
   // const client_id = envVars.client_id;
   // const client_secret = envVars.client_secret;
-
+  console.log("payload", payload);
   const user = useSelector((state) => state.session)?.user;
   const destinationFeed = useSelector((state) =>
     Object.values(state.destination)
