@@ -9,22 +9,27 @@ import Comments from "../Comments";
 import Modal from "./Modal";
 import "./Feed.css";
 import axios from "axios";
+import {getExtVenue} from "../../store/externalAPI";
 
 function Feed({ payload, place }) {
   const dispatch = useDispatch();
   const modalRef = useRef();
   const [body, setBody] = useState("");
-  const [qData, setQData] = useState("");
+  // const [qData, setQData] = useState("");
   const [showModal, setShowModal] = useState(false);
-  // const client_id = envVars.client_id;
-  // const client_secret = envVars.client_secret;
-  console.log("payload", payload);
   const user = useSelector((state) => state.session)?.user;
-  const destinationFeed = useSelector((state) =>
-    Object.values(state.destination)
-  );
+  const qData = useSelector((state) => state.externalAPI.externalAPI);
+  const destinationFeed = useSelector((state) =>Object.values(state.destination));
   const postComments = useSelector((state) => Object.values(state.comments));
   const modalData = qData?.response?.groups[0].items;
+
+  // console.log('asdadsasdasdasd', locVenues)
+
+  const venue = async (e) => {
+    const venueType = e.target.className;
+    await dispatch(getExtVenue(venueType, place));
+    setShowModal(true);
+  }
 
   const landmarks = async () => {
     const res = await axios(
@@ -51,6 +56,8 @@ function Feed({ payload, place }) {
     return;
   };
   const hotels = async () => {
+        console.log("restaurants target ", e.target.className);
+
     const res = await axios(
       `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=hotels`
     );
@@ -58,7 +65,8 @@ function Feed({ payload, place }) {
     setShowModal(true);
     return;
   };
-  const restaurants = async () => {
+  const restaurants = async (e) => {
+    console.log('restaurants target ', e.target.className);
     const res = await axios(
       `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=restaurants`
     );
@@ -82,7 +90,7 @@ function Feed({ payload, place }) {
     }
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     dispatch(getDestFeed(payload));
   }, [dispatch]);
 
@@ -93,9 +101,10 @@ function Feed({ payload, place }) {
       }
     });
   });
+
   useEffect(() => {
     dispatch(getComments(payload));
-  }, [dispatch]);
+  }, [dispatch, getComments, payload]);
 
   return (
     <div>
@@ -121,8 +130,7 @@ function Feed({ payload, place }) {
               <button className="landmarks" onClick={() => landmarks()}>
                 landmarks
               </button>
-
-              <button className="restaurants" onClick={() => restaurants()}>
+              <button className="restaurants" onClick={(e) => venue(e)}>
                 restaurants
               </button>
               <button className="hotels" onClick={() => hotels()}>

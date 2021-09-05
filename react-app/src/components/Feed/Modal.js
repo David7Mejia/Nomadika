@@ -3,7 +3,7 @@ import React from "react";
 import "./Modal.css";
 
 function Modal({ data }) {
-  console.log(data)
+  // console.log(data)
   return (
     <div className='venue-holder'>
       <div className='modal-venues'> VENUES </div>

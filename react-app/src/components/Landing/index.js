@@ -1,9 +1,12 @@
-import React, {  useState } from "react";
+import React, {  useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import "./Landing.css";
+import { getExtInfo } from "../../store/externalAPI";
 
 function Landing() {
   const [place, setPlace] = useState(null);
+  const dispatch = useDispatch()
 
   const handleQuery = (e) => {
       setPlace(e.target.value);
@@ -12,6 +15,10 @@ function Landing() {
   const onSubmit = (e) => {
     e.preventDefault();
   };
+
+    useEffect(() => {
+      dispatch(getExtInfo(place));
+    }, [dispatch, place]);
 
   return (
     <div className="background-img">

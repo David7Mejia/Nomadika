@@ -12,16 +12,19 @@ function Destination() {
   const location = useLocation();
   const { place } = location.state || {};
   const dispatch = useDispatch();
-  const extAPI = useSelector((state) => state.externalAPI);
-  const longId = extAPI?.response?.geocode.feature.longId;
+  const extAPI = useSelector((state) => state?.externalAPI);
+  const [longId, setLongId] = useState('');
 
   useEffect(() => {
-   dispatch(getExtInfo(place));
-  }, [])
+    setLongId(extAPI?.response?.geocode?.feature?.longId);
+  },[] )
 
   useEffect(() => {
-    if (!longId) return;
-    try {
+    dispatch(getExtInfo(place));
+  }, [dispatch, place]);
+
+  useEffect(() => {
+    if (longId) {
       dispatch(
         postLocation({
           api_id: longId,
@@ -30,18 +33,13 @@ function Destination() {
           image_url: null,
         })
       );
-    } catch (err) {
-      console.log("Location exists in database");
-    }
-  }, [dispatch, longId, place]);
-
-  useEffect(() => {
-    if (longId) {
+      // dispatch(getExtInfo(place));
       dispatch(getDestFeed(longId));
     } else {
-      return;
+        console.log("Location exists in database");
     }
-  }, [dispatch, longId]);
+  }, [dispatch, longId])
+
 
   return (
     <div>
@@ -58,3 +56,29 @@ function Destination() {
   );
 }
 export default Destination;
+
+/*
+ useEffect(() => {
+   if (!longId) return;
+   try {
+     dispatch(
+        postLocation({
+          api_id: longId,
+          name: place,
+          description: null,
+          image_url: null,
+        })
+      );
+    } catch (err) {
+      console.log("Location exists in database");
+    }
+  }, [dispatch, place]);
+
+  useEffect(() => {
+    if (longId) {
+      dispatch(getDestFeed(longId));
+    } else {
+      return;
+    }
+  }, [dispatch, longId]);
+  */

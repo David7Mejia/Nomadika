@@ -18,10 +18,26 @@ def location(id):
         client_secret=client_secret,
         v='20180323',
         near=f'{id}',
-        # query='coffee',
         limit=1
     )
     resp = requests.get(url=url, params=params)
     data = json.loads(resp.text)
-    print('###################################################################', data)
+    return data
+
+
+@externalAPI_routes.route('/venue/<string:place>/<string:venue>')
+def venue(venue, place):
+    url = 'https://api.foursquare.com/v2/venues/explore'
+
+    params = dict(
+        client_id=client_id,
+        client_secret=client_secret,
+        v='20180323',
+        near=f'{place}',
+        query=f'{venue}',
+        limit=20
+    )
+    resp = requests.get(url=url, params=params)
+    print('##########################################', resp.text)
+    data = json.loads(resp.text)
     return data
