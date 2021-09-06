@@ -12,15 +12,15 @@ function Destination() {
   const location = useLocation();
   const { place } = location.state || {};
   const dispatch = useDispatch();
+  const extAPI = useSelector(
+    (state) => state.externalAPI?.response?.geocode.feature.longId
+  );
 
-  useEffect(() => {
+  useEffect(async() => {
     dispatch(getExtInfo(place));
-    // dispatch(getDestFeed(longId));
-    // setLongId(extAPI);
+    
   }, [dispatch, place]);
 
-  const extAPI = useSelector(
-    (state) => state.externalAPI?.response?.geocode.feature.longId);
 
   useEffect(() => {
     if (extAPI) {
@@ -31,22 +31,20 @@ function Destination() {
           description: null,
           image_url: null,
         })
-      );
+        );
+       dispatch(getDestFeed(extAPI));
     }
   }, [dispatch, extAPI, place]);
 
-
+  // useEffect(async () => {
+  //   await dispatch(getDestFeed(extAPI));
+  // }, []);
 
   return (
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        {/* {longId && (
-          <Feed
-            payload={longId}
-            place={place}
-          />
-        )} */}
+        {extAPI && <Feed payload={extAPI} place={place} />}
       </div>
     </div>
   );
