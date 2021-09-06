@@ -46,7 +46,8 @@ const externalInforeducer = (state = initialState, action) => {
         ...newState,
       };
     case EXT_VENUE:
-      newState = { ...state, ...action.payload };
+      console.log("LOCATION GET VENUE", action.payload?.response?.groups[0].items);
+      newState = { ...state, ...action?.payload?.response?.groups[0].items };
       return {
         ...newState,
       };

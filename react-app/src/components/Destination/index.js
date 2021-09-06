@@ -12,13 +12,18 @@ function Destination() {
   const location = useLocation();
   const { place } = location.state || {};
   const dispatch = useDispatch();
-  const extAPI = useSelector(
-    (state) => state.externalAPI?.response?.geocode.feature.longId
+  let backUpPlace = useSelector(
+    (state) => state.externalAPI?.response?.geocode?.longId
   );
+  const extAPI =
+    useSelector(
+      (state) => state.externalAPI?.response?.geocode?.feature?.longId
+    ) ||
+    backUpPlace
 
   useEffect(async() => {
     dispatch(getExtInfo(place));
-    
+
   }, [dispatch, place]);
 
 
@@ -35,10 +40,6 @@ function Destination() {
        dispatch(getDestFeed(extAPI));
     }
   }, [dispatch, extAPI, place]);
-
-  // useEffect(async () => {
-  //   await dispatch(getDestFeed(extAPI));
-  // }, []);
 
   return (
     <div>
