@@ -27,6 +27,8 @@ export const deleteFeed = (payload) => ({
 
 //**********THUNKS**********//
 export const getDestFeed = (payload) => async (dispatch) => {
+
+  console.log('INSIDE GETDESTFEED THUNK PAYLOAD: ', payload)
   const res = await fetch(`/api/cities/${payload}`);
   if (res.ok) {
     const dest = await res.json();

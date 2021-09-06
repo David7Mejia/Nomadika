@@ -1,6 +1,6 @@
 // import {newComment} from './comment'
-const EXT_GET = "destination/EXT_GET";
-const EXT_VENUE = "destination/EXT_VENUE";
+const EXT_GET = "externalAPI/EXT_GET";
+const EXT_VENUE = "externalAPI/EXT_VENUE";
 
 //**********Actions**********//
 export const extGet = (payload) => ({
@@ -39,8 +39,9 @@ const initialState = {};
 const externalInforeducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
-      case EXT_GET:
-          newState = {...state, ...action.payload};
+    case EXT_GET:
+      console.log('LOCATION GET INFO')
+          newState = {...action.payload};
       return {
         ...newState,
       };

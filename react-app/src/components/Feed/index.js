@@ -23,7 +23,6 @@ function Feed({ payload, place }) {
   const postComments = useSelector((state) => Object.values(state.comments));
   const modalData = qData?.response?.groups[0].items;
 
-  // console.log('asdadsasdasdasd', locVenues)
 
   const venue = async (e) => {
     const venueType = e.target.className;
@@ -90,9 +89,9 @@ function Feed({ payload, place }) {
     }
   };
 
-  useEffect(async () => {
-    dispatch(getDestFeed(payload));
-  }, [dispatch]);
+  // useEffect(async () => {
+  //   dispatch(getDestFeed(payload));
+  // }, []);
 
   useEffect(() => {
     document.addEventListener("mousedown", (e) => {
@@ -102,9 +101,9 @@ function Feed({ payload, place }) {
     });
   });
 
-  useEffect(() => {
-    dispatch(getComments(payload));
-  }, [dispatch, getComments, payload]);
+  // useEffect(() => {
+  //   dispatch(getComments(payload));
+  // }, [dispatch, getComments, payload]);
 
   return (
     <div>

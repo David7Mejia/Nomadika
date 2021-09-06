@@ -7,7 +7,7 @@ export const newLocation = (payload) => ({
 
 export const postLocation = (payload) => async (dispatch) => {
   try {
-
+    console.log('this is thunk paylafasdads', payload)
     const res = await fetch(`/api/cities/${payload.api_id}/location`, {
       method: "POST",
       headers: {

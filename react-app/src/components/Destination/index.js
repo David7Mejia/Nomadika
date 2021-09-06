@@ -12,45 +12,41 @@ function Destination() {
   const location = useLocation();
   const { place } = location.state || {};
   const dispatch = useDispatch();
-  const extAPI = useSelector((state) => state?.externalAPI);
-  const [longId, setLongId] = useState('');
-
-  useEffect(() => {
-    setLongId(extAPI?.response?.geocode?.feature?.longId);
-  },[] )
 
   useEffect(() => {
     dispatch(getExtInfo(place));
+    // dispatch(getDestFeed(longId));
+    // setLongId(extAPI);
   }, [dispatch, place]);
 
+  const extAPI = useSelector(
+    (state) => state.externalAPI?.response?.geocode.feature.longId);
+
   useEffect(() => {
-    if (longId) {
+    if (extAPI) {
       dispatch(
         postLocation({
-          api_id: longId,
+          api_id: extAPI,
           name: place,
           description: null,
           image_url: null,
         })
       );
-      // dispatch(getExtInfo(place));
-      dispatch(getDestFeed(longId));
-    } else {
-        console.log("Location exists in database");
     }
-  }, [dispatch, longId])
+  }, [dispatch, extAPI, place]);
+
 
 
   return (
     <div>
       <div className="place-name">{place.toUpperCase()} </div>
       <div className="dest-feed">
-        {longId && (
+        {/* {longId && (
           <Feed
             payload={longId}
             place={place}
           />
-        )}
+        )} */}
       </div>
     </div>
   );
