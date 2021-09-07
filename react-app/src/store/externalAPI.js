@@ -60,8 +60,12 @@ export const venueReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case EXT_VENUE:
+      console.log('action payload', action.payload.response.groups)
       console.log("LOCATION GET VENUE", action.payload?.response?.groups[0].items);
-      newState = { ...state, ...action?.payload?.response?.groups[0].items };
+      newState = [ ...action?.payload?.response?.groups[0].items ];
+      // action?.payload?.response?.groups[0].items.forEach(){
+
+      // }
       return {
         ...newState,
       };

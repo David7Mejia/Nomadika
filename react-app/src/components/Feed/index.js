@@ -15,22 +15,21 @@ function Feed({ payload, place }) {
   const dispatch = useDispatch();
   const modalRef = useRef();
   const [body, setBody] = useState("");
-  const [qData, setQData] = useState("");
+  const [qData, setQData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const user = useSelector((state) => state.session)?.user;
-  const bigData = useSelector((state) => (state.venueAPI));
+  const bigData = useSelector((state) =>Object.values(state.venueAPI)) || [];
 
   const destinationFeed = useSelector((state) =>Object.values(state.destination));
   const postComments = useSelector((state) => Object.values(state.comments));
-  // const modalData = bigData?.response?.groups[0]?.items || {}
 
   const venue = async (e) => {
     const venueType = e.target.className;
-    await dispatch(getExtVenue(venueType, place));
-    setQData(bigData);
+    await dispatch(getExtVenue(venueType, place))
+    // setQData(bigData);
     setShowModal(true);
   }
-  console.log('THIS IS BIG DATA',qData)
+  // console.log('big data/qData/modalData',bigData, qData, modalData)
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -97,7 +96,7 @@ function Feed({ payload, place }) {
               </button>
               {showModal && <div className="modal-container"></div>}
               <div ref={modalRef}>
-                {showModal && qData && <Modal data={qData} />}
+                {showModal && bigData && <Modal data={bigData} />}
               </div>
             </div>
           </div>
