@@ -2,15 +2,21 @@ import React from "react";
 import "./Modal.css";
 import {addVenueThunk} from '../../store/gotos'
 import {useDispatch, useSelector} from 'react-redux'
-function Modal({ data }) {
+function Modal({ payload, data }) {
   const dispatch = useDispatch();
 
   const addVenue = async (e) => {
-    console.log('add venue', e);
-    let loc_id = ;
-    let venue_id = ;
-    
-    // dispatch(addVenueThunk(e))
+    let loc_id = payload;
+    let venue_id = e[0];
+    let venue_name = e[1];
+    let address = e[2];
+
+    dispatch(addVenueThunk({
+      loc_id,
+      venue_id,
+      venue_name,
+      address
+    }))
 
   }
 

@@ -10,7 +10,11 @@ export const addVenue = (payload) => ({
 //**********THUNKS**********//
 export const addVenueThunk = (payload) => async (dispatch) => {
     console.log('addVenueThunk payload: ', payload);
-    const res = await fetch('/api/gotos/')
+    const res = await fetch(`/api/goto/${payload.loc_id}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
     if (res.ok){
         const json = await res.json();
         console.log('addVenueThunk json: ', json);

@@ -11,6 +11,7 @@ class Goto(db.Model):
     loc_id = db.Column(db.String(100), db.ForeignKey(
         'locations.api_id'))
     venue_id = db.Column(db.String(100))
+    venue_name = db.Column(db.String(400))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     address = db.Column(db.String(300))
     created_at = db.Column(db.DateTime, default=db.func.now())
@@ -25,6 +26,7 @@ class Goto(db.Model):
             'id': self.id,
             'loc_id': self.loc_id,
             'venue_id': self.venue_id,
+            'venue_name': self.venue_name,
             'address': self.address,
             'user_id': self.user_id,
             'created_at': self.created_at,

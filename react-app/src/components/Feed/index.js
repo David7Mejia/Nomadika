@@ -93,7 +93,7 @@ function Feed({ payload, place }) {
               </button>
               {showModal && <div className="modal-container"></div>}
               <div ref={modalRef}>
-                {showModal && bigData && <Modal data={bigData} />}
+                {showModal && bigData && <Modal data={bigData} payload={payload} />}
               </div>
             </div>
           </div>
