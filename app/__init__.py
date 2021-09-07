@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.city_routes import city_routes
 from .api.comment_routes import comment_routes
 from .api.externalAPI_routes import externalAPI_routes
+from .api.goto_routes import goto_routes
 from .seeds import seed_commands
 
 from .config import Config
@@ -36,6 +37,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(city_routes, url_prefix='/api/cities')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(externalAPI_routes, url_prefix='/api/externalAPI')
+app.register_blueprint(goto_routes, url_prefix='/api/goto')
 db.init_app(app)
 Migrate(app, db)
 

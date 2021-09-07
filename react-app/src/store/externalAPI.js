@@ -25,7 +25,6 @@ export const getExtInfo = (payload) => async (dispatch) => {
 };
 
 export const getExtVenue = (venueType, place) => async (dispatch) => {
-  console.log('PLACE AND VENUE TYPE:', venueType, place);
   const res = await fetch(`/api/externalAPI/venue/${place}/${venueType}`)
   if (res.ok) {
     const venue = await res.json();
@@ -40,17 +39,10 @@ export const externalInforeducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case EXT_GET:
-      console.log('LOCATION GET INFO')
           newState = {...action.payload};
       return {
         ...newState,
       };
-    // case EXT_VENUE:
-    //   console.log("LOCATION GET VENUE", action.payload?.response?.groups[0].items);
-    //   newState = {...state, ...action?.payload?.response?.groups[0].items };
-    //   return {
-    //     ...newState,
-    //   };
     default:
       return state;
   }
@@ -60,12 +52,7 @@ export const venueReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case EXT_VENUE:
-      console.log('action payload', action.payload.response.groups)
-      console.log("LOCATION GET VENUE", action.payload?.response?.groups[0].items);
       newState = [ ...action?.payload?.response?.groups[0].items ];
-      // action?.payload?.response?.groups[0].items.forEach(){
-
-      // }
       return {
         ...newState,
       };

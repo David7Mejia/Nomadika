@@ -38,6 +38,5 @@ def venue(venue, place):
         limit=20
     )
     resp = requests.get(url=url, params=params)
-    print('##########################################', resp.text)
     data = json.loads(resp.text)
     return data

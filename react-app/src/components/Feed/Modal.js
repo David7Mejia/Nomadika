@@ -1,8 +1,14 @@
 import React from "react";
-
 import "./Modal.css";
 
-function Modal({data} ) {
+
+function Modal({ data }) {
+
+  const addVenue = () => {
+
+
+  }
+
   return (
     <div className='venue-holder'>
       <div className='modal-venues'> VENUES </div>
