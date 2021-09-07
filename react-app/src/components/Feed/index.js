@@ -120,7 +120,9 @@ function Feed({ payload, place }) {
           </div>
         </div>
         <div className="right-side">
-          {/* <div className='right-side-holder'></div> */}
+          <div className="right-side-holder">
+            <div className="modal-venues"> MY PLACES </div>
+          </div>
         </div>
       </div>
     </div>

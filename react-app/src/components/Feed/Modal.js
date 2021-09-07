@@ -9,6 +9,7 @@ function Modal({data} ) {
       {data &&
         <div className='venues'>
         {data?.map(venue => {
+          console.log('this is the venue', venue)
             return (
               <div key={venue.referralId} className="venue">
                 <div className="venue-name">
