@@ -4,14 +4,17 @@ import session from './session'
 import destinationReducer from './destination'
 import locationReducer from './location';
 import commentReducer from './comment';
-import externalInforeducer from './externalAPI';
+import { externalInforeducer } from './externalAPI';
+import { venueReducer } from './externalAPI';
+
 
 const rootReducer = combineReducers({
   session,
   destination: destinationReducer,
   location: locationReducer,
   comments: commentReducer,
-  externalAPI: externalInforeducer
+  externalAPI: externalInforeducer,
+  venueAPI: venueReducer
 });
 
 

@@ -18,19 +18,19 @@ function Feed({ payload, place }) {
   const [qData, setQData] = useState("");
   const [showModal, setShowModal] = useState(false);
   const user = useSelector((state) => state.session)?.user;
-  const bigData = useSelector((state) => Object.values(state.externalAPI));
+  const bigData = useSelector((state) => (state.venueAPI));
 
   const destinationFeed = useSelector((state) =>Object.values(state.destination));
   const postComments = useSelector((state) => Object.values(state.comments));
   // const modalData = bigData?.response?.groups[0]?.items || {}
 
-  console.log('THIS IS Q DATA',bigData)
   const venue = async (e) => {
     const venueType = e.target.className;
     await dispatch(getExtVenue(venueType, place));
     setQData(bigData);
     setShowModal(true);
   }
+  console.log('THIS IS BIG DATA',qData)
 
   const onSubmit = (e) => {
     e.preventDefault();

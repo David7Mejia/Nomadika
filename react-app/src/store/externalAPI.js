@@ -36,7 +36,7 @@ export const getExtVenue = (venueType, place) => async (dispatch) => {
 
 const initialState = {};
 
-const externalInforeducer = (state = initialState, action) => {
+export const externalInforeducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case EXT_GET:
@@ -45,6 +45,20 @@ const externalInforeducer = (state = initialState, action) => {
       return {
         ...newState,
       };
+    // case EXT_VENUE:
+    //   console.log("LOCATION GET VENUE", action.payload?.response?.groups[0].items);
+    //   newState = {...state, ...action?.payload?.response?.groups[0].items };
+    //   return {
+    //     ...newState,
+    //   };
+    default:
+      return state;
+  }
+};
+
+export const venueReducer = (state = initialState, action) => {
+  let newState = {};
+  switch (action.type) {
     case EXT_VENUE:
       console.log("LOCATION GET VENUE", action.payload?.response?.groups[0].items);
       newState = { ...state, ...action?.payload?.response?.groups[0].items };
@@ -54,6 +68,5 @@ const externalInforeducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-export default externalInforeducer;
+}
+// export default externalInforeducer;

@@ -2,12 +2,12 @@ import React from "react";
 
 import "./Modal.css";
 
-function Modal(qData ) {
-  console.log('THIS IS MODAL DATA',qData)
+function Modal({data} ) {
+  console.log('THIS IS MODAL DATA',data)
   return (
     <div className='venue-holder'>
       <div className='modal-venues'> VENUES </div>
-      {/* {data &&
+      {data &&
         <div className='venues'>
         {[data]?.map(venue => {
                   console.log('THIS IS VENUE',venue)
@@ -19,7 +19,7 @@ function Modal(qData ) {
             );
           })}
         </div>
-      } */}
+      }
     </div>
   );
 
