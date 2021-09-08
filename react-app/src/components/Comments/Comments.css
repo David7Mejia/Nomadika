@@ -30,17 +30,26 @@
   width: 30px;
   height: 30px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .cmt-delete-button {
   background-image: url('../images/Close\ Square.svg');
 }
 
+.cmt-delete-button:hover {
+  background-image: url('../images/Close\ Square\ -\ Copy.svg');
+}
+
 .cmt-edit-button {
-  background-image: url('../images/More\ Square.svg');
+  /* background-image: url('../images/More\ Square.svg'); */
+  background-image: url('../images/Edit.svg');
   display: flex;
-  /* position: absolute; */
   align-items: flex-end;
+}
+
+.cmt-edit-button:hover {
+  background-image: url('../images/Edit\ -\ Copy.svg');
 }
 
 .button-holder {

@@ -1,8 +1,52 @@
 #add-button {
-    width: 50px;
-    height: 20px;
-    margin-right: 10px;
-    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    background-image: url('../images/Plus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+}
+
+#delete-venue {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    background-image: url('../images/Close\ Square.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#delete-venue:hover {
+background-image: url('../images/Close\ Square\ -\ Copy.svg');
+
+}
+
+
+#places-holder {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    box-shadow: 4px 4px 10px #aab4c8;
+}
+
+.places-holder {
+    overflow-y: scroll;
+    height: 390px;
+}
+
+#add-button:hover {
+    background-image: url('../images/Plus\ -\ Copy.svg');
+    box-shadow: none;
+    background-color: transparent;
 }
 
 .venue-name {
@@ -39,10 +83,8 @@
 
 .venue {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
     height: 50px;
     margin: 10px;
     padding-left: 20px;
@@ -55,4 +97,5 @@
     font-family: 'Georama', sans-serif;
     font-size: 16px;
     color: black;
+    display: flex;
 }

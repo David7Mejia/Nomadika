@@ -47,12 +47,15 @@ function EditPostBtn({ id, payload }) {
         <div className="edit-menu-wrapper">
           <button
             onClick={openEdit === true ? hideEdit : showEdit}
-            className="real-edit-button"
+            // className="real-edit-button"
+            className="cmt-edit-button"
           >
-            Edit
+            {/* Edit */}
           </button>
-          <button onClick={() => deletePost(id)} className="real-delete-button">
-            Delete
+          <button onClick={() => deletePost(id)}
+            className="cmt-delete-button"
+          >
+            {/* Delete */}
           </button>
           {openEdit && <EditPost id={id} payload={payload} />}
         </div>

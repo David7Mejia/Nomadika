@@ -30,12 +30,17 @@ function Modal({ payload, data }) {
         {data?.map(venue => {
             return (
               <div key={venue.referralId} className="venue">
+                <div className='venue-info-holder'>
+
                 <div className="venue-name">{venue.venue?.name}</div>
                 <div className="venue-address">
                   {venue.venue?.location.formattedAddress[0]}
                 </div>
+
+                </div>
                 <button
                   id="add-button"
+
                   onClick={() =>
                     addVenue([
                       venue.referralId,
@@ -44,7 +49,7 @@ function Modal({ payload, data }) {
                     ])
                   }
                 >
-                  Add
+
                 </button>
               </div>
             );

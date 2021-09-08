@@ -48,8 +48,8 @@ function Landing() {
       <div className="landing-right">
         <div className="landing-message">
           Hey there!
-          <div className="small-text-login">
-            Search cities and get venue information.
+          <div className="small-text-login" id='small-text-login'>
+            Search a city, interact in a feed, add venues to your bucketlist!
           </div>
         </div>
       </div>

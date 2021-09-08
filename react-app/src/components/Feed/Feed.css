@@ -136,6 +136,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.edit-menu:hover {
+  background-image: url('../images/ellipsis\ -\ Copy.svg');
 }
 
 .edit-menu-div {
@@ -167,9 +172,8 @@
   position: fixed;
   top: 25px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  /* margin-top: 30px; */
+  align-items: center;
+  margin-right: 7px;
 }
 
 .wrapper-upload {

@@ -136,6 +136,11 @@ body {
   color: #fff;
 }
 
+#small-text-login{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 /* .landing-greeting {
   padding-top: 130px;
   display: flex;
