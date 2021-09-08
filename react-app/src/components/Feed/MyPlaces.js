@@ -7,10 +7,10 @@ import "./Modal.css";
 function MyPlaces({payload}) {
     const myVenues = useSelector(state => Object.values(state.gotos));
   const dispatch = useDispatch();
-  
+
     useEffect(() => {
         dispatch(getGotoVenueThunk(payload));
-    }, []);
+    }, [payload, dispatch]);
 
     return (
       <div className="places-holder">
