@@ -40,7 +40,7 @@ background-image: url('../images/Close\ Square\ -\ Copy.svg');
 
 .places-holder {
     overflow-y: scroll;
-    height: 390px;
+    height: 350px;
 }
 
 #add-button:hover {

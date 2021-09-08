@@ -58,7 +58,7 @@
   margin-top: 30px;
   align-items: flex-start;
   justify-content: center;
-  height: 60%;
+  height: 80%;
   overflow-y: scroll;
   box-shadow: inset 2px 2px 5px #aab4c8, inset -3px -3px 15px #fff;
   border-radius: 8px;
@@ -67,7 +67,7 @@
 .big-container {
   display: flex;
   justify-content: center;
-  height: 1000px;
+  height: 550px;
 }
 
 .left-side, .right-side {
@@ -84,7 +84,7 @@
   margin-left: 50px;
   margin-right: 20px;
   width: 70%;
-  height: 50%;
+  height: 80%;
   border-radius: 15px;
   padding: 5px;
   box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
