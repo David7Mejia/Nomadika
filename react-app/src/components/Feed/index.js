@@ -8,14 +8,14 @@ import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
 import Modal from "./Modal";
 import "./Feed.css";
-import axios from "axios";
-import {getExtVenue} from "../../store/externalAPI";
+import { getExtVenue } from "../../store/externalAPI";
+import MyPlaces from "./MyPlaces";
+import { getGotoVenueThunk } from "../../store/gotos";
 
 function Feed({ payload, place }) {
   const dispatch = useDispatch();
   const modalRef = useRef();
   const [body, setBody] = useState("");
-  // const [qData, setQData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const user = useSelector((state) => state.session)?.user;
   const bigData = useSelector((state) =>Object.values(state.venueAPI)) || [];
@@ -118,7 +118,12 @@ function Feed({ payload, place }) {
         </div>
         <div className="right-side">
           <div className="right-side-holder">
-            <div className="modal-venues"> MY PLACES </div>
+            <div className="modal-venues">
+              MY PLACES
+              {payload &&
+              <MyPlaces payload={payload}/>
+              }
+            </div>
           </div>
         </div>
       </div>
@@ -127,48 +132,3 @@ function Feed({ payload, place }) {
 }
 
 export default Feed;
-
-
-// const landmarks = async () => {
-//   const res = await axios(
-//     `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}`
-//   );
-//   setQData(res.data);
-//   setShowModal(true);
-//   return;
-// };
-// const bars = async () => {
-//   const res = await axios(
-//     `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=bars`
-//   );
-//   setQData(res.data);
-//   setShowModal(true);
-//   return;
-// };
-// const nightlife = async () => {
-//   const res = await axios(
-//     `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=nightlife`
-//   );
-//   setQData(res.data);
-//   setShowModal(true);
-//   return;
-// };
-// const hotels = async () => {
-//       console.log("restaurants target ", e.target.className);
-
-//   const res = await axios(
-//     `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=hotels`
-//   );
-//   setQData(res.data);
-//   setShowModal(true);
-//   return;
-// };
-// const restaurants = async (e) => {
-//   console.log('restaurants target ', e.target.className);
-//   const res = await axios(
-//     `https://api.foursquare.com/v2/venues/explore?client_id=WJ3ZGAO3NR4AASFCDD410HL5QQMA2A4J1QRCRKT2PKUDE3HY&client_secret=TFPMEMH2W5C44JERFOG1YHK2POVPTMIA3JRB4GKSYD2JUPX0&v=20180323&limit=20&near=${place}&query=restaurants`
-//   );
-//   setQData(res.data);
-//   setShowModal(true);
-//   return;
-// };

@@ -4,9 +4,8 @@ import session from './session'
 import destinationReducer from './destination'
 import locationReducer from './location';
 import commentReducer from './comment';
-import { externalInforeducer } from './externalAPI';
-import { venueReducer } from './externalAPI';
-
+import { externalInforeducer, venueReducer } from "./externalAPI";
+import { addGotoReducer } from './gotos';
 
 const rootReducer = combineReducers({
   session,
@@ -14,7 +13,8 @@ const rootReducer = combineReducers({
   location: locationReducer,
   comments: commentReducer,
   externalAPI: externalInforeducer,
-  venueAPI: venueReducer
+  venueAPI: venueReducer,
+  gotos: addGotoReducer
 });
 
 

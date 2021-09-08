@@ -5,7 +5,6 @@ from flask_login import current_user, login_required
 goto_routes = Blueprint('goto', __name__)
 
 
-# @goto_routes.route('/agit branchpi/goto/:id')
 @goto_routes.route('/<int:id>', methods=['POST'])
 @login_required
 def add_venue(id):
@@ -19,5 +18,13 @@ def add_venue(id):
     )
     db.session.add(newGoto)
     db.session.commit()
-    print('#########THIS IS THE GOTO FOR THE ADD VENUE BACK END:', newGoto)  # noqa
     return newGoto.to_dict()
+
+
+@goto_routes.route('/<int:id>')
+def get_venues_by_loc(id):
+    user = current_user.id
+    venues = Goto.query.filter_by(loc_id=str(id), user_id=user).all()
+    return {
+        'venues': [v.to_dict() for v in venues],
+    }

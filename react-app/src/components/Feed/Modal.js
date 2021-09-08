@@ -2,6 +2,8 @@ import React from "react";
 import "./Modal.css";
 import {addVenueThunk} from '../../store/gotos'
 import {useDispatch, useSelector} from 'react-redux'
+import { getGotoVenueThunk } from '../../store/gotos';
+
 function Modal({ payload, data }) {
   const dispatch = useDispatch();
 
@@ -11,12 +13,15 @@ function Modal({ payload, data }) {
     let venue_name = e[1];
     let address = e[2];
 
-    dispatch(addVenueThunk({
+    await dispatch(addVenueThunk({
       loc_id,
       venue_id,
       venue_name,
       address
     }))
+
+    await dispatch(getGotoVenueThunk(payload));
+
 
   }
 
