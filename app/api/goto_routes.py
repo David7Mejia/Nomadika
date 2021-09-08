@@ -28,3 +28,12 @@ def get_venues_by_loc(id):
     return {
         'venues': [v.to_dict() for v in venues],
     }
+
+
+@goto_routes.route('/<int:id>', methods=['DELETE'])
+def delete_venue(id):
+    venue = Goto.query.get(id)
+    if (venue.user_id == current_user.id):
+        db.session.delete(venue)
+        db.session.commit()
+    return {'message': 'Venue Deleted'}

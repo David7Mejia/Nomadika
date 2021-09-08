@@ -1,5 +1,7 @@
 const ADD_VENUE = 'gotos/ADD_VENUE';
 const GET_VENUE = 'gotos/GET_VENUE';
+const DELETE_VENUE = 'gotos/DELETE_VENUE';
+
 //**********Actions**********//
 export const addVenue = (payload) => ({
   type: ADD_VENUE,
@@ -11,6 +13,10 @@ export const getVenue = (payload) => ({
     payload,
 })
 
+export const deleteVenue = (payload) => ({
+    type: DELETE_VENUE,
+    payload,
+})
 
 //**********THUNKS**********//
 export const addVenueThunk = (payload) => async (dispatch) => {
@@ -36,6 +42,18 @@ export const getGotoVenueThunk = (payload) => async (dispatch) => {
     }
 }
 
+export const deleteGotoVenueThunk = (id) => async (dispatch) => {
+    const res = await fetch(`/api/goto/${id}`, {
+        method: "DELETE",
+        body: JSON.stringify({ id })
+    });
+    if (res.ok) {
+        await res.json();
+        dispatch(deleteVenue(id));
+
+    }
+}
+
 const initialState = {};
 
 export const addGotoReducer = (state = initialState, action) => {
@@ -49,11 +67,13 @@ export const addGotoReducer = (state = initialState, action) => {
             };
             return newState;
         case GET_VENUE:
-            console.log('getGotoVenueThunk action.payload: ', action.payload);
             newState = {
-
                 ...action.payload,
             };
+            return newState;
+        case DELETE_VENUE:
+            newState = { ...state }
+            delete newState[action.id]
             return newState;
         default:
             return state;
