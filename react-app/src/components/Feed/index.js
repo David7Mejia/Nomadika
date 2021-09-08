@@ -10,7 +10,6 @@ import Modal from "./Modal";
 import "./Feed.css";
 import { getExtVenue } from "../../store/externalAPI";
 import MyPlaces from "./MyPlaces";
-import { getGotoVenueThunk } from "../../store/gotos";
 
 function Feed({ payload, place }) {
   const dispatch = useDispatch();

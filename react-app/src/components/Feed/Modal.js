@@ -19,10 +19,7 @@ function Modal({ payload, data }) {
       venue_name,
       address
     }))
-
     await dispatch(getGotoVenueThunk(payload));
-
-
   }
 
   return (
