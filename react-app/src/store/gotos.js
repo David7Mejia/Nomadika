@@ -54,6 +54,15 @@ export const deleteGotoVenueThunk = (id) => async (dispatch) => {
     }
 }
 
+export const getUserVenuesThunk = (id) => async (dispatch) => {
+    const res = await fetch(`/api/goto/user/${id}`);
+
+    if (res.ok) {
+        const json = await res.json();
+        dispatch(getVenue(json));
+    }
+}
+
 const initialState = {};
 
 export const addGotoReducer = (state = initialState, action) => {

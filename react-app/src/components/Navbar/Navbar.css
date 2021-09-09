@@ -78,6 +78,16 @@ button {
   background-repeat: no-repeat;
   background-size: 25px;
   margin-right: 5px;
+  margin-left: 5px;
+}
+
+.profile-user {
+  background-position: center;
+  background-image: url("../images/Profile\ User.svg");
+  background-repeat: no-repeat;
+  background-size: 25px;
+  margin-right: 5px;
+  margin-left: 10px;
 }
 
 .signup-button {
@@ -106,7 +116,7 @@ button {
 
 .site-home {
   /* font-family: "Pirate Scripts", 'Bungee Hairline', 'Georama', sans-serif; */
-  font-family:  'Lato', 'Georama', sans-serif;
+  font-family: 'Lato', 'Georama', sans-serif;
   /* font-family: 'Lato', 'Bungee Hairline', 'Georama', sans-serif; */
   font-weight: 800;
   font-size: 45px;
@@ -123,7 +133,7 @@ button {
 .nav-button-holder {
   display: flex;
   justify-content: space-around;
-  width: 10rem;
+  width: 13rem;
   border-radius: 15px;
   /* border: 1px solid black; */
   padding: 5px;

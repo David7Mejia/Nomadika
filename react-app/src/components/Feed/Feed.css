@@ -220,14 +220,16 @@
 }
 
 .upload-form {
-  padding-top: 10px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  z-index: 4;
+  z-index: 6;
   display: flex;
-  position: relative;
+  position: absolute;
+  right: 50%;
   flex-direction: column;
-  /* z-index: 5; */
+  justify-content: space-between;
+  height: 60px;
   align-items: center;
   background: rgba(255, 255, 255, 0.753);
   box-shadow: 0 8px 32px 0 rgba(97, 146, 153, 0.37);
@@ -244,10 +246,13 @@
   border: 0;
   border-radius: 5px;
   margin-bottom: 2px;
+  cursor: pointer;
+  height: 22px;
+  width: 42px;
 }
 
 .upload-btn:hover {
-  background-color: #23c3ce;
+  background-color: #5627cc;
   color: white;
 }
 

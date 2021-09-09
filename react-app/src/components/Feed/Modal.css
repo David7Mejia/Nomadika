@@ -26,10 +26,12 @@
 }
 
 #delete-venue:hover {
-background-image: url('../images/Close\ Square\ -\ Copy.svg');
-
+    background-image: url('../images/Close\ Square\ -\ Copy.svg');
 }
 
+a {
+    color: rgb(61, 61, 63)
+}
 
 #places-holder {
     display: flex;

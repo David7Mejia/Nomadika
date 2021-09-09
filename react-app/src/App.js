@@ -12,6 +12,7 @@ import Destination from "./components/Destination";
 import { authenticate } from "./store/session";
 import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
+import Profile from "./components/Profile";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,6 +51,9 @@ function App() {
         <Route path="/cities/:destId">
           <Destination />
         </Route>
+        <Route path='/user/:id'>
+          <Profile />
+          </Route>
         <Route component={NotFound} />
       </Switch>
       <Footer />

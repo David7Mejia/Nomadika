@@ -37,3 +37,12 @@ def delete_venue(id):
         db.session.delete(venue)
         db.session.commit()
     return {'message': 'Venue Deleted'}
+
+
+@goto_routes.route('/user/<int:id>')
+def get_venues_by_user(id):
+    # user = current_user.id
+    venues = Goto.query.filter_by(user_id=id).all()
+    return {
+        'venues': [v.to_dict() for v in venues],
+    }
