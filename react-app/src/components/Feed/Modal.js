@@ -6,7 +6,19 @@ import { getGotoVenueThunk } from '../../store/gotos';
 
 function Modal({ payload, data }) {
   const dispatch = useDispatch();
+  const baseURL = `https://www.google.com/maps/search/?api=1&query=`
 
+  const googleMapUrl = (ven) => {
+    let venueName = ven.venue.name;
+    let address = ven.venue.location.formattedAddress
+    let str = `${venueName}`;
+    address.forEach(el => {
+      str += ` ${el}`
+    })
+    let newURL = str.split(' ').join('+')
+    return `${baseURL}${newURL}`
+  }
+  
   const addVenue = async (e) => {
     let loc_id = payload;
     let venue_id = e[0];
@@ -30,17 +42,20 @@ function Modal({ payload, data }) {
         {data?.map(venue => {
             return (
               <div key={venue.referralId} className="venue">
-                <div className='venue-info-holder'>
-
-                <div className="venue-name">{venue.venue?.name}</div>
-                <div className="venue-address">
-                  {venue.venue?.location.formattedAddress[0]}
-                </div>
-
-                </div>
+                <a
+                  rel="noreferrer"
+                  href={googleMapUrl(venue)}
+                  target="_blank"
+                >
+                  <div className="venue-info-holder">
+                    <div className="venue-name">{venue.venue?.name}</div>
+                    <div className="venue-address">
+                      {venue.venue?.location.formattedAddress[0]}
+                    </div>
+                  </div>
+                </a>
                 <button
                   id="add-button"
-
                   onClick={() =>
                     addVenue([
                       venue.referralId,
@@ -48,9 +63,7 @@ function Modal({ payload, data }) {
                       venue.venue?.location.formattedAddress[0],
                     ])
                   }
-                >
-
-                </button>
+                ></button>
               </div>
             );
           })}
