@@ -51,29 +51,3 @@ function Destination() {
   );
 }
 export default Destination;
-
-/*
- useEffect(() => {
-   if (!longId) return;
-   try {
-     dispatch(
-        postLocation({
-          api_id: longId,
-          name: place,
-          description: null,
-          image_url: null,
-        })
-      );
-    } catch (err) {
-      console.log("Location exists in database");
-    }
-  }, [dispatch, place]);
-
-  useEffect(() => {
-    if (longId) {
-      dispatch(getDestFeed(longId));
-    } else {
-      return;
-    }
-  }, [dispatch, longId]);
-  */

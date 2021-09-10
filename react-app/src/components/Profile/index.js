@@ -1,4 +1,5 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { getUserVenuesThunk, deleteGotoVenueThunk } from "../../store/gotos";
 import "./Profile.css";
@@ -48,23 +49,34 @@ function Profile() {
         {userVenues &&
           Object.entries(userVenues).map(([key, value]) => (
             <div className="profile-venue-city">
-              {console.log(userVenues)}
-              <p className="profile-city-name">{key}</p>
+              <p className="profile-city-name">
+                <Link
+                  to={{
+                    pathname: `/cities/${key}`,
+                    state: { place: key },
+                  }}
+                  id="city-link"
+                >
+                  {key}
+                </Link>
+              </p>
               <div className="places-holder" id="profile-places-holder">
                 {value.map((item) => (
-                  <div className="venue" id="places-holder">
-                    {console.log("this is the item", item)}
+                  <div className="venue-for-profile" id="places-holder-profile">
                     <a
                       rel="noreferrer"
                       href={googleMapUrl(key, item[0], item[1])}
                       target="_blank"
+                      className='link-holder-profile'
                     >
                       {item[0]}
-                      {item[1]}
+                      &nbsp;
+                      {item[1].substring(0, 15) + "..."}
                     </a>
                     <button
                       id="delete-venue"
                       onClick={() => deleteVenue(item[2])}
+                      style={{marginLeft: '5px'}}
                     ></button>
                   </div>
                 ))}

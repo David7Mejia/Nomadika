@@ -10,6 +10,30 @@
     padding-left: 20px; */
 }
 
+#city-link {
+    color: rgb(119, 34, 255);
+    text-decoration: none;
+}
+
+.venue-for-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    margin: 10px;
+    /* padding-left: 20px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
+}
+
+#places-holder-profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 4px 4px 10px #aab4c8;
+}
+
 .profile-venue-city {
     width: 20%;
     padding-left: 5%;
@@ -36,4 +60,10 @@
     border: 1px solid #3d3c3c;
     border-radius: 3px;
     /* background-color: blue; */
+}
+
+.link-holder-profile{
+display: flex;
+width: 200px;
+/* padding-left: 10px */
 }

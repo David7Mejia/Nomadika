@@ -27,7 +27,6 @@ export const addVenueThunk = (payload) => async (dispatch) => {
     });
     if (res.ok){
         const json = await res.json();
-        console.log('addVenueThunk json: ', json);
         dispatch(addVenue(json));
     }
 }
