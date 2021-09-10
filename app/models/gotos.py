@@ -10,6 +10,7 @@ class Goto(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     loc_id = db.Column(db.String(100), db.ForeignKey(
         'locations.api_id'))
+    loc_name = db.Column(db.String(300))
     venue_id = db.Column(db.String(100))
     venue_name = db.Column(db.String(400))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -25,6 +26,7 @@ class Goto(db.Model):
         return {
             'id': self.id,
             'loc_id': self.loc_id,
+            'loc_name': self.loc_name,
             'venue_id': self.venue_id,
             'venue_name': self.venue_name,
             'address': self.address,

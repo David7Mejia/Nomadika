@@ -18,15 +18,17 @@ function Modal({ payload, data }) {
     let newURL = str.split(' ').join('+')
     return `${baseURL}${newURL}`
   }
-  
+
   const addVenue = async (e) => {
     let loc_id = payload;
     let venue_id = e[0];
     let venue_name = e[1];
     let address = e[2];
+    let loc_name = e[3];
 
     await dispatch(addVenueThunk({
       loc_id,
+      loc_name,
       venue_id,
       venue_name,
       address
@@ -61,6 +63,7 @@ function Modal({ payload, data }) {
                       venue.referralId,
                       venue.venue.name,
                       venue.venue?.location.formattedAddress[0],
+                      venue.venue?.location.city
                     ])
                   }
                 ></button>

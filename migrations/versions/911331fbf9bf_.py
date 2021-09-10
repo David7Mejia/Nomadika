@@ -62,6 +62,7 @@ def upgrade():
     op.create_table('gotos',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('loc_id', sa.String(length=100), nullable=True),
+                    sa.Column('loc_name', sa.String(length=300), nullable=True),
                     sa.Column('venue_id', sa.String(
                         length=100), nullable=False),
                     sa.Column('venue_name', sa.String(length=400)),

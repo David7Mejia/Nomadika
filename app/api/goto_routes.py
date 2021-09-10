@@ -12,6 +12,7 @@ def add_venue(id):
     newGoto = Goto(
         user_id=current_user.id,
         loc_id=req['loc_id'],
+        loc_name=req['loc_name'],
         venue_name=req['venue_name'],
         venue_id=req['venue_id'],
         address=req['address'],
