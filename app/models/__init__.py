@@ -4,3 +4,4 @@ from .location import Location
 from .feed import Feed
 from .review import Review
 from .comment import Comment
+from .gotos import Goto

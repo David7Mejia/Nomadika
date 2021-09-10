@@ -21,6 +21,7 @@ function EditComment({ comment, feed }) {
         placeholder="Edit Comment"
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
+        style={{height: '20px'}}
       />
       <button type="submit" className="upload-btn">
         Post

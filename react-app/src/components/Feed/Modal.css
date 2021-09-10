@@ -1,8 +1,64 @@
+#add-button {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    background-image: url('../images/Plus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+}
+
+#delete-venue {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    background-image: url('../images/Close\ Square.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#delete-venue:hover {
+    background-image: url('../images/Close\ Square\ -\ Copy.svg');
+}
+
+a {
+    color: rgb(61, 61, 63)
+}
+
+#places-holder {
+    display: flex;
+    align-items: center;
+    box-shadow: 4px 4px 10px #aab4c8;
+}
+
+.places-holder {
+    overflow-y: scroll;
+    height: 350px;
+}
+
+#add-button:hover {
+    background-image: url('../images/Plus\ -\ Copy.svg');
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.venue-name {
+    display: flex;
+    justify-content: space-between;
+}
+
 .modal-container {
     background: rgba( 255, 255, 255, 0.25);
     position: fixed;
     backdrop-filter: blur( 11.5px);
-    /* top: 80px; */
     top: 0;
     right: 0;
     left: 0;
@@ -28,14 +84,19 @@
 
 .venue {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
     height: 50px;
     margin: 10px;
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
+}
+
+#my-venues {
+    font-family: 'Georama', sans-serif;
+    font-size: 16px;
+    color: black;
+    display: flex;
 }

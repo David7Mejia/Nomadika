@@ -58,7 +58,7 @@
   margin-top: 30px;
   align-items: flex-start;
   justify-content: center;
-  height: 60%;
+  height: 80%;
   overflow-y: scroll;
   box-shadow: inset 2px 2px 5px #aab4c8, inset -3px -3px 15px #fff;
   border-radius: 8px;
@@ -67,7 +67,7 @@
 .big-container {
   display: flex;
   justify-content: center;
-  height: 1000px;
+  height: 550px;
 }
 
 .left-side, .right-side {
@@ -84,7 +84,7 @@
   margin-left: 50px;
   margin-right: 20px;
   width: 70%;
-  height: 50%;
+  height: 80%;
   border-radius: 15px;
   padding: 5px;
   box-shadow: 6px 6px 10px #cad0dd, -6px -6px 12px rgb(248, 248, 248);
@@ -136,6 +136,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.edit-menu:hover {
+  background-image: url('../images/ellipsis\ -\ Copy.svg');
 }
 
 .edit-menu-div {
@@ -167,9 +172,8 @@
   position: fixed;
   top: 25px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  /* margin-top: 30px; */
+  align-items: center;
+  margin-right: 7px;
 }
 
 .wrapper-upload {
@@ -216,14 +220,16 @@
 }
 
 .upload-form {
-  padding-top: 10px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  z-index: 4;
+  z-index: 6;
   display: flex;
-  position: relative;
+  position: absolute;
+  right: 50%;
   flex-direction: column;
-  /* z-index: 5; */
+  justify-content: space-between;
+  height: 60px;
   align-items: center;
   background: rgba(255, 255, 255, 0.753);
   box-shadow: 0 8px 32px 0 rgba(97, 146, 153, 0.37);
@@ -240,10 +246,13 @@
   border: 0;
   border-radius: 5px;
   margin-bottom: 2px;
+  cursor: pointer;
+  height: 22px;
+  width: 42px;
 }
 
 .upload-btn:hover {
-  background-color: #23c3ce;
+  background-color: #5627cc;
   color: white;
 }
 

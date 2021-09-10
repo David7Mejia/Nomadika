@@ -22,6 +22,8 @@
   width: 50px;
   background-color: #dfe5ec;
   border-radius: 15px;
+  margin-left: 5px;
+  margin-right: 10px;
 }
 
 .logout-button:hover {

@@ -16,15 +16,16 @@ function EditPost({ id, payload }) {
     <div className="wrapper-upload">
       <form onSubmit={onSubmit} className="upload-form">
         <label>
-          <textarea
+          <input
             className="txt-area"
             placeholder="Edit Post"
             type="text"
             value={postText}
             onChange={(e) => setPostText(e.target.value)}
             required
-            rows="3"
+            rows="1"
             cols="20"
+            style={{height: '20px'}}
           />
         </label>
         <button className="upload-btn" type="submit">

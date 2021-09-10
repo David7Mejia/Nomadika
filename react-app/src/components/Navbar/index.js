@@ -22,6 +22,13 @@ const NavBar = () => {
       <div className="unauth-nav">
         <div className="nav-button-holder">
           <NavLink
+            to={`/user/${sessionUser.username}`}
+            exact={true}
+            activeClassName="active"
+            className="neo-buttons profile-user"
+          >
+          </NavLink>
+          <NavLink
             to="/"
             exact={true}
             className="neo-buttons home-button"

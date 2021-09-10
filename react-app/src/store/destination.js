@@ -27,6 +27,7 @@ export const deleteFeed = (payload) => ({
 
 //**********THUNKS**********//
 export const getDestFeed = (payload) => async (dispatch) => {
+
   const res = await fetch(`/api/cities/${payload}`);
   if (res.ok) {
     const dest = await res.json();
@@ -79,7 +80,7 @@ const destinationReducer = (state = initialState, action) => {
   let newState = {};
   switch (action.type) {
     case DEST_FEED:
-      action.payload.feeds.forEach((loc) => {
+      action?.payload?.feeds?.forEach((loc) => {
         newState[loc.id] = loc;
       });
       return {

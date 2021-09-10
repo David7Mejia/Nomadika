@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 911331fbf9bf
-Revises: 
+Revises:
 Create Date: 2021-08-09 16:08:10.116622
 
 """
@@ -59,6 +59,23 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('gotos',
+                    sa.Column('id', sa.Integer(), nullable=False),
+                    sa.Column('loc_id', sa.String(length=100), nullable=True),
+                    sa.Column('loc_name', sa.String(length=300), nullable=True),
+                    sa.Column('venue_id', sa.String(
+                        length=100), nullable=False),
+                    sa.Column('venue_name', sa.String(length=400)),
+                    sa.Column('address', sa.String(
+                        length=300), nullable=False),
+                    sa.Column('user_id', sa.Integer(), nullable=True),
+                    sa.Column('created_at', sa.DateTime(), nullable=True),
+                    sa.Column('updated_at', sa.DateTime(), nullable=True),
+                    sa.ForeignKeyConstraint(
+                        ['loc_id'], ['locations.api_id'], ),
+                    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+                    sa.PrimaryKeyConstraint('id')
+                    )
     op.create_table('comments',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
@@ -82,4 +99,5 @@ def downgrade():
     op.drop_table('feeds')
     op.drop_table('users')
     op.drop_table('locations')
+    op.drop_table('gotos')
     # ### end Alembic commands ###
