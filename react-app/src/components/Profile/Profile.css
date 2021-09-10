@@ -1,6 +1,6 @@
 .profile-venue-holder {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     position: relative;
     width: 100%;
     height: auto;
