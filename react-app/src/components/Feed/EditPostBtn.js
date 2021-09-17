@@ -8,9 +8,6 @@ import "./Feed.css";
 function EditPostBtn({ id, payload }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
-  const destinationFeed = useSelector((state) =>
-      Object.values(state.destination)
-    );
 
   const dispatch = useDispatch();
 

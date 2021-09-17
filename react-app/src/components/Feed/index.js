@@ -110,7 +110,7 @@ function Feed({ payload, place }) {
         </div>
         <div className="feed-holder">
           <div className="feed-qs">
-            <p className='empty-feed'> Become part of this feed by posting ^ </p>
+            <p className='empty-feed'> Become part of this feed by posting <svg className='arrow-up'></svg> </p>
             {destinationFeed &&
               destinationFeed.map((feed) => (
                 <div className="post-container" key={feed.id}>

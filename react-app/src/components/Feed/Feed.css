@@ -332,3 +332,11 @@
   border-radius: 5px;
   opacity: .5;
 }
+
+.arrow-up{
+  background-image: url("../images/Arrow\ -\ Up\ 2.svg");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+}
