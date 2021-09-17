@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import EditPost from "../EditPost";
 import { deleteDestPost, getDestFeed } from "../../store/destination";
@@ -36,6 +36,11 @@ function EditPostBtn({ id, payload }) {
     dispatch(deleteDestPost(id));
     dispatch(getDestFeed(payload));
   };
+
+  useEffect(() => {
+        dispatch(getDestFeed(payload));
+
+  }, [])
 
   return (
     <div className="edit-menu-div">

@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
+import { getGotoVenueThunk, deleteGotoVenueThunk } from "../../store/gotos";
 import { getComments } from "../../store/comment";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
@@ -41,6 +42,14 @@ function Feed({ payload, place }) {
       alert("Please log in to post");
     }
   };
+  useEffect(() => {
+    dispatch(getDestFeed(payload));
+    dispatch(getGotoVenueThunk(payload));
+  }, [payload])
+
+  useEffect(() => {
+    dispatch(getGotoVenueThunk(payload));
+   }, [])
 
   useEffect(() => {
     document.addEventListener("mousedown", (e) => {
