@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
-import { getGotoVenueThunk, deleteGotoVenueThunk } from "../../store/gotos";
+import { getGotoVenueThunk } from "../../store/gotos";
 import { getComments } from "../../store/comment";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
@@ -44,8 +44,8 @@ function Feed({ payload, place }) {
   };
   useEffect(() => {
     dispatch(getDestFeed(payload));
-    dispatch(getGotoVenueThunk(payload));
-  }, [payload])
+    // dispatch(getGotoVenueThunk(payload));
+  }, [])
 
   useEffect(() => {
     dispatch(getGotoVenueThunk(payload));
@@ -101,13 +101,16 @@ function Feed({ payload, place }) {
               </button>
               {showModal && <div className="modal-container"></div>}
               <div ref={modalRef}>
-                {showModal && bigData && <Modal data={bigData} payload={payload} />}
+                {showModal && bigData && (
+                  <Modal data={bigData} payload={payload} />
+                )}
               </div>
             </div>
           </div>
         </div>
         <div className="feed-holder">
           <div className="feed-qs">
+            <p className='empty-feed'> Become part of this feed by posting ^ </p>
             {destinationFeed &&
               destinationFeed.map((feed) => (
                 <div className="post-container" key={feed.id}>
@@ -128,9 +131,7 @@ function Feed({ payload, place }) {
           <div className="right-side-holder">
             <div className="modal-venues">
               MY PLACES
-              {payload &&
-              <MyPlaces payload={payload}/>
-              }
+              {payload && <MyPlaces payload={payload} />}
             </div>
           </div>
         </div>
