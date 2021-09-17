@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getDestFeed, postDestFeed } from "../../store/destination";
+import { getGotoVenueThunk } from "../../store/gotos";
 import { getComments } from "../../store/comment";
 import EditPostBtn from "./EditPostBtn";
 import Comments from "../Comments";
@@ -41,6 +42,14 @@ function Feed({ payload, place }) {
       alert("Please log in to post");
     }
   };
+  useEffect(() => {
+    dispatch(getDestFeed(payload));
+    // dispatch(getGotoVenueThunk(payload));
+  }, [])
+
+  useEffect(() => {
+    dispatch(getGotoVenueThunk(payload));
+   }, [])
 
   useEffect(() => {
     document.addEventListener("mousedown", (e) => {
@@ -92,13 +101,16 @@ function Feed({ payload, place }) {
               </button>
               {showModal && <div className="modal-container"></div>}
               <div ref={modalRef}>
-                {showModal && bigData && <Modal data={bigData} payload={payload} />}
+                {showModal && bigData && (
+                  <Modal data={bigData} payload={payload} />
+                )}
               </div>
             </div>
           </div>
         </div>
         <div className="feed-holder">
           <div className="feed-qs">
+            <p className='empty-feed'> Become part of this feed by posting <svg className='arrow-up'></svg> </p>
             {destinationFeed &&
               destinationFeed.map((feed) => (
                 <div className="post-container" key={feed.id}>
@@ -119,9 +131,7 @@ function Feed({ payload, place }) {
           <div className="right-side-holder">
             <div className="modal-venues">
               MY PLACES
-              {payload &&
-              <MyPlaces payload={payload}/>
-              }
+              {payload && <MyPlaces payload={payload} />}
             </div>
           </div>
         </div>

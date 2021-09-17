@@ -32,3 +32,20 @@
 .footer-container a:hover {
     color: rgb(223, 92, 114)
 }
+
+.linkedin {
+    background-image: url('../images/linkedin.svg');
+    z-index: 1000;
+    transition: 2s;
+}
+
+.github {
+    background-image: url('../images/github.svg');
+}
+
+.linkedin, .github {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}

@@ -1,6 +1,6 @@
 /* eslint-disable */
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import EditPost from "../EditPost";
 import { deleteDestPost, getDestFeed } from "../../store/destination";
 import "./Feed.css";
@@ -8,6 +8,7 @@ import "./Feed.css";
 function EditPostBtn({ id, payload }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+
   const dispatch = useDispatch();
 
   //ELIPSES BUTTON
@@ -32,10 +33,15 @@ function EditPostBtn({ id, payload }) {
     setOpenEdit(false);
   };
 
+  useEffect( () => {
+     dispatch(getDestFeed(payload));
+  }, [payload, dispatch]);
+
   const deletePost = (id) => {
     dispatch(deleteDestPost(id));
     dispatch(getDestFeed(payload));
   };
+
 
   return (
     <div className="edit-menu-div">
