@@ -7,19 +7,33 @@
    
 # Design 
    Nomadika was inspired by the current styling trends, specifically Neumorphism and Glassmorphism.
-   ![image](https://github.com/David7Mejia/Nomadika/blob/master/Landing.PNG)
+   
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/landing-img.PNG)
 
 # Components 
-## Login
+## Search & App State 
+  With the use of the Foursquare Places API, users can search any city on the globe!  
+  - Each city has its own feed, users can get venue information pertaining specifically to that location. 
+  - The 'My Places' tab or buckelist venues also change according to the city ie applications state.
+  - Only feed posts and comments made by the authenticated user have CRUD functionality.
+ # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/user-crud.gif)
+ # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/state-change-location.gif)
+
+## Venues Modal & My Places 
+   By manipulating the query and response to the Foursquare API, users can see venues from 5 popular queries such as: landmarks, restaurants, hotels, bars, and nightlife.
+ # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/read-venues.gif)
+   From the list of venues users can add them to their 'My Places' tab.
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/add-venues.gif)
+   From My Places users may delete a venue they no longer wish to have on their list. 
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/delete-venues.gif)
+   
+<!-- ## Login
  ![image](https://github.com/David7Mejia/Nomadika/blob/master/Login.PNG)
 ## Signup
- ![image](https://github.com/David7Mejia/Nomadika/blob/master/Signup.PNG)
+ ![image](https://github.com/David7Mejia/Nomadika/blob/master/Signup.PNG) -->
  
-## Posts/Comments
+<!-- ## Posts/Comments
    Users can post to the cities feed and comment on other's posts once authenticated.
    Users can choose to edit and delete said comments and posts.
- ![image](https://github.com/David7Mejia/Nomadika/blob/master/Location.PNG)
- 
-## Venues Modal 
-   Users can see venues from 5 popular queries like landmarks, restaurants, hotels, bars, and nightlife.
- ![image](https://github.com/David7Mejia/Nomadika/blob/master/Venues.PNG)
+ ![image](https://github.com/David7Mejia/Nomadika/blob/master/Location.PNG) -->
+
