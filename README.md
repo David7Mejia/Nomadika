@@ -18,7 +18,18 @@
   - Only feed posts and comments made by the authenticated user have CRUD functionality.
  # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/user-crud.gif)
  # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/state-change-location.gif)
-
+## Feed, Posts and Comments
+   Only authorized users may post and comment on a destinations feed and posts. 
+   As Nomadika is not a social platform, Posts and comments have been left anonymized for the moment. 
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/auth-post-comment.gif)
+   ### Post, Edit and Delete from Feed
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/post-feed.gif)
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/edit-feed.gif)
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/delete-feed.gif)
+   ### Post, Edit and Delete from Comments
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/add-comment.gif)
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/edit-comment.gif)
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/delete-comment.gif)
 ## Venues Modal & My Places 
    By manipulating the query and response to the Foursquare API, users can see venues from 5 popular queries such as: landmarks, restaurants, hotels, bars, and nightlife.
  # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/read-venues.gif)
@@ -26,14 +37,20 @@
    # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/add-venues.gif)
    From My Places users may delete a venue they no longer wish to have on their list. 
    # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/delete-venues.gif)
+   Using Google Maps URL API places can be checked out on Google Maps to know the exact physical location of the venue. 
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/google-url.gif)
    
-<!-- ## Login
- ![image](https://github.com/David7Mejia/Nomadika/blob/master/Login.PNG)
-## Signup
- ![image](https://github.com/David7Mejia/Nomadika/blob/master/Signup.PNG) -->
- 
-<!-- ## Posts/Comments
-   Users can post to the cities feed and comment on other's posts once authenticated.
-   Users can choose to edit and delete said comments and posts.
- ![image](https://github.com/David7Mejia/Nomadika/blob/master/Location.PNG) -->
+## Profile 
+   The user profile tab on the navbar redirects the user to their own list of places they have added to their 'My Places' tab for all cities. 
+   From this profile route users may: 
+   - Redirect to the city of the list that contains the venues.
+   - Delete venues from their lists.
+   - Checkout the venues location using Google Maps URL API.
+   # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/user-profile.gif)
+
+## Login, Signup, Demo
+   Using a hash function from BCrypt users can rest assured knowing that no text based passwords are stored in the database, only hashed passwords for security purposes.
+ # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/login-img.PNG)
+ # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/sign-up-img.PNG)
+ # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/demo.gif)
 
