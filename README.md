@@ -12,7 +12,25 @@
 
 # Components 
 ## Search & App State 
-  With the use of the Foursquare Places API, users can search any city on the globe!  
+  With the use of the Foursquare Places API, users can search any city on the globe!   
+  [externalApi_routes.py](https://github.com/David7Mejia/Nomadika/blob/ccdd4b07d4271fb1dea2b6df5545f9c6c3749eda/app/api/externalAPI_routes.py#L12-L25):
+  ```python
+  @externalAPI_routes.route('/<string:id>')
+   def location(id):
+    url = 'https://api.foursquare.com/v2/venues/search'
+
+
+    params = dict(
+        client_id=client_id,
+        client_secret=client_secret,
+        v='20180323',
+        near=f'{id}',
+        limit=1
+    )
+    resp = requests.get(url=url, params=params)
+    data = json.loads(resp.text)
+    return data
+  ```
   - Each city has its own feed, users can get venue information pertaining specifically to that location. 
   - The 'My Places' tab or buckelist venues also change according to the city ie applications state.
   - Only feed posts and comments made by the authenticated user have CRUD functionality.
@@ -32,13 +50,58 @@
    # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/delete-comment.gif)
 ## Venues Modal & My Places 
    By manipulating the query and response to the Foursquare API, users can see venues from 5 popular queries such as: landmarks, restaurants, hotels, bars, and nightlife.
+     [externalApi_routes.py](https://github.com/David7Mejia/Nomadika/blob/ccdd4b07d4271fb1dea2b6df5545f9c6c3749eda/app/api/externalAPI_routes.py#L28-L42):
+  ```python
+  @externalAPI_routes.route('/venue/<string:place>/<string:venue>')
+def venue(venue, place):
+    url = 'https://api.foursquare.com/v2/venues/explore'
+
+
+    params = dict(
+        client_id=client_id,
+        client_secret=client_secret,
+        v='20180323',
+        near=f'{place}',
+        query=f'{venue}',
+        limit=20
+    )
+    resp = requests.get(url=url, params=params)
+    data = json.loads(resp.text)
+    return data
+  ```
  # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/read-venues.gif)
    From the list of venues users can add them to their 'My Places' tab.
    # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/add-venues.gif)
    From My Places users may delete a venue they no longer wish to have on their list. 
    # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/delete-venues.gif)
-   Using Google Maps URL API places can be checked out on Google Maps to know the exact physical location of the venue. 
+   Using Google Maps URL API places can be checked out on Google Maps to know the exact physical location of the venue.   
+    [Profile.js](https://github.com/David7Mejia/Nomadika/blob/ccdd4b07d4271fb1dea2b6df5545f9c6c3749eda/react-app/src/components/Profile/index.js#L10-L17)
+   ```javascript
+  const baseURL = `https://www.google.com/maps/search/?api=1&query=`;
+
+  const googleMapUrl = (loc, ven, address) => {
+    let str = `${loc} ${ven} ${address}`;
+    let newURL = str.split(" ").join("+");
+    return `${baseURL}${newURL}`;
+  };
+   ```
+   [Modal.js](https://github.com/David7Mejia/Nomadika/blob/ccdd4b07d4271fb1dea2b6df5545f9c6c3749eda/react-app/src/components/Feed/Modal.js#L9-L20):
+   ```javascript
+  const baseURL = `https://www.google.com/maps/search/?api=1&query=`
+
+  const googleMapUrl = (ven) => {
+    let venueName = ven.venue.name;
+    let address = ven.venue.location.formattedAddress
+    let str = `${venueName}`;
+    address.forEach(el => {
+      str += ` ${el}`
+    })
+    let newURL = str.split(' ').join('+')
+    return `${baseURL}${newURL}`
+  }
+   ```
    # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/google-url.gif)
+   
    
 ## Profile 
    The user profile tab on the navbar redirects the user to their own list of places they have added to their 'My Places' tab for all cities. 
@@ -54,3 +117,7 @@
  # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/sign-up-img.PNG)
  # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/demo.gif)
 
+## Future & Next Steps
+   - Randomization of anonymous usernames on posts and comments.
+   - Add images of places both for destinations, venues, and profiles.
+   - Modal exit on click for editing comments and feed. 
