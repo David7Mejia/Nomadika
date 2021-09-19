@@ -20,7 +20,7 @@
  # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/state-change-location.gif)
 ## Feed, Posts and Comments
    Only authorized users may post and comment on a destinations feed and posts. 
-   As Nomadika is not a social platform, Posts and comments have been left anonymized for the moment. 
+   Posts and comments have been left anonymized for the moment, this concept was inspired by the app Yik-Yak, in the future randomization of usernames on posts may be possible. 
    # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/auth-post-comment.gif)
    ### Post, Edit and Delete from Feed
    # ![image](https://github.com/David7Mejia/Nomadika/blob/master/readme-src/post-feed.gif)
